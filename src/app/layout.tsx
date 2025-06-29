@@ -19,13 +19,12 @@ export default function RootLayout({
       <head>
         <title>ClaimEase - AI-Powered PIP Helper</title>
         <meta name="description" content="ClaimEase - AI-Powered PIP Helper for building strong, evidence-backed answers" />
-        <meta name="theme-color" content="#7EC4CF" />
+        <meta name="theme-color" content="#4EB9B9" />
       </head>
       <body className={`${inter.className} antialiased h-full`}>
         <ThemeProvider
           attribute="class"
-          defaultTheme="light"
-          enableSystem
+          defaultTheme="dark"
           disableTransitionOnChange
         >
           <UserProvider>

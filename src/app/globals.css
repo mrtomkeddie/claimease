@@ -3,137 +3,52 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --font-size: 16px; /* Standard web font size */
-  
-  /* Pure black theme with ClaimEase brand colors */
-  --background: 0 0% 0%; /* Pure black background */
-  --foreground: 0 0% 98%; /* Light text */
-  --card: 0 0% 6.7%; /* Very dark gray cards for contrast */
-  --card-foreground: 0 0% 98%;
-  --popover: 0 0% 6.7%;
-  --popover-foreground: 0 0% 98%;
-  
-  /* Primary teal from brand */
-  --primary: 180 45% 58%; /* Brand teal - Calming light blue (#7EC4CF) */
-  --primary-foreground: 0 0% 0%; /* Black text on teal for better contrast */
-  
-  /* Dark secondary colors */
-  --secondary: 0 0% 10%; /* Dark gray */
-  --secondary-foreground: 0 0% 98%;
-  --muted: 0 0% 9%; /* Dark muted background */
-  --muted-foreground: 240 4% 63%; /* Light muted text */
-  
-  /* Light mint accent from brand */
-  --accent: 196 53% 90%; /* Light mint green - Very light, desaturated blue (#E8F4F8) - Background */
-  --accent-foreground: 0 0% 0%; /* Black text on light accent */
-  
-  /* Warm tan tertiary color */
-  --tertiary: 192 32% 42%; /* Muted teal (#4A818E) for important actions and highlights */
-  --tertiary-foreground: 0 0% 100%;
-  
-  /* Additional semantic colors */
-  --success: 142 71% 41%; /* Green for success states */
-  --success-foreground: 0 0% 100%;
-  --warning: 38 92% 50%; /* Warm amber for warnings */
-  --warning-foreground: 0 0% 0%;
-  --destructive: 0 84% 60%; /* Red for destructive actions */
-  --destructive-foreground: 0 0% 100%;
-  
-  /* Border and input colors for black theme */
-  --border: 0 0% 16.5%; /* Dark borders */
-  --input: 0 0% 10%; /* Dark input backgrounds */
-  --input-background: 0 0% 10%;
-  --switch-background: 0 0% 16.5%;
-  
-  /* Typography weights */
-  --font-weight-medium: 500;
-  --font-weight-normal: 400;
-  
-  /* Focus ring color */
-  --ring: 180 45% 58%; /* Matches primary */
-  
-  /* Chart colors using the brand palette */
-  --chart-1: 180 45% 58%; /* Primary teal */
-  --chart-2: 196 53% 90%; /* Light mint */
-  --chart-3: 192 32% 42%; /* Muted teal */
-  --chart-4: 0 0% 98%; /* Light for contrast */
-  --chart-5: 142 71% 41%; /* Success green */
-  
-  /* Increased radius for softer, more modern look */
-  --radius: 0.75rem; /* Slightly smaller for web */
-  
-  /* Sidebar colors for black theme */
-  --sidebar: 0 0% 6.7%;
-  --sidebar-foreground: 0 0% 98%;
-  --sidebar-primary: 180 45% 58%;
-  --sidebar-primary-foreground: 0 0% 0%;
-  --sidebar-accent: 196 53% 90%;
-  --sidebar-accent-foreground: 0 0% 0%;
-  --sidebar-border: 0 0% 16.5%;
-  --sidebar-ring: 180 45% 58%;
-
-  /* Web-optimized text sizes */
-  --text-xs: 0.75rem;
-  --text-sm: 0.875rem;
-  --text-base: 1rem;
-  --text-lg: 1.125rem;
-  --text-xl: 1.25rem;
-  --text-2xl: 1.5rem;
-  --text-3xl: 1.875rem;
-  --text-4xl: 2.25rem;
-}
-
 @layer base {
-  body {
-    background-color: hsl(var(--accent));
-    font-family: 'Inter', sans-serif;
+  :root {
+    --background: 220 14.3% 95.9%;
+    --foreground: 224 71.4% 4.1%;
+    --card: 0 0% 100%;
+    --card-foreground: 224 71.4% 4.1%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 224 71.4% 4.1%;
+    --primary: 180 45% 52%;
+    --primary-foreground: 0 0% 0%;
+    --secondary: 220 14.3% 95.9%;
+    --secondary-foreground: 220 9.1% 43.1%;
+    --muted: 220 14.3% 95.9%;
+    --muted-foreground: 220 8.9% 46.1%;
+    --accent: 157 44% 81%;
+    --accent-foreground: 0 0% 0%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 180 45% 52%;
+    --radius: 0.75rem;
   }
-}
 
-:root {
-  --background: 196 53% 97%; /* --accent from previous theme */
-  --foreground: 224 71.4% 4.1%;
-  --card: 0 0% 100%;
-  --card-foreground: 224 71.4% 4.1%;
-  --popover: 0 0% 100%;
-  --popover-foreground: 224 71.4% 4.1%;
-  --primary: 180 45% 58%; /* Calming light blue */
-  --primary-foreground: 0 0% 100%;
-  --secondary: 220 14.3% 95.9%;
-  --secondary-foreground: 220 9.1% 43.1%;
-  --muted: 220 14.3% 95.9%;
-  --muted-foreground: 220 8.9% 46.1%;
-  --accent: 192 32% 42%; /* Muted teal */
-  --accent-foreground: 0 0% 100%;
-  --destructive: 0 84.2% 60.2%;
-  --destructive-foreground: 0 0% 98%;
-  --border: 220 13% 91%;
-  --input: 220 13% 91%;
-  --ring: 180 45% 58%;
-  --radius: 0.75rem;
-}
-
-.dark {
-  --background: 224 71.4% 4.1%;
-  --foreground: 210 20% 98%;
-  --card: 224 71.4% 4.1%;
-  --card-foreground: 210 20% 98%;
-  --popover: 224 71.4% 4.1%;
-  --popover-foreground: 210 20% 98%;
-  --primary: 180 45% 58%;
-  --primary-foreground: 0 0% 100%;
-  --secondary: 215 27.9% 16.9%;
-  --secondary-foreground: 210 20% 98%;
-  --muted: 215 27.9% 16.9%;
-  --muted-foreground: 217.9 10.6% 64.9%;
-  --accent: 192 32% 42%;
-  --accent-foreground: 0 0% 100%;
-  --destructive: 0 62.8% 30.6%;
-  --destructive-foreground: 0 0% 98%;
-  --border: 215 27.9% 16.9%;
-  --input: 215 27.9% 16.9%;
-  --ring: 180 45% 58%;
+  .dark {
+    --background: 0 0% 0%;
+    --foreground: 0 0% 98%;
+    --card: 0 0% 6.7%;
+    --card-foreground: 0 0% 98%;
+    --popover: 0 0% 6.7%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 180 45% 52%;
+    --primary-foreground: 0 0% 0%;
+    --secondary: 0 0% 10%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 0 0% 9%;
+    --muted-foreground: 240 4% 63%;
+    --accent: 157 44% 81%;
+    --accent-foreground: 0 0% 0%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 0 0% 16.5%;
+    --input: 0 0% 10%;
+    --ring: 180 45% 52%;
+    --radius: 0.75rem;
+  }
 }
 
 @layer base {
