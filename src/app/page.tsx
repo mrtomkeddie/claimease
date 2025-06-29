@@ -2,7 +2,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { useUser } from '@/contexts/UserContext';
+import { useUser, User } from '@/contexts/UserContext';
 import { TopMenu } from '@/components/TopMenu';
 import { PipQuestionModal } from '@/components/PipQuestionModal';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -46,15 +46,6 @@ import {
   MessageCircleMore
 } from 'lucide-react';
 import { toast } from 'sonner';
-
-interface User {
-  id?: string;
-  name: string;
-  email: string;
-  timezone: string;
-  pip_focus: string[];
-  created_at: string;
-}
 
 interface PipActivityStatus {
   id: string;
@@ -1025,19 +1016,19 @@ function Dashboard() {
         onDashboardViewChange={setCurrentView}
       />
       
-      <div className="pt-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <main className="pt-24 pb-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {currentView === 'home' && renderHomeView()}
           {currentView === 'upload' && renderUploadView()}
           {currentView === 'build' && renderBuildView()}
           {currentView === 'support' && renderSupportView()}
           {currentView === 'settings' && renderSettingsView()}
         </div>
-      </div>
+      </main>
     </div>
   );
 }
 
-export default function Home() {
+export default function Page() {
   return <Dashboard />;
 }

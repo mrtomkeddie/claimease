@@ -5,6 +5,9 @@ import './globals.css';
 import { ThemeProvider } from 'next-themes';
 import { UserProvider } from '@/contexts/UserContext';
 import { Toaster } from "@/components/ui/sonner";
+import { Inter } from 'next/font/google';
+
+const inter = Inter({ subsets: ['latin'] });
 
 export default function RootLayout({
   children,
@@ -16,15 +19,12 @@ export default function RootLayout({
       <head>
         <title>ClaimEase - AI-Powered PIP Helper</title>
         <meta name="description" content="ClaimEase - AI-Powered PIP Helper for building strong, evidence-backed answers" />
-        <meta name="theme-color" content="#4EB9B9" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet" />
+        <meta name="theme-color" content="#7EC4CF" />
       </head>
-      <body className="antialiased h-full">
+      <body className={`${inter.className} antialiased h-full`}>
         <ThemeProvider
           attribute="class"
-          defaultTheme="dark"
+          defaultTheme="light"
           enableSystem
           disableTransitionOnChange
         >
@@ -34,11 +34,11 @@ export default function RootLayout({
               position="top-center"
               toastOptions={{
                 style: {
-                  background: 'var(--card)',
-                  color: 'var(--card-foreground)',
-                  border: '1px solid var(--border)',
+                  background: 'hsl(var(--card))',
+                  color: 'hsl(var(--card-foreground))',
+                  border: '1px solid hsl(var(--border))',
                   fontSize: '16px',
-                  boxShadow: '0 8px 32px rgba(78, 185, 185, 0.3)',
+                  boxShadow: '0 8px 32px hsla(var(--primary), 0.3)',
                 },
               }}
             />
