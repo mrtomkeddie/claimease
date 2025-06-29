@@ -1,5 +1,5 @@
 
-import { FormLabel } from "@/components/ui/label"
+import { FormLabel } from "@/components/ui/form"
 import { GuidanceTooltip } from "./guidance-tooltip"
 import { AiSuggestionButton } from "./ai-suggestion-button"
 import type { UseFormReturn } from "react-hook-form"
