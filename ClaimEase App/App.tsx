@@ -1,28 +1,32 @@
-
-'use client';
-
 import React, { useState, useEffect } from 'react';
-import { useUser } from '@/contexts/UserContext';
-import { TopMenu } from '@/components/TopMenu';
-import { PipQuestionModal } from '@/components/PipQuestionModal';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { Badge } from '@/components/ui/badge';
-import { Progress } from '@/components/ui/progress';
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
+import { UserProvider, useUser } from './contexts/UserContext';
+import { TopMenu } from './components/TopMenu';
+import { PipQuestionModal } from './components/PipQuestionModal';
+import { Toaster } from './components/ui/sonner';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from './components/ui/card';
+import { Button } from './components/ui/button';
+import { Badge } from './components/ui/badge';
+import { Progress } from './components/ui/progress';
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from './components/ui/tooltip';
 import { 
+  Calendar, 
   Plus, 
   Eye,
   AlertCircle,
   CheckCircle,
   BarChart3,
+  BookOpen,
   Shield,
+  Ban,
   Home,
+  Upload,
   CloudUpload,
   File,
   FileText,
   Paperclip,
+  ChevronRight,
   Target,
+  Award,
   Calendar as CalendarIcon,
   Settings as SettingsIcon,
   Stethoscope,
@@ -30,23 +34,38 @@ import {
   Users,
   Edit3,
   FolderPlus,
-  User as UserIcon,
+  User,
   ChefHat,
   MapPin,
   Shirt,
+  Pill as PillIcon,
   UtensilsCrossed,
   Bath,
   MessageCircle,
   BookOpenIcon,
+  UserIcon,
   DollarSign,
   Phone,
-  Brain,
+  HeadphonesIcon,
+  ArrowRight,
+  HelpCircle,
+  MessageSquare,
+  LifeBuoy,
+  FileSearch,
   Clock,
   Wrench,
+  Brain,
+  MessageCircleMore
+,
+  FileSearch,
+  Clock,
+  Wrench,
+  Brain,
   MessageCircleMore
 } from 'lucide-react';
-import { toast } from 'sonner';
+import { toast } from 'sonner@2.0.3';
 
+// Local User type definition to avoid import issues
 interface User {
   id?: string;
   name: string;
@@ -56,6 +75,7 @@ interface User {
   created_at: string;
 }
 
+// PIP Activity data with tracking
 interface PipActivityStatus {
   id: string;
   title: string;
@@ -66,6 +86,7 @@ interface PipActivityStatus {
   answers?: any;
 }
 
+// Support Questions data with tracking
 interface SupportQuestionStatus {
   id: string;
   title: string;
@@ -100,7 +121,7 @@ const initialPipActivities: PipActivityStatus[] = [
   {
     id: 'managing-treatments',
     title: 'Managing Treatments',
-    icon: Pill,
+    icon: PillIcon,
     completed: false,
     description: 'Click to start building your answer'
   },
@@ -174,7 +195,7 @@ const initialSupportQuestions: SupportQuestionStatus[] = [
   {
     id: 'medications-treatments',
     title: 'Medications & Treatments',
-    icon: Pill,
+    icon: PillIcon,
     completed: false,
     description: 'List your medications, dosages, and any side effects',
     aiSuggestions: true
@@ -182,7 +203,7 @@ const initialSupportQuestions: SupportQuestionStatus[] = [
   {
     id: 'medical-evidence',
     title: 'Medical Evidence',
-    icon: FileText,
+    icon: FileSearch,
     completed: false,
     description: 'Upload medical reports, letters, or summaries from your GP, consultants, or specialists',
     aiSuggestions: true
@@ -245,6 +266,7 @@ function Dashboard() {
   const [questionModalOpen, setQuestionModalOpen] = useState(false);
   const [currentActivityId, setCurrentActivityId] = useState<string | null>(null);
 
+  // Mock user if none exists
   useEffect(() => {
     if (!user) {
       const mockUser: User = {
@@ -259,6 +281,7 @@ function Dashboard() {
     }
   }, [user, setUser]);
 
+  // Calculate scores for home page display
   const calculateScores = () => {
     const dailyLivingActivities = ['preparing-food', 'washing-dressing', 'managing-treatments', 'eating-drinking', 'toilet-use', 'reading', 'social-interaction', 'managing-money', 'engaging-others'];
     const mobilityActivities = ['moving-around', 'planning-journeys'];
@@ -296,6 +319,7 @@ function Dashboard() {
   };
 
   const handleStartSupportQuestion = (questionId: string) => {
+    // For now, just mark as completed since we don't have the modal for support questions yet
     setSupportQuestions(prev => prev.map(question => 
       question.id === questionId 
         ? { 
@@ -314,6 +338,7 @@ function Dashboard() {
 
   const renderHomeView = () => (
     <div className="space-y-8">
+      {/* Welcome Header */}
       <div className="space-y-2">
         <h1 className="text-3xl font-medium">Welcome back, {user?.name}</h1>
         <p className="text-muted-foreground text-lg">
@@ -321,6 +346,7 @@ function Dashboard() {
         </p>
       </div>
 
+      {/* PIP Entitlement Estimation */}
       <Card className="card-elevated">
         <CardHeader className="pb-6">
           <div className="flex items-center gap-3">
@@ -334,7 +360,9 @@ function Dashboard() {
           </CardDescription>
         </CardHeader>
         <CardContent className="space-y-8">
+          {/* Progress Bars Side by Side */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {/* Daily Living Progress */}
             <div className="space-y-4">
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-3">
@@ -357,6 +385,7 @@ function Dashboard() {
               </div>
             </div>
 
+            {/* Mobility Progress */}
             <div className="space-y-4">
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-3">
@@ -380,6 +409,7 @@ function Dashboard() {
             </div>
           </div>
 
+          {/* Help Text with Tooltip */}
           <div className="flex items-start gap-2 p-4 bg-muted/30 rounded-lg">
             <AlertCircle className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
             <div className="text-sm text-muted-foreground">
@@ -402,8 +432,10 @@ function Dashboard() {
         </CardContent>
       </Card>
 
+      {/* Three Steps */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         
+        {/* Step 1: Upload Documents */}
         <Card className="card-elevated hover:card-shadow-lg transition-all">
           <CardContent className="p-8">
             <div className="space-y-6">
@@ -421,6 +453,7 @@ function Dashboard() {
                 Add your GP letters, prescriptions, or assessments so our AI can help you foster.
               </p>
 
+              {/* Progress indicator */}
               <div className="w-full bg-muted rounded-full h-2">
                 <div 
                   className="bg-primary h-2 rounded-full transition-all duration-300"
@@ -438,6 +471,7 @@ function Dashboard() {
           </CardContent>
         </Card>
 
+        {/* Step 2: Build Your Main Answers */}
         <Card className="card-elevated hover:card-shadow-lg transition-all">
           <CardContent className="p-8">
             <div className="space-y-6">
@@ -455,6 +489,7 @@ function Dashboard() {
                 Answer the 12 key questions that are scored in your PIP assessment.
               </p>
 
+              {/* Progress indicator */}
               <div className="w-full bg-muted rounded-full h-2">
                 <div 
                   className="bg-primary h-2 rounded-full transition-all duration-300"
@@ -472,6 +507,7 @@ function Dashboard() {
           </CardContent>
         </Card>
 
+        {/* Step 3: Add Supporting Details */}
         <Card className="card-elevated hover:card-shadow-lg transition-all">
           <CardContent className="p-8">
             <div className="space-y-6">
@@ -489,6 +525,7 @@ function Dashboard() {
                 Answer the rest of the form questions that help explain your condition and support your claim.
               </p>
 
+              {/* Progress indicator */}
               <div className="w-full bg-muted rounded-full h-2">
                 <div 
                   className="bg-primary h-2 rounded-full transition-all duration-300"
@@ -511,6 +548,7 @@ function Dashboard() {
 
   const renderUploadView = () => (
     <div className="space-y-8">
+      {/* Step Header */}
       <div className="space-y-2">
         <h1 className="text-3xl font-medium">Step 1: Upload Documents</h1>
         <p className="text-muted-foreground text-lg">
@@ -518,6 +556,7 @@ function Dashboard() {
         </p>
       </div>
 
+      {/* Upload Area */}
       <Card className="card-elevated">
         <CardContent className="p-12">
           <div className="border-2 border-dashed border-border rounded-xl p-12 text-center space-y-6 hover:border-primary/50 transition-colors">
@@ -539,6 +578,7 @@ function Dashboard() {
         </CardContent>
       </Card>
 
+      {/* Document Categories */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         
         <Card className="card-elevated hover:card-shadow-lg transition-all cursor-pointer">
@@ -668,6 +708,7 @@ function Dashboard() {
         </Card>
       </div>
 
+      {/* Tips Card */}
       <Card className="gradient-dark-brand border-primary/20">
         <CardContent className="p-6">
           <div className="space-y-4">
@@ -694,6 +735,8 @@ function Dashboard() {
           </div>
         </CardContent>
       </Card>
+
+
     </div>
   );
 
@@ -704,6 +747,7 @@ function Dashboard() {
 
     return (
       <div className="space-y-8">
+        {/* Step Header */}
         <div className="space-y-2">
           <h1 className="text-3xl font-medium">Step 2: Build Your Main Answers</h1>
           <p className="text-muted-foreground text-lg">
@@ -711,6 +755,7 @@ function Dashboard() {
           </p>
         </div>
 
+        {/* Progress Overview */}
         <Card className="card-elevated">
           <CardContent className="p-6">
             <div className="space-y-4">
@@ -730,6 +775,7 @@ function Dashboard() {
           </CardContent>
         </Card>
 
+        {/* How to Answer Instructions */}
         <Card className="gradient-dark-brand border-primary/20">
           <CardContent className="p-6 space-y-4">
             <h3 className="font-medium text-primary">How to Answer</h3>
@@ -756,7 +802,9 @@ function Dashboard() {
           </CardContent>
         </Card>
 
+        {/* PIP Activities */}
         <div className="space-y-6">
+          {/* Activities Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {pipActivities.map((activity) => {
               const Icon = activity.icon;
@@ -769,6 +817,7 @@ function Dashboard() {
                 >
                   <CardContent className="p-6">
                     <div className="space-y-4">
+                      {/* Icon and Status */}
                       <div className="flex items-center justify-between">
                         <div className={`w-12 h-12 rounded-xl flex items-center justify-center ${
                           activity.completed 
@@ -784,12 +833,15 @@ function Dashboard() {
                         )}
                       </div>
 
+                      {/* Title */}
                       <h3 className="font-medium">{activity.title}</h3>
 
+                      {/* Description */}
                       <p className="text-sm text-muted-foreground">
                         {activity.description}
                       </p>
 
+                      {/* Score Display */}
                       {activity.completed && activity.score !== undefined && (
                         <div className="flex items-center gap-2">
                           <Badge variant="secondary" className="text-xs">
@@ -798,6 +850,7 @@ function Dashboard() {
                         </div>
                       )}
 
+                      {/* Action Button */}
                       <Button 
                         className={`w-full ${
                           activity.completed 
@@ -815,6 +868,7 @@ function Dashboard() {
                         {activity.completed ? 'Review Answer' : 'Answer Question'}
                       </Button>
 
+                      {/* Additional Info for Completed */}
                       {activity.completed && (
                         <div className="space-y-2">
                           <div className="flex items-center gap-2 text-xs text-success">
@@ -834,6 +888,7 @@ function Dashboard() {
           </div>
         </div>
 
+        {/* PIP Question Modal */}
         <PipQuestionModal
           isOpen={questionModalOpen}
           onClose={() => setQuestionModalOpen(false)}
@@ -852,6 +907,7 @@ function Dashboard() {
 
     return (
       <div className="space-y-8">
+        {/* Step Header */}
         <div className="space-y-2">
           <h1 className="text-3xl font-medium">Step 3: Add Supporting Details</h1>
           <p className="text-muted-foreground text-lg">
@@ -859,6 +915,7 @@ function Dashboard() {
           </p>
         </div>
 
+        {/* Progress Overview */}
         <Card className="card-elevated">
           <CardContent className="p-6">
             <div className="space-y-4">
@@ -878,6 +935,7 @@ function Dashboard() {
           </CardContent>
         </Card>
 
+        {/* Instructions Card */}
         <Card className="gradient-dark-brand border-primary/20">
           <CardContent className="p-6 space-y-4">
             <h3 className="font-medium text-primary">Other Parts of the PIP Form</h3>
@@ -893,6 +951,7 @@ function Dashboard() {
           </CardContent>
         </Card>
 
+        {/* Support Questions Grid */}
         <div className="space-y-6">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {supportQuestions.map((question) => {
@@ -906,6 +965,7 @@ function Dashboard() {
                 >
                   <CardContent className="p-6">
                     <div className="space-y-4">
+                      {/* Icon and Status */}
                       <div className="flex items-center justify-between">
                         <div className={`w-12 h-12 rounded-xl flex items-center justify-center ${
                           question.completed 
@@ -921,12 +981,15 @@ function Dashboard() {
                         )}
                       </div>
 
+                      {/* Title */}
                       <h3 className="font-medium">{question.title}</h3>
 
+                      {/* Description */}
                       <p className="text-sm text-muted-foreground">
                         {question.description}
                       </p>
 
+                      {/* Action Button */}
                       <Button 
                         className={`w-full ${
                           question.completed 
@@ -938,6 +1001,7 @@ function Dashboard() {
                         {question.completed ? 'Review Answer' : 'Start'}
                       </Button>
 
+                      {/* AI Suggestions Indicator */}
                       {question.aiSuggestions && (
                         <div className="flex items-center gap-2 text-xs text-primary">
                           <AlertCircle className="h-3 w-3" />
@@ -945,6 +1009,7 @@ function Dashboard() {
                         </div>
                       )}
 
+                      {/* Additional Info for Completed */}
                       {question.completed && (
                         <div className="space-y-2">
                           <div className="flex items-center gap-2 text-xs text-success">
@@ -961,6 +1026,7 @@ function Dashboard() {
           </div>
         </div>
 
+        {/* Action Buttons */}
         <div className="flex justify-between items-center">
           <Button variant="outline">
             View All Saved Answers
@@ -1038,6 +1104,26 @@ function Dashboard() {
   );
 }
 
-export default function Home() {
-  return <Dashboard />;
+function AppContent() {
+  return (
+    <UserProvider>
+      <Dashboard />
+      <Toaster 
+        position="top-center"
+        toastOptions={{
+          style: {
+            background: 'var(--card)',
+            color: 'var(--card-foreground)',
+            border: '1px solid var(--border)',
+            fontSize: '16px',
+            boxShadow: '0 8px 32px rgba(78, 185, 185, 0.3)',
+          },
+        }}
+      />
+    </UserProvider>
+  );
+}
+
+export default function App() {
+  return <AppContent />;
 }
