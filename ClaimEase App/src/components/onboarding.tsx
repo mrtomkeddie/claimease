@@ -1,3 +1,6 @@
+
+'use client';
+
 import React, { useState } from 'react';
 import { Button } from './ui/button';
 import { Input } from './ui/input';
@@ -207,3 +210,4 @@ export function Onboarding({ onComplete }: OnboardingProps) {
     </div>
   );
 }
+

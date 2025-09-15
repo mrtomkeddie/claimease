@@ -1,5 +1,8 @@
+
+'use client';
+
 import React from 'react';
-import { Button } from './ui/button';
+import { Button } from '@/components/ui/button';
 import { ClaimEaseLogo } from './ClaimEaseLogo';
 import { useUser } from '@/contexts/UserContext';
 import { LogOut, User as UserIcon } from 'lucide-react';
