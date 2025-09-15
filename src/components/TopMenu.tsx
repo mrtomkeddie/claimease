@@ -28,10 +28,6 @@ export function TopMenu({ currentAppView, onAppViewChange, currentDashboardView,
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center gap-3">
             <ClaimEaseLogo />
-            <div className="hidden sm:block">
-              <h1 className="text-xl font-medium">ClaimEase</h1>
-              <p className="text-xs text-muted-foreground">AI-Powered PIP Helper</p>
-            </div>
           </div>
 
           <nav className="flex items-center gap-2">
