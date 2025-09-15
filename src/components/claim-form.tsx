@@ -18,7 +18,6 @@ import MobilityStep from '@/components/form/steps/mobility-step';
 import SummaryStep from '@/components/form/steps/summary-step';
 import { ArrowLeft, ArrowRight, Download, Save, Lock } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
-import { ClaimEaseLogo } from './ClaimEaseLogo';
 
 const stepComponents = [
   PersonalDetailsStep,
@@ -105,9 +104,6 @@ export function ClaimForm() {
   return (
     <Card className="w-full max-w-4xl mx-auto shadow-2xl shadow-primary/10">
       <CardHeader className="space-y-6">
-        <div className="flex justify-center">
-          <ClaimEaseLogo />
-        </div>
         <StepIndicator currentStep={currentStep} stepCount={FORM_STEPS.length} />
       </CardHeader>
       <Form {...form}>
