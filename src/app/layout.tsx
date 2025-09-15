@@ -5,9 +5,7 @@ import './globals.css';
 import { ThemeProvider } from 'next-themes';
 import { UserProvider } from '@/contexts/UserContext';
 import { Toaster } from "@/components/ui/toaster";
-import { Inter } from 'next/font/google';
-
-const inter = Inter({ subsets: ['latin'] });
+import { inter } from '@/lib/fonts';
 
 export default function RootLayout({
   children,
