@@ -29,12 +29,6 @@ export default function AccountPage() {
   return (
     <div className="space-y-8">
         <div>
-            <Button asChild variant="ghost" className="mb-4">
-                <Link href="/">
-                <ArrowLeft className="mr-2 h-4 w-4" />
-                Back to Claim Form
-                </Link>
-            </Button>
             <h1 className="text-3xl font-bold">My Account</h1>
             <p className="text-muted-foreground">Manage your personal information and application settings.</p>
         </div>

@@ -3,10 +3,11 @@
 
 import React from 'react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { Button } from '@/components/ui/button';
 import { ClaimEaseLogo } from './ClaimEaseLogo';
 import { useUser } from '@/contexts/UserContext';
-import { LogOut, User as UserIcon } from 'lucide-react';
+import { ArrowLeft, LogOut, User as UserIcon } from 'lucide-react';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -18,6 +19,7 @@ import {
 
 export function TopMenu() {
     const { user, setUser } = useUser();
+    const pathname = usePathname();
 
     const handleLogout = () => {
         setUser(null);
@@ -28,7 +30,15 @@ export function TopMenu() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center gap-3">
-            <Link href="/">
+            {pathname !== '/' && (
+               <Button asChild variant="ghost" size="sm">
+                <Link href="/">
+                  <ArrowLeft className="mr-2 h-4 w-4" />
+                  Back to Claim
+                </Link>
+              </Button>
+            )}
+             <Link href="/">
               <ClaimEaseLogo />
             </Link>
           </div>
