@@ -7,7 +7,6 @@ import { Toaster } from "@/components/ui/toaster"
 
 function AppContent() {
   const { user, setUser } = useUser();
-  const [currentView, setCurrentView] = useState('home');
   
   if (!user) {
     return <Onboarding onComplete={setUser} />;
@@ -15,12 +14,7 @@ function AppContent() {
 
   return (
     <div className="min-h-screen bg-background font-sans antialiased gradient-dashboard">
-        <TopMenu 
-            currentAppView={currentView}
-            onAppViewChange={setCurrentView}
-            currentDashboardView='build'
-            onDashboardViewChange={() => {}}
-        />
+        <TopMenu />
         <div className="container mx-auto px-4 py-8 md:py-12 pt-24">
           <ClaimForm />
         </div>
