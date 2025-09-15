@@ -58,6 +58,11 @@
   body {
     @apply bg-background text-foreground;
   }
+  
+  /* Apply Poppins font to all headings and titles */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Poppins', sans-serif;
+  }
 }
 
 /* Custom utility classes for ClaimEase brand */

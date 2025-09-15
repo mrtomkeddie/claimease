@@ -11,7 +11,7 @@ export default function AccountLayout({
   return (
     <div className="min-h-screen">
         <TopMenu />
-        <main className="container mx-auto px-4 py-8 md:py-12 pt-24">
+        <main className="container mx-auto px-4 py-8 md:py-12 pt-20 md:pt-24">
         {children}
         </main>
     </div>

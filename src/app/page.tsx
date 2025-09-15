@@ -17,7 +17,7 @@ export default function Home() {
   return (
     <div className="min-h-screen">
         <TopMenu />
-        <main className="container mx-auto px-4 pt-24 pb-12">
+        <main className="container mx-auto px-4 pt-20 md:pt-24 pb-12">
           <ClaimForm />
         </main>
       </div>
