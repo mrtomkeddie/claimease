@@ -19,7 +19,7 @@ export default function RootLayout({
         <meta name="description" content="ClaimEase - AI-Powered PIP Helper for building strong, evidence-backed answers" />
         <meta name="theme-color" content="#4EB9B9" />
       </head>
-      <body className={`${inter.className} antialiased h-full gradient-dashboard`}>
+      <body className={`${inter.className} antialiased h-full gradient-dashboard`} suppressHydrationWarning>
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"

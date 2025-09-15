@@ -10,8 +10,8 @@
  * - SuggestResponseOutput - The return type for the suggestResponse function.
  */
 
-import {ai} from '@/ai/genkit';
-import {z} from 'genkit';
+import {openai} from '@/ai/genkit';
+import {z} from 'zod';
 
 const SuggestResponseInputSchema = z.object({
   currentQuestion: z.string().describe('The specific PIP form question the user is answering.'),
@@ -27,46 +27,54 @@ const SuggestResponseOutputSchema = z.object({
 export type SuggestResponseOutput = z.infer<typeof SuggestResponseOutputSchema>;
 
 export async function suggestResponse(input: SuggestResponseInput): Promise<SuggestResponseOutput> {
-  return suggestResponseFlow(input);
-}
-
-const suggestResponsePrompt = ai.definePrompt({
-  name: 'suggestResponsePrompt',
-  input: {schema: SuggestResponseInputSchema},
-  output: {schema: SuggestResponseOutputSchema},
-  prompt: `You are ClaimEase, an assistant that helps people complete their UK Personal Independence Payment (PIP) application.
+  const prompt = `You are ClaimEase, an assistant that helps people complete their UK Personal Independence Payment (PIP) application.
 
 Your task:
 
-Rewrite user’s answers into clear, detailed first-person statements suitable for a PIP claim.
+Rewrite user's answers into clear, detailed first-person statements suitable for a PIP claim.
 
 Keep everything truthful — do not invent or exaggerate.
 
 Always emphasise reliability, safety, repetition, and reasonable time where it naturally fits.
 
-Focus on frequency (“most of the time,” “every time I attempt”) and impact on independence.
+Focus on frequency ("most of the time," "every time I attempt") and impact on independence.
 
 Keep tone factual, formal, and respectful.
 
 The answer must still sound like the claimant wrote it.
 
 Current Question:
-"How does your condition affect '{{{currentQuestion}}}'?"
+"How does your condition affect '${input.currentQuestion}'?"
 
 User's Raw Answer for this question:
-"{{{previousAnswers.rawAnswer}}}"
+"${input.previousAnswers.rawAnswer}"
 
-Now, rewrite the user's raw answer into a well-structured, impactful response for their PIP form.`,
-});
+Now, rewrite the user's raw answer into a well-structured, impactful response for their PIP form.`;
 
-const suggestResponseFlow = ai.defineFlow(
-  {
-    name: 'suggestResponseFlow',
-    inputSchema: SuggestResponseInputSchema,
-    outputSchema: SuggestResponseOutputSchema,
-  },
-  async input => {
-    const {output} = await suggestResponsePrompt(input);
-    return output!;
+  try {
+    const completion = await openai.chat.completions.create({
+      model: 'gpt-4o',
+      messages: [
+        {
+          role: 'system',
+          content: 'You are ClaimEase, an AI assistant that helps people complete their UK Personal Independence Payment (PIP) application. Always provide helpful, accurate, and empathetic responses.'
+        },
+        {
+          role: 'user',
+          content: prompt
+        }
+      ],
+      temperature: 0.7,
+      max_tokens: 1000,
+    });
+
+    const suggestedResponse = completion.choices[0]?.message?.content || '';
+
+    return {
+      suggestedResponse
+    };
+  } catch (error) {
+    console.error('Error calling OpenAI API:', error);
+    throw new Error('Failed to generate AI suggestion');
   }
-);
+}
