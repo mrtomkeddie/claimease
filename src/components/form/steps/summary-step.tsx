@@ -15,9 +15,6 @@ interface SummaryStepProps {
 
 const fieldLabels: Record<keyof FormValues, string> = {
     fullName: "Full Name",
-    dateOfBirth: "Date of Birth",
-    address: "Address",
-    nationalInsurance: "National Insurance Number",
     mainCondition: "Main Health Condition",
     otherConditions: "Other Conditions",
     medications: "Medications",
@@ -43,9 +40,9 @@ export default function SummaryStep({ form }: SummaryStepProps) {
         <p className="mt-2 text-muted-foreground">Please check that all your information is correct before downloading.</p>
       </div>
 
-      <Alert>
-        <Terminal className="h-4 w-4" />
-        <AlertTitle>Confidence Check!</AlertTitle>
+      <Alert className="border-green-500/30 bg-green-500/10 text-green-300">
+        <Terminal className="h-4 w-4 text-green-500" />
+        <AlertTitle className="text-green-400">Confidence Check!</AlertTitle>
         <AlertDescription>
           Looks good — ClaimEase has formatted your answers in DWP style.
         </AlertDescription>
