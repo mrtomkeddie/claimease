@@ -46,6 +46,7 @@ export default function HealthConditionsStep({ form }: HealthConditionsStepProps
               fieldName="otherConditions"
               label="Other Conditions or Disabilities (Optional)"
               guidance="List any other health issues, even if you think they're not as important."
+              aiEnabled
             >
               <FormControl>
                 <Textarea rows={3} placeholder="List any other conditions..." {...field} />
@@ -66,6 +67,7 @@ export default function HealthConditionsStep({ form }: HealthConditionsStepProps
               fieldName="medications"
               label="Medications"
               guidance="List all medications you take, including dosage and frequency. If none, write 'None'."
+              aiEnabled
             >
               <FormControl>
                 <Textarea rows={3} placeholder="e.g., Sertraline 100mg daily, Pregabalin 300mg morning/evening." {...field} />
