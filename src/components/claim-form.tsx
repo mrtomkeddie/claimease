@@ -34,7 +34,7 @@ export function ClaimForm() {
   const { toast } = useToast();
 
   const form = useForm<FormValues>({
-    resolver: zodResolver(formSchema),
+    // resolver: zodResolver(formSchema), // Temporarily disabled for development
     mode: 'onTouched',
   });
 
@@ -67,11 +67,11 @@ export function ClaimForm() {
   }, [watchedValues, isMounted]);
 
   const handleNext = async () => {
-    const fields = FORM_STEPS[currentStep].fields as StepField[];
-    const isValid = await form.trigger(fields);
-    if (isValid) {
+    // const fields = FORM_STEPS[currentStep].fields as StepField[];
+    // const isValid = await form.trigger(fields);
+    // if (isValid) {
       setCurrentStep((prev) => Math.min(prev + 1, FORM_STEPS.length - 1));
-    }
+    // }
   };
 
   const handleBack = () => {
