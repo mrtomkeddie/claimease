@@ -1,16 +1,33 @@
 
 'use client';
 
+import { useState } from 'react';
+import { UserProvider, useUser } from '@/contexts/UserContext';
+import { Onboarding } from '@/components/onboarding';
 import { ClaimForm } from '@/components/claim-form';
-import { ClaimEaseLogo } from '@/components/ClaimEaseLogo';
+import { TopMenu } from '@/components/TopMenu';
+
+function AppContent() {
+  const { user, setUser } = useUser();
+  
+  if (!user) {
+    return <Onboarding onComplete={setUser} />;
+  }
+
+  return (
+    <div className="min-h-screen">
+        <TopMenu />
+        <main className="container mx-auto px-4 py-8 md:py-12 pt-24">
+          <ClaimForm />
+        </main>
+      </div>
+  )
+}
 
 export default function Home() {
   return (
-    <main className="container mx-auto px-4 py-8 md:py-12">
-      <div className="flex justify-center mb-8">
-        <ClaimEaseLogo />
-      </div>
-      <ClaimForm />
-    </main>
+    <UserProvider>
+      <AppContent />
+    </UserProvider>
   );
 }
