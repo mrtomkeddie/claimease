@@ -3,11 +3,10 @@
 
 import { useState, useEffect, useMemo } from 'react';
 import { useForm, type UseFormReturn } from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod';
 import { AnimatePresence, motion } from 'framer-motion';
 
-import { FormValues, formSchema } from '@/lib/formSchema';
-import { LOCAL_STORAGE_KEY, FORM_STEPS, type StepField } from '@/lib/constants';
+import { FormValues } from '@/lib/formSchema';
+import { LOCAL_STORAGE_KEY, FORM_STEPS } from '@/lib/constants';
 import { Form } from '@/components/ui/form';
 import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -34,7 +33,6 @@ export function ClaimForm() {
   const { toast } = useToast();
 
   const form = useForm<FormValues>({
-    // resolver: zodResolver(formSchema), // Temporarily disabled for development
     mode: 'onTouched',
   });
 
@@ -67,11 +65,7 @@ export function ClaimForm() {
   }, [watchedValues, isMounted]);
 
   const handleNext = async () => {
-    // const fields = FORM_STEPS[currentStep].fields as StepField[];
-    // const isValid = await form.trigger(fields);
-    // if (isValid) {
-      setCurrentStep((prev) => Math.min(prev + 1, FORM_STEPS.length - 1));
-    // }
+    setCurrentStep((prev) => Math.min(prev + 1, FORM_STEPS.length - 1));
   };
 
   const handleBack = () => {
