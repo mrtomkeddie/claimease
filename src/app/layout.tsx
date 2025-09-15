@@ -4,7 +4,7 @@
 import './globals.css';
 import { ThemeProvider } from 'next-themes';
 import { UserProvider } from '@/contexts/UserContext';
-import { Toaster } from "@/components/ui/sonner";
+import { Toaster } from "@/components/ui/toaster";
 import { Inter } from 'next/font/google';
 
 const inter = Inter({ subsets: ['latin'] });
@@ -21,7 +21,7 @@ export default function RootLayout({
         <meta name="description" content="ClaimEase - AI-Powered PIP Helper for building strong, evidence-backed answers" />
         <meta name="theme-color" content="#4EB9B9" />
       </head>
-      <body className={`${inter.className} antialiased h-full`}>
+      <body className={`${inter.className} antialiased h-full gradient-dashboard`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"
@@ -29,18 +29,7 @@ export default function RootLayout({
         >
           <UserProvider>
             {children}
-            <Toaster 
-              position="top-center"
-              toastOptions={{
-                style: {
-                  background: 'hsl(var(--card))',
-                  color: 'hsl(var(--card-foreground))',
-                  border: '1px solid hsl(var(--border))',
-                  fontSize: '16px',
-                  boxShadow: '0 8px 32px hsla(var(--primary), 0.3)',
-                },
-              }}
-            />
+            <Toaster />
           </UserProvider>
         </ThemeProvider>
       </body>

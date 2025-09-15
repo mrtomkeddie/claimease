@@ -33,18 +33,19 @@ const suggestResponsePrompt = ai.definePrompt({
   name: 'suggestResponsePrompt',
   input: {schema: SuggestResponseInputSchema},
   output: {schema: SuggestResponseOutputSchema},
-  prompt: `You are an AI assistant helping users fill out a form.
+  prompt: `You are an expert in UK disability benefits, specifically the Personal Independence Payment (PIP). Your task is to rewrite a user's answer into a clear, formal, and effective response for their PIP application form.
 
-  Based on the current question and the user's previous answers, suggest a response to help them complete the form faster.
+  - Focus on the impact of their condition on their daily life.
+  - Use keywords that the DWP (Department for Work and Pensions) assessors look for, such as "safely," "reliably," "repeatedly," and "in a reasonable time."
+  - Be specific and avoid jargon.
+  - Frame the answer in the first person.
 
   Current Question: {{{currentQuestion}}}
 
-  Previous Answers:
-  {{#each previousAnswers}}
-  {{@key}}: {{{this}}}
-  {{/each}}
+  User's Answer:
+  "{{previousAnswers.rawAnswer}}"
 
-  Suggest a concise and relevant response:`,
+  Rewrite the answer to be DWP-friendly:`,
 });
 
 const suggestResponseFlow = ai.defineFlow(
