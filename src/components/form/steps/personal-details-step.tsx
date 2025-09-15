@@ -6,7 +6,6 @@ import { FormControl, FormField, FormItem, FormMessage } from '@/components/ui/f
 import { Input } from '@/components/ui/input';
 import type { FormValues } from '@/lib/formSchema';
 import { FormFieldWrapper } from '../form-field-wrapper';
-import { Calendar } from 'lucide-react';
 
 interface PersonalDetailsStepProps {
   form: UseFormReturn<FormValues, any, undefined>;
@@ -24,74 +23,11 @@ export default function PersonalDetailsStep({ form }: PersonalDetailsStepProps) 
             <FormFieldWrapper
               form={form}
               fieldName="fullName"
-              label="Full Name"
-              guidance="Please enter your full legal name as it appears on official documents."
+              label="Full Name (Optional)"
+              guidance="Your name will be included on the exported document."
             >
               <FormControl>
-                <Input placeholder="e.g., Jane Doe" {...field} />
-              </FormControl>
-            </FormFieldWrapper>
-            <FormMessage />
-          </FormItem>
-        )}
-      />
-
-      <FormField
-        control={form.control}
-        name="dateOfBirth"
-        render={({ field }) => (
-          <FormItem>
-            <FormFieldWrapper
-              form={form}
-              fieldName="dateOfBirth"
-              label="Date of Birth"
-              guidance="Use the format YYYY-MM-DD."
-            >
-              <FormControl>
-                <div className="relative">
-                  <Input type="date" {...field} />
-                  <Calendar className="absolute right-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground pointer-events-none" />
-                </div>
-              </FormControl>
-            </FormFieldWrapper>
-            <FormMessage />
-          </FormItem>
-        )}
-      />
-
-      <FormField
-        control={form.control}
-        name="address"
-        render={({ field }) => (
-          <FormItem>
-            <FormFieldWrapper
-              form={form}
-              fieldName="address"
-              label="Full Address"
-              guidance="Include your house number, street, city, and postcode."
-            >
-              <FormControl>
-                <Input placeholder="e.g., 123 Main Street, Anytown, AT1 2BC" {...field} />
-              </FormControl>
-            </FormFieldWrapper>
-            <FormMessage />
-          </FormItem>
-        )}
-      />
-
-      <FormField
-        control={form.control}
-        name="nationalInsurance"
-        render={({ field }) => (
-          <FormItem>
-            <FormFieldWrapper
-              form={form}
-              fieldName="nationalInsurance"
-              label="National Insurance Number"
-              guidance="You can find this on payslips or letters from HMRC."
-            >
-              <FormControl>
-                <Input placeholder="e.g., QQ 12 34 56 C" {...field} />
+                <Input placeholder="Enter your name if you'd like it included on the export" {...field} />
               </FormControl>
             </FormFieldWrapper>
             <FormMessage />

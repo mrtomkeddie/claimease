@@ -5,7 +5,7 @@ import { useState, useEffect, useMemo } from 'react';
 import { useForm, type UseFormReturn } from 'react-hook-form';
 import { AnimatePresence, motion } from 'framer-motion';
 
-import { FormValues } from '@/lib/formSchema';
+import { formSchema, type FormValues } from '@/lib/formSchema';
 import { LOCAL_STORAGE_KEY, FORM_STEPS } from '@/lib/constants';
 import { Form } from '@/components/ui/form';
 import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card';
@@ -16,8 +16,9 @@ import HealthConditionsStep from '@/components/form/steps/health-conditions-step
 import DailyLivingStep from '@/components/form/steps/daily-living-step';
 import MobilityStep from '@/components/form/steps/mobility-step';
 import SummaryStep from '@/components/form/steps/summary-step';
-import { ArrowLeft, ArrowRight, Download, Save } from 'lucide-react';
+import { ArrowLeft, ArrowRight, Download, Save, Lock } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
+import { zodResolver } from '@hookform/resolvers/zod';
 
 const stepComponents = [
   PersonalDetailsStep,
@@ -33,6 +34,7 @@ export function ClaimForm() {
   const { toast } = useToast();
 
   const form = useForm<FormValues>({
+    resolver: zodResolver(formSchema),
     mode: 'onTouched',
   });
 
@@ -83,10 +85,10 @@ export function ClaimForm() {
   };
 
   const handleDownloadPdf = () => {
-    handleSaveProgress(); // Ensure latest data is saved
+    handleSaveProgress();
     toast({
-      title: "Preparing PDF",
-      description: "Your document will open in a new tab to be printed or saved as a PDF.",
+      title: "Preparing PDF Preview",
+      description: "Your document will open in a new tab to be printed or saved. The final version is a paid feature.",
     });
     window.open('/print', '_blank');
   };
@@ -145,7 +147,7 @@ export function ClaimForm() {
               ) : (
                 <Button type="button" onClick={handleDownloadPdf}>
                   <Download className="mr-2" />
-                  Download as PDF
+                  Download PDF Preview
                 </Button>
               )}
             </div>

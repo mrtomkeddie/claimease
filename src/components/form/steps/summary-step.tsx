@@ -6,6 +6,8 @@ import type { FormValues } from '@/lib/formSchema';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { FORM_STEPS } from '@/lib/constants';
 import { CheckCircle2 } from 'lucide-react';
+import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
+import { Terminal } from 'lucide-react';
 
 interface SummaryStepProps {
   form: UseFormReturn<FormValues, any, undefined>;
@@ -41,8 +43,16 @@ export default function SummaryStep({ form }: SummaryStepProps) {
         <p className="mt-2 text-muted-foreground">Please check that all your information is correct before downloading.</p>
       </div>
 
+      <Alert>
+        <Terminal className="h-4 w-4" />
+        <AlertTitle>Confidence Check!</AlertTitle>
+        <AlertDescription>
+          Looks good — ClaimEase has formatted your answers in DWP style.
+        </AlertDescription>
+      </Alert>
+
       <Accordion type="multiple" className="w-full" defaultValue={FORM_STEPS.map(s => s.id)}>
-        {FORM_STEPS.filter(step => step.id !== 'review').map((step) => (
+        {FORM_STEPS.filter(step => step.id !== 'review' && step.fields.length > 0).map((step) => (
           <AccordionItem value={step.id} key={step.id}>
             <AccordionTrigger className="text-lg font-medium hover:no-underline">
               {step.title}

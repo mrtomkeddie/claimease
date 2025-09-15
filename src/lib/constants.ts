@@ -7,7 +7,7 @@ export const FORM_STEPS = [
   {
     id: 'personal',
     title: 'Personal Details',
-    fields: ['fullName', 'dateOfBirth', 'address', 'nationalInsurance'],
+    fields: ['fullName'],
   },
   {
     id: 'health',

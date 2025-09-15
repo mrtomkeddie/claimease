@@ -28,7 +28,7 @@ export default function HealthConditionsStep({ form }: HealthConditionsStepProps
               aiEnabled
             >
               <FormControl>
-                <Textarea rows={5} placeholder="Describe your main condition..." {...field} />
+                <Textarea rows={5} placeholder="e.g., Chronic fatigue syndrome – constant tiredness, brain fog, difficulty standing more than 10 minutes." {...field} />
               </FormControl>
             </FormFieldWrapper>
             <FormMessage />
@@ -68,7 +68,7 @@ export default function HealthConditionsStep({ form }: HealthConditionsStepProps
               guidance="List all medications you take, including dosage and frequency. If none, write 'None'."
             >
               <FormControl>
-                <Textarea rows={3} placeholder="e.g., Paracetamol 500mg - twice a day..." {...field} />
+                <Textarea rows={3} placeholder="e.g., Sertraline 100mg daily, Pregabalin 300mg morning/evening." {...field} />
               </FormControl>
             </FormFieldWrapper>
             <FormMessage />

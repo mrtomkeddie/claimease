@@ -3,14 +3,7 @@ import { z } from 'zod';
 
 export const formSchema = z.object({
   // Personal Details
-  fullName: z.string().min(2, "Full name must be at least 2 characters."),
-  dateOfBirth: z.string().refine((val) => val && !isNaN(Date.parse(val)), {
-    message: "Please enter a valid date of birth.",
-  }),
-  address: z.string().min(10, "Please enter a complete address."),
-  nationalInsurance: z.string()
-    .regex(/^[A-CEGHJ-PR-TW-Z]{2}\s?[0-9]{2}\s?[0-9]{2}\s?[0-9]{2}\s?[A-D]{1}$/i, "Please enter a valid National Insurance number format (e.g., QQ 12 34 56 C).")
-    .transform(value => value.toUpperCase().replace(/\s/g, '')),
+  fullName: z.string().optional(),
 
   // Health Conditions
   mainCondition: z.string().min(5, "Please describe your main health condition or disability."),
