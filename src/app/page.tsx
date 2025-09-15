@@ -1,7 +1,6 @@
 
 'use client';
 
-import { useState } from 'react';
 import { UserProvider, useUser } from '@/contexts/UserContext';
 import { Onboarding } from '@/components/onboarding';
 import { ClaimForm } from '@/components/claim-form';

@@ -2,6 +2,7 @@
 'use client';
 
 import React from 'react';
+import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { ClaimEaseLogo } from './ClaimEaseLogo';
 import { useUser } from '@/contexts/UserContext';
@@ -27,7 +28,9 @@ export function TopMenu() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center gap-3">
-            <ClaimEaseLogo />
+            <Link href="/">
+              <ClaimEaseLogo />
+            </Link>
           </div>
 
           <nav className="flex items-center gap-2">
@@ -47,9 +50,11 @@ export function TopMenu() {
                   </div>
                 </DropdownMenuLabel>
                 <DropdownMenuSeparator />
-                <DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <Link href="/account">
                     <UserIcon className="mr-2 h-4 w-4" />
                     <span>My Account</span>
+                  </Link>
                 </DropdownMenuItem>
                 <DropdownMenuSeparator />
                 <DropdownMenuItem onClick={handleLogout}>
