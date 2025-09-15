@@ -1,12 +1,13 @@
 
 'use client';
 
-import { UserProvider, useUser } from '@/contexts/UserContext';
+import { useUser } from '@/contexts/UserContext';
 import { Onboarding } from '@/components/onboarding';
 import { ClaimForm } from '@/components/claim-form';
 import { TopMenu } from '@/components/TopMenu';
+import { ClaimEaseLogo } from '@/components/ClaimEaseLogo';
 
-function AppContent() {
+export default function Home() {
   const { user, setUser } = useUser();
   
   if (!user) {
@@ -21,12 +22,4 @@ function AppContent() {
         </main>
       </div>
   )
-}
-
-export default function Home() {
-  return (
-    <UserProvider>
-      <AppContent />
-    </UserProvider>
-  );
 }

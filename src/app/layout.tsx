@@ -5,6 +5,7 @@ import './globals.css';
 import { ThemeProvider } from 'next-themes';
 import { Toaster } from "@/components/ui/toaster";
 import { inter } from '@/lib/fonts';
+import { UserProvider } from '@/contexts/UserContext';
 
 export default function RootLayout({
   children,
@@ -24,7 +25,9 @@ export default function RootLayout({
           defaultTheme="dark"
           disableTransitionOnChange
         >
-          {children}
+          <UserProvider>
+            {children}
+          </UserProvider>
           <Toaster />
         </ThemeProvider>
       </body>
