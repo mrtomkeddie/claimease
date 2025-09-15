@@ -15,22 +15,35 @@ interface AiSuggestionButtonProps {
   form: UseFormReturn<FormValues, any, undefined>;
   fieldName: StepField;
   fieldLabel: string;
+  onSuggestion: (suggestion: string) => void;
 }
 
-export function AiSuggestionButton({ form, fieldName, fieldLabel }: AiSuggestionButtonProps) {
+export function AiSuggestionButton({ form, fieldName, fieldLabel, onSuggestion }: AiSuggestionButtonProps) {
   const [isLoading, setIsLoading] = useState(false);
   const { toast } = useToast();
 
   const handleSuggest = async () => {
+    const rawAnswer = form.getValues(fieldName);
+    if (!rawAnswer || rawAnswer.trim().length < 10) {
+        toast({
+            variant: "destructive",
+            title: "Please write a bit more",
+            description: "The AI needs at least 10 characters to provide a helpful suggestion.",
+        });
+        return;
+    }
+
+
     setIsLoading(true);
     try {
       const allValues = form.getValues();
-      const previousAnswers: Record<string, string> = {};
+      const previousAnswers: Record<string, string> = {
+        rawAnswer: allValues[fieldName]!,
+      };
 
-      for (const key in allValues) {
-        if (key !== fieldName && allValues[key as StepField]) {
-          previousAnswers[key] = allValues[key as StepField]!;
-        }
+      // Add other relevant context
+      if(allValues.mainCondition) {
+        previousAnswers.mainCondition = allValues.mainCondition;
       }
 
       const input: SuggestResponseInput = {
@@ -41,10 +54,10 @@ export function AiSuggestionButton({ form, fieldName, fieldLabel }: AiSuggestion
       const result = await suggestResponse(input);
       
       if (result.suggestedResponse) {
-        form.setValue(fieldName, result.suggestedResponse, { shouldValidate: true, shouldDirty: true });
+        onSuggestion(result.suggestedResponse);
         toast({
-          title: "Suggestion applied!",
-          description: `AI suggestion for "${fieldLabel}" has been filled in.`,
+          title: "Suggestion ready!",
+          description: `AI suggestion for "${fieldLabel}" has been generated.`,
         });
       } else {
         throw new Error("AI did not return a suggestion.");
