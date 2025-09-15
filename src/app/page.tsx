@@ -17,7 +17,7 @@ function AppContent() {
   return (
     <div className="min-h-screen">
         <TopMenu />
-        <main className="container mx-auto px-4 py-8 md:py-12 pt-24">
+        <main className="container mx-auto px-4 pt-24 pb-12">
           <ClaimForm />
         </main>
       </div>
