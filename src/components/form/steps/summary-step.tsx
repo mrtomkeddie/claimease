@@ -5,9 +5,8 @@ import type { UseFormReturn } from 'react-hook-form';
 import type { FormValues } from '@/lib/formSchema';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { FORM_STEPS } from '@/lib/constants';
-import { CheckCircle2 } from 'lucide-react';
+import { CheckCircle2, Shield } from 'lucide-react';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
-import { Terminal } from 'lucide-react';
 
 interface SummaryStepProps {
   form: UseFormReturn<FormValues, any, undefined>;
@@ -40,9 +39,9 @@ export default function SummaryStep({ form }: SummaryStepProps) {
         <p className="mt-2 text-muted-foreground">Please check that all your information is correct before downloading.</p>
       </div>
 
-      <Alert className="border-green-500/30 bg-green-500/10 text-green-300">
-        <Terminal className="h-4 w-4 text-green-500" />
-        <AlertTitle className="text-green-400">Confidence Check!</AlertTitle>
+      <Alert>
+        <Shield className="h-4 w-4" />
+        <AlertTitle>Confidence Check!</AlertTitle>
         <AlertDescription>
           Looks good — ClaimEase has formatted your answers in DWP style.
         </AlertDescription>
