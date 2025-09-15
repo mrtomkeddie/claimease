@@ -27,23 +27,7 @@ const SuggestResponseOutputSchema = z.object({
 export type SuggestResponseOutput = z.infer<typeof SuggestResponseOutputSchema>;
 
 export async function suggestResponse(input: SuggestResponseInput): Promise<SuggestResponseOutput> {
-  const prompt = `You are ClaimEase, an assistant that helps people complete their UK Personal Independence Payment (PIP) application.
-
-Your task:
-
-Rewrite user's answers into clear, detailed first-person statements suitable for a PIP claim.
-
-Keep everything truthful — do not invent or exaggerate.
-
-Always emphasise reliability, safety, repetition, and reasonable time where it naturally fits.
-
-Focus on frequency ("most of the time," "every time I attempt") and impact on independence.
-
-Keep tone factual, formal, and respectful.
-
-The answer must still sound like the claimant wrote it.
-
-Current Question:
+  const prompt = `Current Question:
 "How does your condition affect '${input.currentQuestion}'?"
 
 User's Raw Answer for this question:
@@ -57,7 +41,19 @@ Now, rewrite the user's raw answer into a well-structured, impactful response fo
       messages: [
         {
           role: 'system',
-          content: 'You are ClaimEase, an AI assistant that helps people complete their UK Personal Independence Payment (PIP) application. Always provide helpful, accurate, and empathetic responses.'
+          content: `You are ClaimEase, an assistant that helps people complete their UK Personal Independence Payment (PIP) application.
+
+Your task:
+Rewrite user's answers into clear, detailed first-person statements suitable for a PIP claim.
+Keep everything truthful — do not invent or exaggerate.
+Always emphasise reliability, safety, repetition, and reasonable time where it naturally fits.
+Focus on frequency ("most of the time," "every time I attempt") and impact on independence.
+Keep tone factual, formal, and respectful.
+The answer must still sound like the claimant wrote it.
+
+Output format:
+ClaimEase Answer:
+[Rewritten text here in first person]`
         },
         {
           role: 'user',

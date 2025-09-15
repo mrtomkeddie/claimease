@@ -16,8 +16,9 @@ import HealthConditionsStep from '@/components/form/steps/health-conditions-step
 import DailyLivingStep from '@/components/form/steps/daily-living-step';
 import MobilityStep from '@/components/form/steps/mobility-step';
 import SummaryStep from '@/components/form/steps/summary-step';
-import { ArrowLeft, ArrowRight, Download, Save, Lock } from 'lucide-react';
+import { ArrowLeft, ArrowRight, Download, Save, Lock, List } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
+import { SavedClaim } from '@/lib/mockData';
 
 const stepComponents = [
   PersonalDetailsStep,
@@ -27,7 +28,12 @@ const stepComponents = [
   SummaryStep,
 ];
 
-export function ClaimForm() {
+interface ClaimFormProps {
+  loadedClaim?: SavedClaim | null;
+  onBackToSaved?: () => void;
+}
+
+export function ClaimForm({ loadedClaim, onBackToSaved }: ClaimFormProps) {
   const [currentStep, setCurrentStep] = useState(0);
   const [isMounted, setIsMounted] = useState(false);
   const { toast } = useToast();
@@ -38,20 +44,42 @@ export function ClaimForm() {
 
   useEffect(() => {
     setIsMounted(true);
-    try {
-      const savedData = localStorage.getItem(LOCAL_STORAGE_KEY);
-      if (savedData) {
-        const parsedData = JSON.parse(savedData);
-        form.reset(parsedData);
-        toast({
-          title: "Progress Restored",
-          description: "We've loaded your previously saved answers.",
-        });
+    
+    // If we have a loaded claim, use its data
+    if (loadedClaim) {
+      // Convert SavedClaim format to FormValues format
+      const formData: Partial<FormValues> = {
+        firstName: loadedClaim.formData.personalInfo?.firstName || '',
+        lastName: loadedClaim.formData.personalInfo?.lastName || '',
+        dateOfBirth: loadedClaim.formData.personalInfo?.dateOfBirth || '',
+        address: loadedClaim.formData.personalInfo?.address || '',
+        phoneNumber: loadedClaim.formData.personalInfo?.phoneNumber || '',
+        email: loadedClaim.formData.personalInfo?.email || '',
+        // Add more field mappings as needed
+      };
+      
+      form.reset(formData);
+      toast({
+        title: "Claim Loaded",
+        description: `Loaded "${loadedClaim.title}" - ${loadedClaim.progress}% complete`,
+      });
+    } else {
+      // Try to load from localStorage if no claim is loaded
+      try {
+        const savedData = localStorage.getItem(LOCAL_STORAGE_KEY);
+        if (savedData) {
+          const parsedData = JSON.parse(savedData);
+          form.reset(parsedData);
+          toast({
+            title: "Progress Restored",
+            description: "We've loaded your previously saved answers.",
+          });
+        }
+      } catch (error) {
+        console.error("Failed to parse saved data:", error);
       }
-    } catch (error) {
-      console.error("Failed to parse saved data:", error);
     }
-  }, [form, toast]);
+  }, [form, toast, loadedClaim]);
 
   const watchedValues = form.watch();
   useEffect(() => {
@@ -104,6 +132,22 @@ export function ClaimForm() {
   return (
     <Card className="w-full max-w-4xl mx-auto shadow-2xl shadow-primary/10">
       <CardHeader className="space-y-6">
+        <div className="flex justify-between items-center">
+          {onBackToSaved && (
+            <Button variant="outline" onClick={onBackToSaved}>
+              <List className="mr-2 h-4 w-4" />
+              Back to Saved Claims
+            </Button>
+          )}
+          <div className="flex-1">
+            {loadedClaim && (
+              <div className="text-center">
+                <h2 className="text-lg font-semibold text-gray-900">{loadedClaim.title}</h2>
+                <p className="text-sm text-gray-600">Progress: {loadedClaim.progress}%</p>
+              </div>
+            )}
+          </div>
+        </div>
         <StepIndicator currentStep={currentStep} onStepClick={setCurrentStep} />
       </CardHeader>
       <Form {...form}>
