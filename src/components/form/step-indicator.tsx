@@ -7,10 +7,10 @@ import { Check } from 'lucide-react';
 
 interface StepIndicatorProps {
   currentStep: number;
-  stepCount: number;
+  onStepClick: (step: number) => void;
 }
 
-export function StepIndicator({ currentStep }: StepIndicatorProps) {
+export function StepIndicator({ currentStep, onStepClick }: StepIndicatorProps) {
   return (
     <nav aria-label="Form Steps">
       <ol className="flex items-center justify-center space-x-2 sm:space-x-4">
@@ -20,10 +20,15 @@ export function StepIndicator({ currentStep }: StepIndicatorProps) {
           
           return (
             <li key={step.id} className="flex items-center">
-              <div className="flex flex-col items-center">
+              <button
+                type="button"
+                onClick={() => onStepClick(index)}
+                className="flex flex-col items-center cursor-pointer disabled:cursor-not-allowed group"
+                aria-label={`Go to step ${index + 1}: ${step.title}`}
+              >
                 <div
                   className={cn(
-                    "w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center text-sm font-medium transition-all duration-300",
+                    "w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center text-sm font-medium transition-all duration-300 group-hover:ring-4 group-hover:ring-primary/20",
                     isCompleted ? "bg-accent text-accent-foreground" : "",
                     isActive ? "bg-primary text-primary-foreground ring-4 ring-primary/30" : "",
                     !isCompleted && !isActive ? "bg-secondary text-secondary-foreground" : ""
@@ -38,7 +43,7 @@ export function StepIndicator({ currentStep }: StepIndicatorProps) {
                 )}>
                   {step.title}
                 </p>
-              </div>
+              </button>
 
               {index < FORM_STEPS.length - 1 && (
                 <div className={cn(

@@ -104,7 +104,7 @@ export function ClaimForm() {
   return (
     <Card className="w-full max-w-4xl mx-auto shadow-2xl shadow-primary/10">
       <CardHeader className="space-y-6">
-        <StepIndicator currentStep={currentStep} stepCount={FORM_STEPS.length} />
+        <StepIndicator currentStep={currentStep} onStepClick={setCurrentStep} />
       </CardHeader>
       <Form {...form}>
         <form onSubmit={(e) => e.preventDefault()}>
