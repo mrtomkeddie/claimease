@@ -129,11 +129,16 @@ export function Onboarding({ onComplete }: OnboardingProps) {
                 {/* How it works */}
                 <div className="mt-2 space-y-4">
                   <h2 className={`${gilroyHeavy.className} text-2xl lg:text-3xl font-medium text-foreground`}>How it works</h2>
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-4 lg:gap-6">
                     <Card className="glass-effect hover-lift border-0 backdrop-blur-md">
                       <CardContent className="p-4 space-y-2">
                         <div className="flex items-center gap-3">
-                          <FileText className="h-5 w-5 text-primary" />
+                          <div className="relative">
+                            <div className="w-9 h-9 rounded-lg bg-card/60 flex items-center justify-center">
+                              <FileText className="h-4 w-4 text-primary" />
+                            </div>
+                            <span className="absolute -top-1 -left-1 w-5 h-5 rounded-full bg-primary text-primary-foreground text-[10px] font-semibold grid place-items-center shadow-sm">1</span>
+                          </div>
                           <h3 className="font-medium text-base text-foreground">Answer simple questions</h3>
                         </div>
                         <p className="text-sm text-muted-foreground">Guided prompts tailored to the PIP form. No jargon, no guesswork.</p>
@@ -142,7 +147,12 @@ export function Onboarding({ onComplete }: OnboardingProps) {
                     <Card className="glass-effect hover-lift border-0 backdrop-blur-md">
                       <CardContent className="p-4 space-y-2">
                         <div className="flex items-center gap-3">
-                          <Sparkles className="h-5 w-5 text-accent" />
+                          <div className="relative">
+                            <div className="w-9 h-9 rounded-lg bg-card/60 flex items-center justify-center">
+                              <Sparkles className="h-4 w-4 text-accent" />
+                            </div>
+                            <span className="absolute -top-1 -left-1 w-5 h-5 rounded-full bg-primary text-primary-foreground text-[10px] font-semibold grid place-items-center shadow-sm">2</span>
+                          </div>
                           <h3 className="font-medium text-base text-foreground">AI-optimised phrasing</h3>
                         </div>
                         <p className="text-sm text-muted-foreground">Your words rewritten into clear, DWP-friendly language.</p>
@@ -151,7 +161,12 @@ export function Onboarding({ onComplete }: OnboardingProps) {
                     <Card className="glass-effect hover-lift border-0 backdrop-blur-md">
                       <CardContent className="p-4 space-y-2">
                         <div className="flex items-center gap-3">
-                          <CheckCircle className="h-5 w-5 text-success" />
+                          <div className="relative">
+                            <div className="w-9 h-9 rounded-lg bg-card/60 flex items-center justify-center">
+                              <CheckCircle className="h-4 w-4 text-success" />
+                            </div>
+                            <span className="absolute -top-1 -left-1 w-5 h-5 rounded-full bg-primary text-primary-foreground text-[10px] font-semibold grid place-items-center shadow-sm">3</span>
+                          </div>
                           <h3 className="font-medium text-base text-foreground">Export & submit</h3>
                         </div>
                         <p className="text-sm text-muted-foreground">Download as PDF or Word and submit with confidence.</p>
@@ -187,7 +202,7 @@ export function Onboarding({ onComplete }: OnboardingProps) {
                         <Sparkles className="h-7 w-7 text-primary-foreground" />
                       </div>
                       <div className="space-y-3">
-                        <CardTitle className="text-xl lg:text-2xl text-foreground">Start Your Claim</CardTitle>
+                        <CardTitle className={`${gilroyHeavy.className} text-xl lg:text-2xl text-foreground`}>Start Your Claim</CardTitle>
                         <CardDescription className="text-sm lg:text-base leading-relaxed text-muted-foreground">
                           Let's get started. Enter your details below.
                         </CardDescription>
