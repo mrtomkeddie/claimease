@@ -1,7 +1,7 @@
 
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Button } from './ui/button';
 import { Input } from './ui/input';
 import { Label } from './ui/label';
@@ -24,6 +24,26 @@ export function Onboarding({ onComplete }: OnboardingProps) {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [selectedPlan, setSelectedPlan] = useState<'standard' | 'pro'>('standard');
+
+  // Animation refs
+  const heroRef = useRef<HTMLDivElement>(null);
+  const formRef = useRef<HTMLDivElement>(null);
+  const benefitsRef = useRef<HTMLDivElement>(null);
+  const howItWorksRef = useRef<HTMLDivElement>(null);
+  const pricingRef = useRef<HTMLDivElement>(null);
+  const appealRef = useRef<HTMLDivElement>(null);
+  const faqRef = useRef<HTMLDivElement>(null);
+  // Dedicated refs to avoid reusing the same ref on multiple elements
+  const heroLogoRef = useRef<HTMLDivElement>(null);
+  const heroContentRef = useRef<HTMLDivElement>(null);
+  // Root container ref to scope animation readiness
+  const rootRef = useRef<HTMLDivElement>(null);
+
+  // Intersection Observer for animations - REMOVED
+  useEffect(() => {
+    // Animation logic removed - all elements appear immediately
+    return;
+  }, []);
 
   const scrollToForm = () => {
     const el = document.getElementById('start-claim');
@@ -65,33 +85,34 @@ export function Onboarding({ onComplete }: OnboardingProps) {
       icon: Sparkles,
       title: 'AI-Optimised Answers',
       description: 'Your words are automatically rewritten into clear, professional, DWP-friendly phrasing.',
-      color: 'text-accent'
+      color: 'text-primary'
     },
     {
       icon: TrendingUp,
       title: 'Evidence Integration',
       description: 'Highlight the challenges that matter most to the DWP: safety, repetition, reliability, and time.',
-      color: 'text-tertiary'
+      color: 'text-primary'
     },
     {
       icon: Lock,
       title: 'Secure & Private',
       description: 'Your data is encrypted and never shared. You stay in control from start to finish.',
-      color: 'text-success'
+      color: 'text-primary'
     }
   ];
 
   return (
-    <div className="min-h-screen bg-background">
-      <div className="relative">{/* removed overflow-hidden to allow sticky to work */}
+    <div className="min-h-screen bg-background" ref={rootRef}>
+
+      <div className="relative">{/* removed overflow-hidden to allow sticky to work  */}
         <div className="absolute inset-0 gradient-dark-brand pointer-events-none"></div>
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-28 md:pb-12 flex flex-col min-h-screen">{/* extra bottom padding so mobile CTA doesn't overlap */}
-            <div className="flex justify-center mb-8">
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-28 md:pb-12 flex flex-col min-h-screen">{/* extra bottom padding so mobile CTA doesn't overlap */}
+            <div className="flex justify-center mb-6" ref={heroLogoRef}>
               <ClaimEaseLogo />
             </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 flex-1 lg:items-center pb-12 pt-8">
-              <div className="lg:col-span-7 flex flex-col justify-center space-y-8">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 flex-1 lg:items-center pb-12 pt-6">
+              <div className="lg:col-span-7 flex flex-col justify-center space-y-8" ref={heroContentRef}>
                 <div className="space-y-4">
                     <h1 className={`${gilroyHeavy.className} text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight leading-[1.1] text-foreground max-w-3xl`}>
                       Struggling with your PIP application?{' '}
@@ -108,7 +129,7 @@ export function Onboarding({ onComplete }: OnboardingProps) {
                   </div>
               </div>
 
-              <div className="lg:col-span-5 flex items-start justify-center pt-6 lg:pt-10">
+              <div className="lg:col-span-5 flex items-start justify-center pt-6 lg:pt-10" ref={formRef}>
                 <div className="w-full max-w-md lg:sticky lg:top-26" id="start-claim">{/* adjusted offset for clearer stickiness */}
                   <Card className="w-full glass-effect backdrop-blur-lg border-primary/30">
                     <CardHeader className="text-center space-y-4 pb-6">
@@ -124,71 +145,73 @@ export function Onboarding({ onComplete }: OnboardingProps) {
                     </CardHeader>
                     
                     <CardContent className="space-y-6">
-                      {/* Plan Toggle */}
-                      <div className="space-y-4">
-                        <Label className="text-sm text-foreground">Choose Your Plan</Label>
-                        <div className="grid grid-cols-2 gap-2 p-1 bg-muted/50 rounded-lg">
-                          <button
-                            type="button"
-                            onClick={() => setSelectedPlan('standard')}
-                            className={`px-3 py-2 text-sm font-medium rounded-md transition-all duration-200 ${
-                              selectedPlan === 'standard'
-                                ? 'bg-primary text-primary-foreground shadow-sm'
-                                : 'text-muted-foreground hover:text-foreground'
-                            }`}
-                          >
-                            Standard £49
-                          </button>
-                          <button
-                            type="button"
-                            onClick={() => setSelectedPlan('pro')}
-                            className={`px-3 py-2 text-sm font-medium rounded-md transition-all duration-200 ${
-                              selectedPlan === 'pro'
-                                ? 'bg-accent text-accent-foreground shadow-sm'
-                                : 'text-muted-foreground hover:text-foreground'
-                            }`}
-                          >
-                            Pro £79
-                          </button>
-                        </div>
+                      <div className="space-y-2">
+                       {/* Plan Toggle */}
+                       <div className="space-y-4">
+                         <Label className="text-sm text-foreground">Choose Your Plan</Label>
+                         <div className="grid grid-cols-2 gap-2 p-1 bg-muted/50 rounded-lg">
+                           <button
+                             type="button"
+                             onClick={() => setSelectedPlan('standard')}
+                             className={`px-3 py-2 text-sm font-medium rounded-md transition-all duration-200 ${
+                               selectedPlan === 'standard'
+                                 ? 'bg-primary text-primary-foreground shadow-sm'
+                                 : 'text-muted-foreground hover:text-foreground'
+                             }`}
+                           >
+                             Standard £49
+                           </button>
+                           <button
+                             type="button"
+                             onClick={() => setSelectedPlan('pro')}
+                             className={`px-3 py-2 text-sm font-medium rounded-md transition-all duration-200 ${
+                               selectedPlan === 'pro'
+                                 ? 'bg-accent text-accent-foreground shadow-sm'
+                                 : 'text-muted-foreground hover:text-foreground'
+                             }`}
+                           >
+                             Pro £79
+                           </button>
+                         </div>
+                       </div>
+
+                       {/* Dynamic Plan Benefits */}
+                      <ul className={`space-y-2 text-xs text-muted-foreground mt-0 ${selectedPlan === 'pro' ? 'text-right' : ''}`}>
+                         {selectedPlan === 'standard' ? (
+                           <>
+                             <li className={`flex items-center gap-2 ${selectedPlan === 'pro' ? 'justify-end' : ''}`}>
+                               <CheckCircle className="h-3 w-3 text-success flex-shrink-0" />
+                               <span>One full PIP claim</span>
+                             </li>
+                             <li className={`flex items-center gap-2 ${selectedPlan === 'pro' ? 'justify-end' : ''}`}>
+                               <CheckCircle className="h-3 w-3 text-success flex-shrink-0" />
+                               <span>Export answers (PDF/Word)</span>
+                             </li>
+                             <li className={`flex items-center gap-2 ${selectedPlan === 'pro' ? 'justify-end' : ''}`}>
+                               <CheckCircle className="h-3 w-3 text-success flex-shrink-0" />
+                               <span>Free appeal support</span>
+                             </li>
+                           </>
+                         ) : (
+                           <>
+                             <li className={`flex items-center gap-2 ${selectedPlan === 'pro' ? 'justify-end' : ''}`}>
+                               <CheckCircle className="h-3 w-3 text-success flex-shrink-0" />
+                               <span>Unlimited PIP claims</span>
+                             </li>
+                             <li className={`flex items-center gap-2 ${selectedPlan === 'pro' ? 'justify-end' : ''}`}>
+                               <CheckCircle className="h-3 w-3 text-success flex-shrink-0" />
+                               <span>Upload medical documents</span>
+                             </li>
+                             <li className={`flex items-center gap-2 ${selectedPlan === 'pro' ? 'justify-end' : ''}`}>
+                               <CheckCircle className="h-3 w-3 text-success flex-shrink-0" />
+                               <span>Free appeal support for every claim</span>
+                             </li>
+                           </>
+                         )}
+                       </ul>
                       </div>
 
-                      {/* Dynamic Plan Benefits */}
-                      <ul className="space-y-2 text-xs text-muted-foreground mb-4 mt-1">
-                        {selectedPlan === 'standard' ? (
-                          <>
-                            <li className="flex items-center gap-2">
-                              <CheckCircle className="h-3 w-3 text-success flex-shrink-0" />
-                              <span>One full PIP claim</span>
-                            </li>
-                            <li className="flex items-center gap-2">
-                              <CheckCircle className="h-3 w-3 text-success flex-shrink-0" />
-                              <span>Export answers (PDF/Word)</span>
-                            </li>
-                            <li className="flex items-center gap-2">
-                              <CheckCircle className="h-3 w-3 text-success flex-shrink-0" />
-                              <span>Free appeal support</span>
-                            </li>
-                          </>
-                        ) : (
-                          <>
-                            <li className="flex items-center gap-2">
-                              <CheckCircle className="h-3 w-3 text-success flex-shrink-0" />
-                              <span>Unlimited PIP claims</span>
-                            </li>
-                            <li className="flex items-center gap-2">
-                              <CheckCircle className="h-3 w-3 text-success flex-shrink-0" />
-                              <span>Upload medical documents</span>
-                            </li>
-                            <li className="flex items-center gap-2">
-                              <CheckCircle className="h-3 w-3 text-success flex-shrink-0" />
-                              <span>Free appeal support for every claim</span>
-                            </li>
-                          </>
-                        )}
-                      </ul>
-
-                      <form onSubmit={handleSubmit} className="space-y-4">
+                        <form onSubmit={handleSubmit} className="space-y-4">
                         <div className="space-y-4">
                           <div className="space-y-2">
                             <Label htmlFor="email" className="text-sm text-foreground">Email Address</Label>
@@ -235,9 +258,6 @@ export function Onboarding({ onComplete }: OnboardingProps) {
                             <span>Private</span>
                           </div>
                         </div>
-                        <p className="text-xs text-muted-foreground">
-                          By continuing, you agree to our Terms of Service and Privacy Policy.
-                        </p>
                       </div>
 
                     </CardContent>
@@ -247,7 +267,7 @@ export function Onboarding({ onComplete }: OnboardingProps) {
             </div>
 
             {/* Key Benefits Section */}
-            <div className="mt-24 max-w-6xl mx-auto">
+            <div className="mt-24 max-w-6xl mx-auto" ref={benefitsRef}>
               <div className="text-center space-y-4 mb-12">
                 <h2 className={`${gilroyHeavy.className} text-3xl lg:text-4xl font-medium text-foreground`}>
                   Why Choose ClaimEase?
@@ -276,7 +296,7 @@ export function Onboarding({ onComplete }: OnboardingProps) {
             </div>
 
             {/* How It Works Section - Minimal Vertical Steps */}
-            <div className="mt-32 max-w-4xl mx-auto">
+            <div className="mt-32 max-w-4xl mx-auto" ref={howItWorksRef}>
               <div className="text-center space-y-4 mb-16">
                 <h2 className={`${gilroyHeavy.className} text-3xl lg:text-4xl font-medium text-foreground`}>
                   How it works
@@ -288,7 +308,7 @@ export function Onboarding({ onComplete }: OnboardingProps) {
 
               <div className="space-y-12">
                 {/* Step 1 */}
-                <div className="flex flex-col md:flex-row items-start gap-8">
+                <div className="flex flex-col md:flex-row items-start gap-8 stagger-item">
                   <div className="flex-shrink-0 w-16 md:w-20">
                     <div className="text-6xl md:text-7xl font-light text-primary/20 leading-none">
                       01
@@ -305,7 +325,7 @@ export function Onboarding({ onComplete }: OnboardingProps) {
                 </div>
 
                 {/* Step 2 */}
-                <div className="flex flex-col md:flex-row items-start gap-8">
+                <div className="flex flex-col md:flex-row items-start gap-8 stagger-item">
                   <div className="flex-shrink-0 w-16 md:w-20">
                     <div className="text-6xl md:text-7xl font-light text-primary/20 leading-none">
                       02
@@ -322,7 +342,7 @@ export function Onboarding({ onComplete }: OnboardingProps) {
                 </div>
 
                 {/* Step 3 */}
-                <div className="flex flex-col md:flex-row items-start gap-8">
+                <div className="flex flex-col md:flex-row items-start gap-8 stagger-item">
                   <div className="flex-shrink-0 w-16 md:w-20">
                     <div className="text-6xl md:text-7xl font-light text-primary/20 leading-none">
                       03
@@ -341,7 +361,7 @@ export function Onboarding({ onComplete }: OnboardingProps) {
             </div>
 
             {/* Pricing Section */}
-            <div className="mt-28 text-center space-y-8">
+            <div className="mt-28 text-center space-y-8" ref={pricingRef}>
               <div className="space-y-4">
                 <h2 className="text-2xl lg:text-3xl font-medium text-foreground">
                   Choose Your Plan
@@ -350,7 +370,7 @@ export function Onboarding({ onComplete }: OnboardingProps) {
               
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
                 {/* ClaimEase Standard */}
-                <Card className="glass-effect backdrop-blur-lg border-primary/30 relative flex flex-col">
+                <Card className="glass-effect backdrop-blur-lg border-primary/30 relative flex flex-col stagger-item">
                   <CardContent className="p-6 flex flex-col flex-1">
                     <div className="text-center space-y-3">
                       <h3 className="text-xl font-semibold text-foreground">ClaimEase Standard</h3>
@@ -381,7 +401,7 @@ export function Onboarding({ onComplete }: OnboardingProps) {
                 </Card>
 
                 {/* ClaimEase Pro */}
-                <Card className="glass-effect backdrop-blur-lg border-accent/30 relative flex flex-col">
+                <Card className="glass-effect backdrop-blur-lg border-accent/30 relative flex flex-col stagger-item">
                   <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
                     <div className="bg-accent text-accent-foreground px-3 py-1 rounded-full text-xs font-medium">
                       Most Popular
@@ -419,7 +439,7 @@ export function Onboarding({ onComplete }: OnboardingProps) {
             </div>
 
             {/* Appeal Promise Section moved below pricing */}
-            <div className="mt-28 text-center space-y-6">
+            <div className="mt-28 text-center space-y-6" ref={appealRef}>
               <div className="space-y-4">
                 <h2 className="text-2xl lg:text-3xl font-medium text-accent">
                   And if your claim is rejected… we're still with you.
@@ -439,13 +459,18 @@ export function Onboarding({ onComplete }: OnboardingProps) {
             </div>
 
             {/* FAQ Section */}
-            <div className="mt-28 max-w-4xl mx-auto space-y-8">
-              <h2 className="text-2xl lg:text-3xl font-medium text-center text-foreground">
-                Frequently Asked Questions
-              </h2>
+            <div className="mt-28 max-w-4xl mx-auto space-y-8" ref={faqRef}>
+              <div className="text-center space-y-4">
+                <h2 className="text-3xl md:text-4xl font-semibold text-foreground">
+                  Frequently Asked Questions
+                </h2>
+                <p className="text-lg text-muted-foreground">
+                  Get answers to common questions about ClaimEase
+                </p>
+              </div>
               
               <div className="grid gap-6">
-                <Card className="glass-effect backdrop-blur-sm">
+                <Card className="glass-effect backdrop-blur-sm stagger-item">
                   <CardContent className="p-6">
                     <div className="flex items-start gap-3">
                       <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0 mt-1">
@@ -461,7 +486,7 @@ export function Onboarding({ onComplete }: OnboardingProps) {
                   </CardContent>
                 </Card>
                 
-                <Card className="glass-effect backdrop-blur-sm">
+                <Card className="glass-effect backdrop-blur-sm stagger-item">
                   <CardContent className="p-6">
                     <div className="flex items-start gap-3">
                       <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0 mt-1">
@@ -477,7 +502,7 @@ export function Onboarding({ onComplete }: OnboardingProps) {
                   </CardContent>
                 </Card>
                 
-                <Card className="glass-effect backdrop-blur-sm">
+                <Card className="glass-effect backdrop-blur-sm stagger-item">
                   <CardContent className="p-6">
                     <div className="flex items-start gap-3">
                       <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0 mt-1">
@@ -493,7 +518,7 @@ export function Onboarding({ onComplete }: OnboardingProps) {
                   </CardContent>
                 </Card>
                 
-                <Card className="glass-effect backdrop-blur-sm">
+                <Card className="glass-effect backdrop-blur-sm stagger-item">
                   <CardContent className="p-6">
                     <div className="flex items-start gap-3">
                       <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0 mt-1">
@@ -509,7 +534,7 @@ export function Onboarding({ onComplete }: OnboardingProps) {
                   </CardContent>
                 </Card>
                 
-                <Card className="glass-effect backdrop-blur-sm">
+                <Card className="glass-effect backdrop-blur-sm stagger-item">
                   <CardContent className="p-6">
                     <div className="flex items-start gap-3">
                       <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0 mt-1">

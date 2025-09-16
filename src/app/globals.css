@@ -382,4 +382,19 @@
   border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
+/* Animation styles removed - all elements now appear immediately */
+.fade-in,
+.fade-in-up,
+.stagger-container > * {
+  opacity: 1;
+  transform: none;
+}
+
+.animate-ready .fade-in.animate-in,
+.animate-ready .fade-in-up.animate-in,
+.animate-ready .stagger-container.animate-in > * {
+  opacity: 1;
+  transform: none;
+}
+
     
