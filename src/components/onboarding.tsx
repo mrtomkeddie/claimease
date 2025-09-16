@@ -6,7 +6,7 @@ import { Button } from './ui/button';
 import { Input } from './ui/input';
 import { Label } from './ui/label';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from './ui/card';
-import { Shield, Sparkles, CheckCircle, FileText, TrendingUp, Lock, Database, Smartphone } from 'lucide-react';
+import { Shield, Sparkles, CheckCircle, FileText, TrendingUp, ArrowRight, Lock, Database, Smartphone, HelpCircle } from 'lucide-react';
 import { ClaimEaseLogo } from './ClaimEaseLogo';
 import type { User } from '@/contexts/UserContext';
 import { poppins, gilroyHeavy } from '@/lib/fonts';
@@ -22,11 +22,10 @@ export function Onboarding({ onComplete }: OnboardingProps) {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  // Removed hero CTA scroll helper because the form is always visible in the hero
-  // const scrollToForm = () => {
-  //   const el = document.getElementById('start-claim');
-  //   if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  // };
+  const scrollToForm = () => {
+    const el = document.getElementById('start-claim');
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -85,8 +84,8 @@ export function Onboarding({ onComplete }: OnboardingProps) {
               <ClaimEaseLogo />
             </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
-              <div className="lg:col-span-7 space-y-8">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 min-h-[70vh] lg:items-center">
+              <div className="lg:col-span-7 flex flex-col justify-center space-y-8">
                 <div className="space-y-4">
                     <h1 className={`${gilroyHeavy.className} text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight leading-[1.1] text-foreground max-w-3xl`}>
                       Struggling with your PIP application?{' '}
@@ -95,102 +94,15 @@ export function Onboarding({ onComplete }: OnboardingProps) {
                       </span>
                     </h1>
                     <p className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-2xl">
-                      Turn your daily experiences into clear, DWP-friendly answers — written in your own words, but optimised for approval.
+                      Answer simple questions. We'll turn them into clear, DWP-friendly answers — in your own words, made stronger.
                     </p>
                     {/* Hero CTA removed: form is visible within hero */}
                     {/* Previously contained a scroll button and helper text. Intentionally left blank for layout spacing. */}
                     {/* Spacer removed to tighten layout now that CTA is gone */}
                   </div>
-
-                {/* Trust/Proof Bar */}
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-4 py-6 border-t border-b border-border/30">
-                  <div className="flex flex-col items-center text-center space-y-2">
-                    <Lock className="h-6 w-6 text-primary" />
-                    <span className="text-sm font-medium text-foreground">Secure & Private</span>
-                  </div>
-                  <div className="flex flex-col items-center text-center space-y-2">
-                    <Smartphone className="h-6 w-6 text-primary" />
-                    <span className="text-sm font-medium text-foreground">Mobile Friendly</span>
-                  </div>
-                  <div className="flex flex-col items-center text-center space-y-2">
-                    <CheckCircle className="h-6 w-6 text-primary" />
-                    <span className="text-sm font-medium text-foreground">One-time Payment</span>
-                  </div>
-                  <div className="flex flex-col items-center text-center space-y-2">
-                    <Shield className="h-6 w-6 text-primary" />
-                    <span className="text-sm font-medium text-foreground">Free Appeal Support</span>
-                  </div>
-                </div>
-
-                {/* How it works */}
-                <div className="mt-2 space-y-4">
-                  <h2 className={`${gilroyHeavy.className} text-2xl lg:text-3xl font-medium text-foreground`}>How it works</h2>
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-4 lg:gap-6">
-                    <Card className="glass-effect hover-lift border-0 backdrop-blur-md">
-                      <CardContent className="p-4 space-y-2">
-                        <div className="flex items-center gap-3">
-                          <div className="relative">
-                            <div className="w-9 h-9 rounded-lg bg-card/60 flex items-center justify-center">
-                              <FileText className="h-4 w-4 text-primary" />
-                            </div>
-                            <span className="absolute -top-1 -left-1 w-5 h-5 rounded-full bg-primary text-primary-foreground text-[10px] font-semibold grid place-items-center shadow-sm">1</span>
-                          </div>
-                          <h3 className="font-medium text-base text-foreground">Answer simple questions</h3>
-                        </div>
-                        <p className="text-sm text-muted-foreground">Guided prompts tailored to the PIP form. No jargon, no guesswork.</p>
-                      </CardContent>
-                    </Card>
-                    <Card className="glass-effect hover-lift border-0 backdrop-blur-md">
-                      <CardContent className="p-4 space-y-2">
-                        <div className="flex items-center gap-3">
-                          <div className="relative">
-                            <div className="w-9 h-9 rounded-lg bg-card/60 flex items-center justify-center">
-                              <Sparkles className="h-4 w-4 text-accent" />
-                            </div>
-                            <span className="absolute -top-1 -left-1 w-5 h-5 rounded-full bg-primary text-primary-foreground text-[10px] font-semibold grid place-items-center shadow-sm">2</span>
-                          </div>
-                          <h3 className="font-medium text-base text-foreground">AI-optimised phrasing</h3>
-                        </div>
-                        <p className="text-sm text-muted-foreground">Your words rewritten into clear, DWP-friendly language.</p>
-                      </CardContent>
-                    </Card>
-                    <Card className="glass-effect hover-lift border-0 backdrop-blur-md">
-                      <CardContent className="p-4 space-y-2">
-                        <div className="flex items-center gap-3">
-                          <div className="relative">
-                            <div className="w-9 h-9 rounded-lg bg-card/60 flex items-center justify-center">
-                              <CheckCircle className="h-4 w-4 text-success" />
-                            </div>
-                            <span className="absolute -top-1 -left-1 w-5 h-5 rounded-full bg-primary text-primary-foreground text-[10px] font-semibold grid place-items-center shadow-sm">3</span>
-                          </div>
-                          <h3 className="font-medium text-base text-foreground">Export & submit</h3>
-                        </div>
-                        <p className="text-sm text-muted-foreground">Download as PDF or Word and submit with confidence.</p>
-                      </CardContent>
-                    </Card>
-                  </div>
-                </div>
-
-                {/* Key benefits (lighter style to avoid “7 card” clutter) */}
-                <ul className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                  {features.map((feature, index) => {
-                    const Icon = feature.icon;
-                    return (
-                      <li key={index} className="flex items-start gap-3 rounded-xl border border-border/50 bg-card/40 p-3">
-                        <div className="w-9 h-9 rounded-lg bg-card/60 flex items-center justify-center">
-                          <Icon className={`h-4 w-4 ${feature.color}`} />
-                        </div>
-                        <div className="space-y-1">
-                          <h3 className="font-medium text-foreground">{feature.title}</h3>
-                          <p className="text-sm text-muted-foreground">{feature.description}</p>
-                        </div>
-                      </li>
-                    );
-                  })}
-                </ul>
               </div>
 
-              <div className="lg:col-span-5 flex items-start justify-center">
+              <div className="lg:col-span-5 flex items-center justify-center">
                 <div className="w-full max-w-md lg:sticky lg:top-20" id="start-claim">{/* adjusted offset for clearer stickiness */}
                   <Card className="w-full glass-effect backdrop-blur-lg border-primary/30">
                     <CardHeader className="text-center space-y-4 pb-6">
@@ -242,7 +154,7 @@ export function Onboarding({ onComplete }: OnboardingProps) {
                           disabled={isSubmitting}
                         >
                           <Sparkles className="h-4 w-4 mr-2" />
-                          {isSubmitting ? 'Logging in...' : 'Start My Claim'}
+                          {isSubmitting ? 'Logging in...' : 'Start My Claim for £49 →'}
                           <ArrowRight className="h-4 w-4 ml-2 group-hover:translate-x-1 transition-transform" />
                         </Button>
                       </form>
@@ -273,44 +185,193 @@ export function Onboarding({ onComplete }: OnboardingProps) {
               </div>
             </div>
 
+            {/* Key Benefits Section */}
+            <div className="mt-20 max-w-6xl mx-auto">
+              <div className="text-center space-y-4 mb-12">
+                <h2 className={`${gilroyHeavy.className} text-3xl lg:text-4xl font-medium text-foreground`}>
+                  Why Choose ClaimEase?
+                </h2>
+                <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+                  Built specifically for PIP applications with features that make the difference
+                </p>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+                {features.map((feature, index) => {
+                  const Icon = feature.icon;
+                  return (
+                    <div key={index} className="flex items-start gap-4 rounded-2xl border border-border/50 bg-card/40 p-6 hover:bg-card/60 transition-colors">
+                      <div className="w-12 h-12 rounded-xl bg-card/60 flex items-center justify-center flex-shrink-0">
+                        <Icon className={`h-5 w-5 ${feature.color}`} />
+                      </div>
+                      <div className="space-y-2">
+                        <h3 className="text-lg font-semibold text-foreground">{feature.title}</h3>
+                        <p className="text-base text-muted-foreground leading-relaxed">{feature.description}</p>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+
+            {/* How It Works Section - Minimal Vertical Steps */}
+            <div className="mt-20 max-w-4xl mx-auto">
+              <div className="text-center space-y-4 mb-16">
+                <h2 className={`${gilroyHeavy.className} text-3xl lg:text-4xl font-medium text-foreground`}>
+                  How it works
+                </h2>
+                <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+                  Three simple steps to strengthen your PIP claim
+                </p>
+              </div>
+
+              <div className="space-y-12">
+                {/* Step 1 */}
+                <div className="flex flex-col md:flex-row items-start gap-8">
+                  <div className="flex-shrink-0">
+                    <div className="text-6xl md:text-7xl font-light text-primary/20 leading-none">
+                      01
+                    </div>
+                  </div>
+                  <div className="flex-1 space-y-3 pt-2">
+                    <h3 className="text-xl md:text-2xl font-semibold text-foreground">
+                      Answer simple questions
+                    </h3>
+                    <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
+                      We'll guide you through plain English questions about your condition and daily challenges. No confusing jargon or complex forms to navigate.
+                    </p>
+                  </div>
+                </div>
+
+                {/* Step 2 */}
+                <div className="flex flex-col md:flex-row items-start gap-8">
+                  <div className="flex-shrink-0">
+                    <div className="text-6xl md:text-7xl font-light text-primary/20 leading-none">
+                      02
+                    </div>
+                  </div>
+                  <div className="flex-1 space-y-3 pt-2">
+                    <h3 className="text-xl md:text-2xl font-semibold text-foreground">
+                      Get AI-optimised answers
+                    </h3>
+                    <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
+                      Our AI transforms your responses into clear, DWP-friendly language that highlights your needs and maximizes your chances of approval.
+                    </p>
+                  </div>
+                </div>
+
+                {/* Step 3 */}
+                <div className="flex flex-col md:flex-row items-start gap-8">
+                  <div className="flex-shrink-0">
+                    <div className="text-6xl md:text-7xl font-light text-primary/20 leading-none">
+                      03
+                    </div>
+                  </div>
+                  <div className="flex-1 space-y-3 pt-2">
+                    <h3 className="text-xl md:text-2xl font-semibold text-foreground">
+                      Export & submit with confidence
+                    </h3>
+                    <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
+                      Download your completed application as a PDF or Word document, ready to submit to the DWP with complete confidence in your claim.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
             {/* Pricing Section */}
             <div className="mt-16 text-center space-y-8">
               <div className="space-y-4">
                 <h2 className="text-2xl lg:text-3xl font-medium text-foreground">
-                  One low price. No hidden costs.
+                  Choose Your Plan
                 </h2>
               </div>
               
-              <Card className="max-w-md mx-auto glass-effect backdrop-blur-lg border-primary/30">
-                <CardContent className="p-8 space-y-6">
-                  <div className="text-center space-y-4">
-                    <div className="text-4xl font-bold text-primary">£49</div>
-                    <div className="text-sm text-muted-foreground">one-time fee</div>
-                  </div>
-                  
-                  <ul className="space-y-3 text-left">
-                    <li className="flex items-center gap-3">
-                      <CheckCircle className="h-5 w-5 text-success flex-shrink-0" />
-                      <span className="text-sm">Full access to the ClaimEase PIP Builder</span>
-                    </li>
-                    <li className="flex items-center gap-3">
-                      <CheckCircle className="h-5 w-5 text-success flex-shrink-0" />
-                      <span className="text-sm">Export your ready-to-submit answers in PDF or Word format</span>
-                    </li>
-                    <li className="flex items-center gap-3">
-                      <CheckCircle className="h-5 w-5 text-success flex-shrink-0" />
-                      <span className="text-sm">Free appeal support if needed</span>
-                    </li>
-                  </ul>
-                  
-                  <div className="space-y-1">
-                    <Button onClick={scrollToForm} className="w-full bg-primary hover:bg-primary/90 text-primary-foreground">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+                {/* ClaimEase Standard */}
+                <Card className="glass-effect backdrop-blur-lg border-primary/30 relative flex flex-col">
+                  <CardContent className="p-6 flex flex-col flex-1">
+                    <div className="text-center space-y-3">
+                      <h3 className="text-xl font-semibold text-foreground">ClaimEase Standard</h3>
+                      <div className="text-3xl font-bold text-primary">£49</div>
+                      <div className="text-sm text-muted-foreground">one-time</div>
+                      <div className="text-sm text-muted-foreground/80">For your first PIP claim</div>
+                    </div>
+                    
+                    <ul className="space-y-3 text-left flex-1 mt-6">
+                      <li className="flex items-center gap-3">
+                        <CheckCircle className="h-4 w-4 text-success flex-shrink-0" />
+                        <span className="text-sm">Full access to the ClaimEase PIP Builder</span>
+                      </li>
+                      <li className="flex items-center gap-3">
+                        <CheckCircle className="h-4 w-4 text-success flex-shrink-0" />
+                        <span className="text-sm">Export your ready-to-submit answers (PDF/Word)</span>
+                      </li>
+                      <li className="flex items-center gap-3">
+                        <CheckCircle className="h-4 w-4 text-success flex-shrink-0" />
+                        <span className="text-sm">Free appeal support if needed</span>
+                      </li>
+                      <li className="flex items-center gap-3">
+                        <CheckCircle className="h-4 w-4 text-success flex-shrink-0" />
+                        <span className="text-sm font-medium">Covers one full PIP claim</span>
+                      </li>
+                    </ul>
+                    
+                    <div className="mt-4 p-3 bg-muted/30 rounded-lg">
+                      <p className="text-xs text-muted-foreground">
+                        Need another claim later? You can add extra claim slots from inside your account for just £29 each.
+                      </p>
+                    </div>
+                    
+                    <Button onClick={scrollToForm} className="w-full bg-primary hover:bg-primary/90 text-primary-foreground mt-6">
                       Start My Claim for £49 →
                     </Button>
-                    <div className="text-xs text-muted-foreground">No subscription. Includes free appeal support.</div>
+                  </CardContent>
+                </Card>
+
+                {/* ClaimEase Pro */}
+                <Card className="glass-effect backdrop-blur-lg border-accent/30 relative flex flex-col">
+                  <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
+                    <div className="bg-accent text-accent-foreground px-3 py-1 rounded-full text-xs font-medium">
+                      Most Popular
+                    </div>
                   </div>
-                </CardContent>
-              </Card>
+                  <CardContent className="p-6 flex flex-col flex-1">
+                    <div className="text-center space-y-3">
+                      <h3 className="text-xl font-semibold text-foreground">ClaimEase Pro</h3>
+                      <div className="text-3xl font-bold text-accent">£79</div>
+                      <div className="text-sm text-muted-foreground">one-time</div>
+                      <div className="text-sm text-muted-foreground/80">For unlimited support</div>
+                    </div>
+                    
+                    <ul className="space-y-3 text-left flex-1 mt-6">
+                      <li className="flex items-center gap-3">
+                        <CheckCircle className="h-4 w-4 text-success flex-shrink-0" />
+                        <span className="text-sm">Unlimited claim slots</span>
+                      </li>
+                      <li className="flex items-center gap-3">
+                        <CheckCircle className="h-4 w-4 text-success flex-shrink-0" />
+                        <span className="text-sm">Document upload + AI integration (letters, prescriptions, evidence)</span>
+                      </li>
+                      <li className="flex items-center gap-3">
+                        <CheckCircle className="h-4 w-4 text-success flex-shrink-0" />
+                        <span className="text-sm">Free appeal support for every claim</span>
+                      </li>
+                    </ul>
+                    
+                    <Button onClick={scrollToForm} className="w-full bg-accent hover:bg-accent/90 text-accent-foreground mt-6">
+                      Upgrade to Pro for £79 →
+                    </Button>
+                  </CardContent>
+                </Card>
+              </div>
+
+              {/* Trust Note */}
+              <div className="text-center pt-6">
+                <p className="text-sm text-muted-foreground">
+                  No subscriptions. One-time payment. Your data stays private and secure.
+                </p>
+              </div>
             </div>
 
             {/* Appeal Promise Section moved below pricing */}
@@ -342,37 +403,81 @@ export function Onboarding({ onComplete }: OnboardingProps) {
               <div className="grid gap-6">
                 <Card className="glass-effect backdrop-blur-sm">
                   <CardContent className="p-6">
-                    <h3 className="font-medium text-lg mb-3 text-foreground">Is this legal?</h3>
-                    <p className="text-muted-foreground">
-                      Yes. ClaimEase does not provide legal advice. It simply helps you express your answers more clearly in your own words.
-                    </p>
+                    <div className="flex items-start gap-3">
+                      <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0 mt-1">
+                        <HelpCircle className="h-4 w-4 text-primary" />
+                      </div>
+                      <div className="flex-1">
+                        <h3 className="font-medium text-lg mb-3 text-foreground">What if my claim is rejected?</h3>
+                        <p className="text-muted-foreground">
+                          Don't panic. Over half of PIP claims are overturned on appeal. If it happens, ClaimEase will guide you step-by-step through the appeal process — free of charge.
+                        </p>
+                      </div>
+                    </div>
                   </CardContent>
                 </Card>
                 
                 <Card className="glass-effect backdrop-blur-sm">
                   <CardContent className="p-6">
-                    <h3 className="font-medium text-lg mb-3 text-foreground">Will you store my data?</h3>
-                    <p className="text-muted-foreground">
-                      No. Your answers are processed securely and never shared with third parties.
-                    </p>
+                    <div className="flex items-start gap-3">
+                      <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0 mt-1">
+                        <HelpCircle className="h-4 w-4 text-primary" />
+                      </div>
+                      <div className="flex-1">
+                        <h3 className="font-medium text-lg mb-3 text-foreground">Is this legal?</h3>
+                        <p className="text-muted-foreground">
+                          Yes. ClaimEase doesn't give legal advice. We simply help you put your own experiences into clear, detailed answers that the DWP can easily understand.
+                        </p>
+                      </div>
+                    </div>
                   </CardContent>
                 </Card>
                 
                 <Card className="glass-effect backdrop-blur-sm">
                   <CardContent className="p-6">
-                    <h3 className="font-medium text-lg mb-3 text-foreground">Can ClaimEase guarantee my claim will be accepted?</h3>
-                    <p className="text-muted-foreground">
-                      No tool can guarantee an outcome. But ClaimEase ensures your answers are clear, detailed, and focused on what the DWP looks for — giving you the strongest possible chance.
-                    </p>
+                    <div className="flex items-start gap-3">
+                      <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0 mt-1">
+                        <HelpCircle className="h-4 w-4 text-primary" />
+                      </div>
+                      <div className="flex-1">
+                        <h3 className="font-medium text-lg mb-3 text-foreground">Will you store my data?</h3>
+                        <p className="text-muted-foreground">
+                          No. Your answers are processed securely and never shared. You're always in control of your information.
+                        </p>
+                      </div>
+                    </div>
                   </CardContent>
                 </Card>
                 
                 <Card className="glass-effect backdrop-blur-sm">
                   <CardContent className="p-6">
-                    <h3 className="font-medium text-lg mb-3 text-foreground">What if my claim is rejected?</h3>
-                    <p className="text-muted-foreground">
-                      We'll guide you through the appeal process for free.
-                    </p>
+                    <div className="flex items-start gap-3">
+                      <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0 mt-1">
+                        <HelpCircle className="h-4 w-4 text-primary" />
+                      </div>
+                      <div className="flex-1">
+                        <h3 className="font-medium text-lg mb-3 text-foreground">Can ClaimEase guarantee my claim will be accepted?</h3>
+                        <p className="text-muted-foreground">
+                          No tool can promise that. What ClaimEase does is make sure your answers are clear, detailed, and focused on what the DWP looks for — giving you the strongest chance possible.
+                        </p>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+                
+                <Card className="glass-effect backdrop-blur-sm">
+                  <CardContent className="p-6">
+                    <div className="flex items-start gap-3">
+                      <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0 mt-1">
+                        <HelpCircle className="h-4 w-4 text-primary" />
+                      </div>
+                      <div className="flex-1">
+                        <h3 className="font-medium text-lg mb-3 text-foreground">Can I add more claims later?</h3>
+                        <p className="text-muted-foreground">
+                          Yes. Your £49 plan covers one full PIP claim. If you need to create another claim in the future (for yourself, a partner, or a new application), you can add extra claim slots inside your account for just £29 each.
+                        </p>
+                      </div>
+                    </div>
                   </CardContent>
                 </Card>
               </div>
@@ -382,22 +487,22 @@ export function Onboarding({ onComplete }: OnboardingProps) {
             <div className="mt-16 text-center space-y-6">
               <div className="space-y-4">
                 <h2 className="text-2xl lg:text-3xl font-medium text-foreground">
-                  Don't leave your PIP claim to chance.
+                  Don't risk losing the benefits you deserve.
                 </h2>
                 <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                  Your benefits can be life-changing — make sure your application is as strong as it can be.
+                  Start today — give your claim the best chance of success.
                 </p>
               </div>
               
               <Button size="lg" onClick={scrollToForm} className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-3">
-                Start My Claim Today →
+                Start My Claim for £49 →
               </Button>
             </div>
 
             {/* Mobile Sticky CTA */}
             <div className="md:hidden fixed bottom-4 left-0 right-0 flex justify-center z-50">
               <Button onClick={scrollToForm} className="px-6 py-3 bg-primary text-primary-foreground shadow-lg rounded-full">
-                Start My Claim
+                Start My Claim for £49 →
                 <ArrowRight className="h-4 w-4 ml-2" />
               </Button>
             </div>

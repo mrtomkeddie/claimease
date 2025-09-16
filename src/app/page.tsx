@@ -8,6 +8,7 @@ import { TopMenu } from '@/components/TopMenu';
 import { SavedClaim } from '@/lib/mockData';
 import { Button } from '@/components/ui/button';
 import { List, Plus } from 'lucide-react';
+import { UpsellModal } from '@/components/UpsellModal';
 
 // Dynamic imports to reduce initial bundle
 const Onboarding = dynamic(() => import('@/components/onboarding').then(m => m.Onboarding), { ssr: false });
@@ -20,6 +21,7 @@ export default function Home() {
   const { user, setUser } = useUser();
   const [viewMode, setViewMode] = useState<ViewMode>('saved-claims');
   const [loadedClaim, setLoadedClaim] = useState<SavedClaim | null>(null);
+  const [showUpsellModal, setShowUpsellModal] = useState(false);
   
   if (!user) {
     return <Onboarding onComplete={setUser} />;
@@ -31,6 +33,26 @@ export default function Home() {
   };
 
   const handleNewClaim = () => {
+    // Check if user has saved claims (mock check - in real app would check user's actual claims)
+    const hasSavedClaims = true; // This would be dynamic based on user's actual claims
+    
+    if (hasSavedClaims && viewMode === 'saved-claims') {
+      setShowUpsellModal(true);
+    } else {
+      setLoadedClaim(null);
+      setViewMode('claim-form');
+    }
+  };
+
+  const handlePurchaseExtraClaim = () => {
+    // TODO: Implement payment flow
+    setShowUpsellModal(false);
+    setLoadedClaim(null);
+    setViewMode('claim-form');
+  };
+
+  const handleContinueFree = () => {
+    setShowUpsellModal(false);
     setLoadedClaim(null);
     setViewMode('claim-form');
   };
@@ -78,6 +100,13 @@ export default function Home() {
             />
           )}
         </main>
+        
+        <UpsellModal
+          isOpen={showUpsellModal}
+          onClose={() => setShowUpsellModal(false)}
+          onPurchase={handlePurchaseExtraClaim}
+          onContinueFree={handleContinueFree}
+        />
       </div>
   )
 }
