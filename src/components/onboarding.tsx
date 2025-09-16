@@ -23,6 +23,7 @@ export function Onboarding({ onComplete }: OnboardingProps) {
     email: 'jane.doe@example.com',
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [selectedPlan, setSelectedPlan] = useState<'standard' | 'pro'>('standard');
 
   const scrollToForm = () => {
     const el = document.getElementById('start-claim');
@@ -44,9 +45,9 @@ export function Onboarding({ onComplete }: OnboardingProps) {
       timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
       pip_focus: ['PIP (Personal Independence Payment)'],
       created_at: new Date().toISOString(),
-      tier: UserTier.SINGLE_CLAIM, // Default to single claim tier
+      tier: selectedPlan === 'pro' ? UserTier.UNLIMITED : UserTier.SINGLE_CLAIM,
       claims_used: 0, // Start with 0 claims used
-      claims_remaining: 1, // Single claim tier gets 1 claim
+      claims_remaining: selectedPlan === 'pro' ? -1 : 1, // Pro gets unlimited (-1), Standard gets 1
     };
 
     onComplete(dummyUser);
@@ -123,20 +124,70 @@ export function Onboarding({ onComplete }: OnboardingProps) {
                     </CardHeader>
                     
                     <CardContent className="space-y-6">
-                      <div className="glass-effect backdrop-blur-sm rounded-xl p-3 space-y-2 border-accent/20">
-                        <div className="flex items-center gap-2">
-                          <div className="w-6 h-6 bg-accent/20 rounded-lg flex items-center justify-center backdrop-blur-sm">
-                            <Shield className="h-4 w-4 text-accent" />
-                          </div>
-                          <span className="font-medium text-sm text-accent">Your Data is Safe</span>
+                      {/* Plan Toggle */}
+                      <div className="space-y-4">
+                        <Label className="text-sm text-foreground">Choose Your Plan</Label>
+                        <div className="grid grid-cols-2 gap-2 p-1 bg-muted/50 rounded-lg">
+                          <button
+                            type="button"
+                            onClick={() => setSelectedPlan('standard')}
+                            className={`px-3 py-2 text-sm font-medium rounded-md transition-all duration-200 ${
+                              selectedPlan === 'standard'
+                                ? 'bg-primary text-primary-foreground shadow-sm'
+                                : 'text-muted-foreground hover:text-foreground'
+                            }`}
+                          >
+                            Standard £49
+                          </button>
+                          <button
+                            type="button"
+                            onClick={() => setSelectedPlan('pro')}
+                            className={`px-3 py-2 text-sm font-medium rounded-md transition-all duration-200 ${
+                              selectedPlan === 'pro'
+                                ? 'bg-accent text-accent-foreground shadow-sm'
+                                : 'text-muted-foreground hover:text-foreground'
+                            }`}
+                          >
+                            Pro £79
+                          </button>
                         </div>
-                        <ul className="space-y-1 text-xs text-muted-foreground">
-                          <li className="flex items-center gap-2">
-                            <CheckCircle className="h-3 w-3 text-success" />
-                            <span>This is a demo, no data is saved.</span>
-                          </li>
-                        </ul>
                       </div>
+
+                      {/* Dynamic Plan Benefits */}
+                      <ul className="space-y-2 text-xs text-muted-foreground mb-4 mt-1">
+                        {selectedPlan === 'standard' ? (
+                          <>
+                            <li className="flex items-center gap-2">
+                              <CheckCircle className="h-3 w-3 text-success flex-shrink-0" />
+                              <span>One full PIP claim</span>
+                            </li>
+                            <li className="flex items-center gap-2">
+                              <CheckCircle className="h-3 w-3 text-success flex-shrink-0" />
+                              <span>Export answers (PDF/Word)</span>
+                            </li>
+                            <li className="flex items-center gap-2">
+                              <CheckCircle className="h-3 w-3 text-success flex-shrink-0" />
+                              <span>Free appeal support</span>
+                            </li>
+                          </>
+                        ) : (
+                          <>
+                            <li className="flex items-center gap-2">
+                              <CheckCircle className="h-3 w-3 text-success flex-shrink-0" />
+                              <span>Unlimited PIP claims</span>
+                            </li>
+                            <li className="flex items-center gap-2">
+                              <CheckCircle className="h-3 w-3 text-success flex-shrink-0" />
+                              <span>Upload medical documents</span>
+                            </li>
+                            <li className="flex items-center gap-2">
+                              <CheckCircle className="h-3 w-3 text-success flex-shrink-0" />
+                              <span>Free appeal support for every claim</span>
+                            </li>
+                          </>
+                        )}
+                      </ul>
+
                       <form onSubmit={handleSubmit} className="space-y-4">
                         <div className="space-y-4">
                           <div className="space-y-2">
@@ -155,11 +206,16 @@ export function Onboarding({ onComplete }: OnboardingProps) {
 
                         <Button 
                           type="submit" 
-                          className="w-full text-sm py-2.5 bg-primary hover:bg-primary/90 text-primary-foreground glow-primary hover-lift transition-all duration-200 group" 
+                          className="w-full text-sm py-2.5 bg-primary hover:bg-primary/90 text-primary-foreground glow-primary hover-lift transition-all duration-200 group"
                           disabled={isSubmitting}
                         >
                           <Sparkles className="h-4 w-4 mr-2" />
-                          {isSubmitting ? 'Logging in...' : 'Start My Claim for £49 →'}
+                          {isSubmitting 
+                            ? 'Logging in...' 
+                            : selectedPlan === 'pro' 
+                              ? 'Start My Pro Claim for £79' 
+                              : 'Start My Claim for £49'
+                          }
                           <ArrowRight className="h-4 w-4 ml-2 group-hover:translate-x-1 transition-transform" />
                         </Button>
                       </form>
@@ -355,17 +411,10 @@ export function Onboarding({ onComplete }: OnboardingProps) {
                     </ul>
                     
                     <Button onClick={scrollToForm} className="w-full bg-accent hover:bg-accent/90 text-accent-foreground mt-6">
-                      Upgrade to Pro for £79 →
+                      Get Pro for £79 →
                     </Button>
                   </CardContent>
                 </Card>
-              </div>
-
-              {/* Trust Note */}
-              <div className="text-center pt-6">
-                <p className="text-sm text-muted-foreground">
-                  No subscriptions. One-time payment. Your data stays private and secure.
-                </p>
               </div>
             </div>
 
@@ -469,7 +518,7 @@ export function Onboarding({ onComplete }: OnboardingProps) {
                       <div className="flex-1">
                         <h3 className="font-medium text-lg mb-3 text-foreground">Can I add more claims later?</h3>
                         <p className="text-muted-foreground">
-                          Yes. Your £49 plan covers one full PIP claim. If you need to create another claim in the future (for yourself, a partner, or a new application), you can add extra claim slots inside your account for just £29 each.
+                          Your £49 plan covers one full PIP claim. For unlimited claims and additional features like document uploads, consider upgrading to ClaimEase Pro for £79. This gives you everything you need for ongoing or complex cases.
                         </p>
                       </div>
                     </div>
