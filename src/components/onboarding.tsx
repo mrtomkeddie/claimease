@@ -300,33 +300,23 @@ export function Onboarding({ onComplete }: OnboardingProps) {
                       <h3 className="text-xl font-semibold text-foreground">ClaimEase Standard</h3>
                       <div className="text-3xl font-bold text-primary">£49</div>
                       <div className="text-sm text-muted-foreground">one-time</div>
-                      <div className="text-sm text-muted-foreground/80">For your first PIP claim</div>
+                      <div className="text-sm text-muted-foreground/80">Perfect for your first PIP claim</div>
                     </div>
                     
                     <ul className="space-y-3 text-left flex-1 mt-6">
                       <li className="flex items-center gap-3">
                         <CheckCircle className="h-4 w-4 text-success flex-shrink-0" />
-                        <span className="text-sm">Full access to the ClaimEase PIP Builder</span>
+                        <span className="text-sm">One full PIP claim</span>
                       </li>
                       <li className="flex items-center gap-3">
                         <CheckCircle className="h-4 w-4 text-success flex-shrink-0" />
-                        <span className="text-sm">Export your ready-to-submit answers (PDF/Word)</span>
+                        <span className="text-sm">Export your answers (PDF/Word)</span>
                       </li>
                       <li className="flex items-center gap-3">
                         <CheckCircle className="h-4 w-4 text-success flex-shrink-0" />
                         <span className="text-sm">Free appeal support if needed</span>
                       </li>
-                      <li className="flex items-center gap-3">
-                        <CheckCircle className="h-4 w-4 text-success flex-shrink-0" />
-                        <span className="text-sm font-medium">Covers one full PIP claim</span>
-                      </li>
                     </ul>
-                    
-                    <div className="mt-4 p-3 bg-muted/30 rounded-lg">
-                      <p className="text-xs text-muted-foreground">
-                        Need another claim later? You can add extra claim slots from inside your account for just £29 each.
-                      </p>
-                    </div>
                     
                     <Button onClick={scrollToForm} className="w-full bg-primary hover:bg-primary/90 text-primary-foreground mt-6">
                       Start My Claim for £49 →
@@ -346,17 +336,17 @@ export function Onboarding({ onComplete }: OnboardingProps) {
                       <h3 className="text-xl font-semibold text-foreground">ClaimEase Pro</h3>
                       <div className="text-3xl font-bold text-accent">£79</div>
                       <div className="text-sm text-muted-foreground">one-time</div>
-                      <div className="text-sm text-muted-foreground/80">For unlimited support</div>
+                      <div className="text-sm text-muted-foreground/80">For ongoing or complex cases</div>
                     </div>
                     
                     <ul className="space-y-3 text-left flex-1 mt-6">
                       <li className="flex items-center gap-3">
                         <CheckCircle className="h-4 w-4 text-success flex-shrink-0" />
-                        <span className="text-sm">Unlimited claim slots</span>
+                        <span className="text-sm">Unlimited PIP claims</span>
                       </li>
                       <li className="flex items-center gap-3">
                         <CheckCircle className="h-4 w-4 text-success flex-shrink-0" />
-                        <span className="text-sm">Document upload + AI integration (letters, prescriptions, evidence)</span>
+                        <span className="text-sm">Upload medical documents (letters, prescriptions, evidence)</span>
                       </li>
                       <li className="flex items-center gap-3">
                         <CheckCircle className="h-4 w-4 text-success flex-shrink-0" />
@@ -382,7 +372,7 @@ export function Onboarding({ onComplete }: OnboardingProps) {
             {/* Appeal Promise Section moved below pricing */}
             <div className="mt-28 text-center space-y-6">
               <div className="space-y-4">
-                <h2 className="text-2xl lg:text-3xl font-medium text-green-800 dark:text-green-200">
+                <h2 className="text-2xl lg:text-3xl font-medium text-accent">
                   And if your claim is rejected… we're still with you.
                 </h2>
                 <div className="max-w-3xl mx-auto space-y-4">
