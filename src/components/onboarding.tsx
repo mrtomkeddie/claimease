@@ -6,7 +6,7 @@ import { Button } from './ui/button';
 import { Input } from './ui/input';
 import { Label } from './ui/label';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from './ui/card';
-import { Shield, Sparkles, CheckCircle, FileText, TrendingUp, ArrowRight, Lock, Database, Smartphone } from 'lucide-react';
+import { Shield, Sparkles, CheckCircle, FileText, TrendingUp, Lock, Database, Smartphone } from 'lucide-react';
 import { ClaimEaseLogo } from './ClaimEaseLogo';
 import type { User } from '@/contexts/UserContext';
 import { poppins, gilroyHeavy } from '@/lib/fonts';
@@ -22,10 +22,11 @@ export function Onboarding({ onComplete }: OnboardingProps) {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const scrollToForm = () => {
-    const el = document.getElementById('start-claim');
-    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  };
+  // Removed hero CTA scroll helper because the form is always visible in the hero
+  // const scrollToForm = () => {
+  //   const el = document.getElementById('start-claim');
+  //   if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  // };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -96,14 +97,9 @@ export function Onboarding({ onComplete }: OnboardingProps) {
                     <p className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-2xl">
                       Turn your daily experiences into clear, DWP-friendly answers — written in your own words, but optimised for approval.
                     </p>
-                    {/* Hero CTA */}
-                    <div className="pt-2">
-                      <Button onClick={scrollToForm} className="text-sm py-2.5 bg-primary hover:bg-primary/90 text-primary-foreground glow-primary hover-lift">
-                        Start My Claim
-                        <ArrowRight className="h-4 w-4 ml-2" />
-                      </Button>
-                      <div className="text-xs text-muted-foreground mt-2">No subscription. One-time £49. Takes ~10–15 minutes.</div>
-                    </div>
+                    {/* Hero CTA removed: form is visible within hero */}
+                    {/* Previously contained a scroll button and helper text. Intentionally left blank for layout spacing. */}
+                    {/* Spacer removed to tighten layout now that CTA is gone */}
                   </div>
 
                 {/* Trust/Proof Bar */}
