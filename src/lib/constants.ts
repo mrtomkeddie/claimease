@@ -41,3 +41,22 @@ export const FORM_STEPS = [
 export type StepId = (typeof FORM_STEPS)[number]['id'];
 
 export type StepField = keyof FormValues;
+
+// Pricing and User Tiers
+export const PRICING = {
+  SINGLE_CLAIM: 49,
+  ADDITIONAL_CLAIM: 29,
+  UNLIMITED_CLAIMS: 79,
+} as const;
+
+export enum UserTier {
+  SINGLE_CLAIM = 'single_claim',
+  UNLIMITED_CLAIMS = 'unlimited_claims',
+}
+
+export const CLAIM_LIMITS = {
+  [UserTier.SINGLE_CLAIM]: 1,
+  [UserTier.UNLIMITED_CLAIMS]: -1, // -1 represents unlimited
+} as const;
+
+export type UserTierType = UserTier.SINGLE_CLAIM | UserTier.UNLIMITED_CLAIMS;

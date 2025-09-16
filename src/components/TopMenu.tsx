@@ -7,7 +7,8 @@ import { usePathname } from 'next/navigation';
 import { Button } from '@/components/ui/button';
 import { ClaimEaseLogo } from './ClaimEaseLogo';
 import { useUser } from '@/contexts/UserContext';
-import { ArrowLeft, LogOut, User as UserIcon } from 'lucide-react';
+import { UserTier } from '@/lib/constants';
+import { ArrowLeft, LogOut, User as UserIcon, FileText, Crown } from 'lucide-react';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -18,12 +19,15 @@ import {
 } from "@/components/ui/dropdown-menu";
 
 export function TopMenu() {
-    const { user, setUser } = useUser();
+    const { user, setUser, getRemainingClaims } = useUser();
     const pathname = usePathname();
 
     const handleLogout = () => {
         setUser(null);
     }
+
+    const remainingClaims = getRemainingClaims();
+    const isUnlimitedTier = user?.tier === UserTier.UNLIMITED_CLAIMS;
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-card/95 backdrop-blur-md border-b border-border">
@@ -44,6 +48,25 @@ export function TopMenu() {
           </div>
 
           <nav className="flex items-center gap-2">
+            {/* Claim Counter */}
+            {user && (
+              <div className="flex items-center gap-2 px-3 py-1.5 bg-muted/50 rounded-full text-sm">
+                {isUnlimitedTier ? (
+                  <>
+                    <Crown className="h-4 w-4 text-primary" />
+                    <span className="font-medium text-primary">Unlimited</span>
+                  </>
+                ) : (
+                  <>
+                    <FileText className="h-4 w-4 text-muted-foreground" />
+                    <span className="font-medium">
+                      {remainingClaims} claim{remainingClaims !== 1 ? 's' : ''} left
+                    </span>
+                  </>
+                )}
+              </div>
+            )}
+            
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <Button variant="ghost" className="relative h-8 w-8 rounded-full">

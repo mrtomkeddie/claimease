@@ -5,10 +5,13 @@ import { useState } from 'react';
 import dynamic from 'next/dynamic';
 import { useUser } from '@/contexts/UserContext';
 import { TopMenu } from '@/components/TopMenu';
+import { Footer } from '@/components/Footer';
+import { FooterSlim } from '@/components/FooterSlim';
 import { SavedClaim } from '@/lib/mockData';
 import { Button } from '@/components/ui/button';
 import { List, Plus } from 'lucide-react';
 import { UpsellModal } from '@/components/UpsellModal';
+import { UserTier } from '@/lib/constants';
 
 // Dynamic imports to reduce initial bundle
 const Onboarding = dynamic(() => import('@/components/onboarding').then(m => m.Onboarding), { ssr: false });
@@ -17,8 +20,8 @@ const SavedClaims = dynamic(() => import('@/components/SavedClaims').then(m => m
 
 type ViewMode = 'saved-claims' | 'claim-form';
 
-export default function Home() {
-  const { user, setUser } = useUser();
+export default function HomePage() {
+  const { user, setUser, canCreateClaim, incrementClaimCount, getRemainingClaims } = useUser();
   const [viewMode, setViewMode] = useState<ViewMode>('saved-claims');
   const [loadedClaim, setLoadedClaim] = useState<SavedClaim | null>(null);
   const [showUpsellModal, setShowUpsellModal] = useState(false);
@@ -33,15 +36,16 @@ export default function Home() {
   };
 
   const handleNewClaim = () => {
-    // Check if user has saved claims (mock check - in real app would check user's actual claims)
-    const hasSavedClaims = true; // This would be dynamic based on user's actual claims
-    
-    if (hasSavedClaims && viewMode === 'saved-claims') {
+    // Check if user can create a new claim based on their tier
+    if (!canCreateClaim()) {
       setShowUpsellModal(true);
-    } else {
-      setLoadedClaim(null);
-      setViewMode('claim-form');
+      return;
     }
+    
+    setLoadedClaim(null);
+    setViewMode('claim-form');
+    // Increment claim count when starting a new claim
+    incrementClaimCount();
   };
 
   const handlePurchaseExtraClaim = () => {
@@ -63,9 +67,9 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen flex flex-col">
         <TopMenu />
-        <main className="container mx-auto px-4 pt-20 md:pt-24 pb-12">
+        <main className="container mx-auto px-4 pt-20 md:pt-24 pb-12 flex-1">
           {/* Navigation Header */}
           <div className="flex justify-between items-center mb-6">
             <div className="flex gap-2">
@@ -100,6 +104,8 @@ export default function Home() {
             />
           )}
         </main>
+        
+        <FooterSlim />
         
         <UpsellModal
           isOpen={showUpsellModal}

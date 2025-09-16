@@ -65,6 +65,31 @@
   }
 }
 
+/* Print-specific styles */
+@media print {
+  .page-break-after {
+    page-break-after: always;
+  }
+  .page-break-before {
+    page-break-before: always;
+  }
+  .no-print {
+    display: none !important;
+  }
+  .printable-area {
+    box-shadow: none !important;
+    margin: 0 !important;
+    padding: 20px !important;
+  }
+  body {
+    background: white !important;
+    color: black !important;
+  }
+  .print-section {
+    margin-bottom: 2rem;
+  }
+}
+
 /* Custom utility classes for ClaimEase brand */
 .text-accent {
   color: hsl(var(--accent));

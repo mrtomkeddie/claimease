@@ -8,7 +8,9 @@ import { Label } from './ui/label';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from './ui/card';
 import { Shield, Sparkles, CheckCircle, FileText, TrendingUp, ArrowRight, Lock, Database, Smartphone, HelpCircle } from 'lucide-react';
 import { ClaimEaseLogo } from './ClaimEaseLogo';
+import { Footer } from './Footer';
 import type { User } from '@/contexts/UserContext';
+import { UserTier } from '@/lib/constants';
 import { poppins, gilroyHeavy } from '@/lib/fonts';
 
 interface OnboardingProps {
@@ -42,6 +44,9 @@ export function Onboarding({ onComplete }: OnboardingProps) {
       timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
       pip_focus: ['PIP (Personal Independence Payment)'],
       created_at: new Date().toISOString(),
+      tier: UserTier.SINGLE_CLAIM, // Default to single claim tier
+      claims_used: 0, // Start with 0 claims used
+      claims_remaining: 1, // Single claim tier gets 1 claim
     };
 
     onComplete(dummyUser);
@@ -79,12 +84,12 @@ export function Onboarding({ onComplete }: OnboardingProps) {
     <div className="min-h-screen bg-background">
       <div className="relative">{/* removed overflow-hidden to allow sticky to work */}
         <div className="absolute inset-0 gradient-dark-brand pointer-events-none"></div>
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-28 md:pb-12">{/* extra bottom padding so mobile CTA doesn't overlap */}
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-28 md:pb-12 flex flex-col min-h-screen">{/* extra bottom padding so mobile CTA doesn't overlap */}
             <div className="flex justify-center mb-8">
               <ClaimEaseLogo />
             </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 min-h-[70vh] lg:items-center">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 flex-1 lg:items-center pb-12 pt-8">
               <div className="lg:col-span-7 flex flex-col justify-center space-y-8">
                 <div className="space-y-4">
                     <h1 className={`${gilroyHeavy.className} text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight leading-[1.1] text-foreground max-w-3xl`}>
@@ -215,7 +220,7 @@ export function Onboarding({ onComplete }: OnboardingProps) {
             </div>
 
             {/* How It Works Section - Minimal Vertical Steps */}
-            <div className="mt-24 max-w-4xl mx-auto">
+            <div className="mt-32 max-w-4xl mx-auto">
               <div className="text-center space-y-4 mb-16">
                 <h2 className={`${gilroyHeavy.className} text-3xl lg:text-4xl font-medium text-foreground`}>
                   How it works
@@ -228,12 +233,12 @@ export function Onboarding({ onComplete }: OnboardingProps) {
               <div className="space-y-12">
                 {/* Step 1 */}
                 <div className="flex flex-col md:flex-row items-start gap-8">
-                  <div className="flex-shrink-0">
+                  <div className="flex-shrink-0 w-16 md:w-20">
                     <div className="text-6xl md:text-7xl font-light text-primary/20 leading-none">
                       01
                     </div>
                   </div>
-                  <div className="flex-1 space-y-3 pt-2">
+                  <div className="flex-1 space-y-3">
                     <h3 className="text-xl md:text-2xl font-semibold text-foreground">
                       Answer simple questions
                     </h3>
@@ -245,12 +250,12 @@ export function Onboarding({ onComplete }: OnboardingProps) {
 
                 {/* Step 2 */}
                 <div className="flex flex-col md:flex-row items-start gap-8">
-                  <div className="flex-shrink-0">
+                  <div className="flex-shrink-0 w-16 md:w-20">
                     <div className="text-6xl md:text-7xl font-light text-primary/20 leading-none">
                       02
                     </div>
                   </div>
-                  <div className="flex-1 space-y-3 pt-2">
+                  <div className="flex-1 space-y-3">
                     <h3 className="text-xl md:text-2xl font-semibold text-foreground">
                       Get AI-optimised answers
                     </h3>
@@ -262,17 +267,17 @@ export function Onboarding({ onComplete }: OnboardingProps) {
 
                 {/* Step 3 */}
                 <div className="flex flex-col md:flex-row items-start gap-8">
-                  <div className="flex-shrink-0">
+                  <div className="flex-shrink-0 w-16 md:w-20">
                     <div className="text-6xl md:text-7xl font-light text-primary/20 leading-none">
                       03
                     </div>
                   </div>
-                  <div className="flex-1 space-y-3 pt-2">
+                  <div className="flex-1 space-y-3">
                     <h3 className="text-xl md:text-2xl font-semibold text-foreground">
                       Export & submit with confidence
                     </h3>
                     <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
-                      Download your completed application as a PDF or Word document, ready to submit to the DWP with complete confidence in your claim.
+                      Download your completed answers as a PDF or Word document. Each response is clearly matched to the correct section of the PIP form, so you can copy them across quickly and accurately.
                     </p>
                   </div>
                 </div>
@@ -280,7 +285,7 @@ export function Onboarding({ onComplete }: OnboardingProps) {
             </div>
 
             {/* Pricing Section */}
-            <div className="mt-20 text-center space-y-8">
+            <div className="mt-28 text-center space-y-8">
               <div className="space-y-4">
                 <h2 className="text-2xl lg:text-3xl font-medium text-foreground">
                   Choose Your Plan
@@ -375,7 +380,7 @@ export function Onboarding({ onComplete }: OnboardingProps) {
             </div>
 
             {/* Appeal Promise Section moved below pricing */}
-            <div className="mt-20 text-center space-y-6">
+            <div className="mt-28 text-center space-y-6">
               <div className="space-y-4">
                 <h2 className="text-2xl lg:text-3xl font-medium text-foreground">
                   And if your claim is rejected… we're still with you.
@@ -395,7 +400,7 @@ export function Onboarding({ onComplete }: OnboardingProps) {
             </div>
 
             {/* FAQ Section */}
-            <div className="mt-20 max-w-4xl mx-auto space-y-8">
+            <div className="mt-28 max-w-4xl mx-auto space-y-8">
               <h2 className="text-2xl lg:text-3xl font-medium text-center text-foreground">
                 Frequently Asked Questions
               </h2>
@@ -484,7 +489,7 @@ export function Onboarding({ onComplete }: OnboardingProps) {
             </div>
 
             {/* Final CTA Section */}
-            <div className="mt-20 text-center space-y-6">
+            <div className="mt-28 text-center space-y-6">
               <div className="space-y-4">
                 <h2 className="text-2xl lg:text-3xl font-medium text-foreground">
                   Don't risk losing the benefits you deserve.
@@ -508,6 +513,7 @@ export function Onboarding({ onComplete }: OnboardingProps) {
             </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 }
