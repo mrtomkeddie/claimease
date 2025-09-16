@@ -107,8 +107,8 @@ export function Onboarding({ onComplete }: OnboardingProps) {
                   </div>
               </div>
 
-              <div className="lg:col-span-5 flex items-center justify-center">
-                <div className="w-full max-w-md lg:sticky lg:top-20" id="start-claim">{/* adjusted offset for clearer stickiness */}
+              <div className="lg:col-span-5 flex items-start justify-center pt-6 lg:pt-10">
+                <div className="w-full max-w-md lg:sticky lg:top-26" id="start-claim">{/* adjusted offset for clearer stickiness */}
                   <Card className="w-full glass-effect backdrop-blur-lg border-primary/30">
                     <CardHeader className="text-center space-y-4 pb-6">
                       <div className="w-14 h-14 gradient-primary rounded-2xl flex items-center justify-center mx-auto glow-primary">
@@ -382,7 +382,7 @@ export function Onboarding({ onComplete }: OnboardingProps) {
             {/* Appeal Promise Section moved below pricing */}
             <div className="mt-28 text-center space-y-6">
               <div className="space-y-4">
-                <h2 className="text-2xl lg:text-3xl font-medium text-foreground">
+                <h2 className="text-2xl lg:text-3xl font-medium text-green-800 dark:text-green-200">
                   And if your claim is rejected… we're still with you.
                 </h2>
                 <div className="max-w-3xl mx-auto space-y-4">

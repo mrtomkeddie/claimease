@@ -61,7 +61,7 @@ export default function ContactPage() {
     <div className="min-h-screen flex flex-col">
       <TopMenu />
       
-      <main className="container mx-auto px-4 pt-20 md:pt-24 pb-12 flex-1">
+      <main className="container mx-auto px-4 pt-32 md:pt-40 pb-12 flex-1">
         <div className="max-w-2xl mx-auto">
           {/* Header */}
           <div className="text-center mb-12">
