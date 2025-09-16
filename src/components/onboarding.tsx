@@ -107,20 +107,20 @@ export function Onboarding({ onComplete }: OnboardingProps) {
       <div className="relative">{/* removed overflow-hidden to allow sticky to work  */}
         <div className="absolute inset-0 gradient-dark-brand pointer-events-none"></div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-28 md:pb-12 flex flex-col min-h-screen">{/* extra bottom padding so mobile CTA doesn't overlap */}
-            <div className="flex justify-center mb-6" ref={heroLogoRef}>
+            <div className="flex justify-center mb-4 sm:mb-6" ref={heroLogoRef}>
               <ClaimEaseLogo />
             </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 flex-1 lg:items-center pb-12 pt-6">
-              <div className="lg:col-span-7 flex flex-col justify-center space-y-8" ref={heroContentRef}>
-                <div className="space-y-4">
-                    <h1 className={`${gilroyHeavy.className} text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight leading-[1.1] text-foreground max-w-3xl`}>
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-12 flex-1 lg:items-center pb-12 pt-4 sm:pt-6">
+              <div className="lg:col-span-7 flex flex-col justify-center space-y-4 sm:space-y-6 lg:space-y-8" ref={heroContentRef}>
+                <div className="space-y-3 sm:space-y-4">
+                    <h1 className={`${gilroyHeavy.className} text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight leading-[1.1] text-foreground max-w-3xl`}>
                       Struggling with your PIP application?{' '}
                       <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
                         ClaimEase makes it easier.
                       </span>
                     </h1>
-                    <p className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-2xl">
+                    <p className="text-base sm:text-lg md:text-xl text-muted-foreground leading-relaxed max-w-2xl">
                       Answer simple questions. We'll turn them into clear, DWP-friendly answers — in your own words, made stronger.
                     </p>
                     {/* Hero CTA removed: form is visible within hero */}
@@ -129,31 +129,31 @@ export function Onboarding({ onComplete }: OnboardingProps) {
                   </div>
               </div>
 
-              <div className="lg:col-span-5 flex items-start justify-center pt-6 lg:pt-10" ref={formRef}>
+              <div className="lg:col-span-5 flex items-start justify-center pt-4 sm:pt-6 lg:pt-10" ref={formRef}>
                 <div className="w-full max-w-md lg:sticky lg:top-26" id="start-claim">{/* adjusted offset for clearer stickiness */}
                   <Card className="w-full glass-effect backdrop-blur-lg border-primary/30">
-                    <CardHeader className="text-center space-y-4 pb-6">
-                      <div className="w-14 h-14 gradient-primary rounded-2xl flex items-center justify-center mx-auto glow-primary">
-                        <Sparkles className="h-7 w-7 text-primary-foreground" />
+                    <CardHeader className="text-center space-y-3 sm:space-y-4 pb-4 sm:pb-6">
+                      <div className="w-12 h-12 sm:w-14 sm:h-14 gradient-primary rounded-2xl flex items-center justify-center mx-auto glow-primary">
+                        <Sparkles className="h-6 w-6 sm:h-7 sm:w-7 text-primary-foreground" />
                       </div>
-                      <div className="space-y-3">
-                        <CardTitle className={`${gilroyHeavy.className} text-xl lg:text-2xl text-foreground`}>Start Your Claim</CardTitle>
-                        <CardDescription className="text-sm lg:text-base leading-relaxed text-muted-foreground">
+                      <div className="space-y-2 sm:space-y-3">
+                        <CardTitle className={`${gilroyHeavy.className} text-lg sm:text-xl lg:text-2xl text-foreground`}>Start Your Claim</CardTitle>
+                        <CardDescription className="text-sm sm:text-sm lg:text-base leading-relaxed text-muted-foreground px-2 sm:px-0">
                           Let's get started. Enter your details below.
                         </CardDescription>
                       </div>
                     </CardHeader>
                     
-                    <CardContent className="space-y-6">
+                    <CardContent className="space-y-4 sm:space-y-6 px-4 sm:px-6">
                       <div className="space-y-2">
                        {/* Plan Toggle */}
-                       <div className="space-y-4">
+                       <div className="space-y-3 sm:space-y-4">
                          <Label className="text-sm text-foreground">Choose Your Plan</Label>
                          <div className="grid grid-cols-2 gap-2 p-1 bg-muted/50 rounded-lg">
                            <button
                              type="button"
                              onClick={() => setSelectedPlan('standard')}
-                             className={`px-3 py-2 text-sm font-medium rounded-md transition-all duration-200 ${
+                             className={`px-3 py-3 sm:py-2 text-sm font-medium rounded-md transition-all duration-200 min-h-[44px] sm:min-h-[auto] ${
                                selectedPlan === 'standard'
                                  ? 'bg-primary text-primary-foreground shadow-sm'
                                  : 'text-muted-foreground hover:text-foreground'
@@ -164,7 +164,7 @@ export function Onboarding({ onComplete }: OnboardingProps) {
                            <button
                              type="button"
                              onClick={() => setSelectedPlan('pro')}
-                             className={`px-3 py-2 text-sm font-medium rounded-md transition-all duration-200 ${
+                             className={`px-3 py-3 sm:py-2 text-sm font-medium rounded-md transition-all duration-200 min-h-[44px] sm:min-h-[auto] ${
                                selectedPlan === 'pro'
                                  ? 'bg-accent text-accent-foreground shadow-sm'
                                  : 'text-muted-foreground hover:text-foreground'
@@ -176,7 +176,7 @@ export function Onboarding({ onComplete }: OnboardingProps) {
                        </div>
 
                        {/* Dynamic Plan Benefits */}
-                      <ul className={`space-y-2 text-xs text-muted-foreground mt-0 ${selectedPlan === 'pro' ? 'text-right' : ''}`}>
+                      <ul className={`space-y-2 text-xs sm:text-xs text-muted-foreground mt-0 ${selectedPlan === 'pro' ? 'text-right' : ''}`}>
                          {selectedPlan === 'standard' ? (
                            <>
                              <li className={`flex items-center gap-2 ${selectedPlan === 'pro' ? 'justify-end' : ''}`}>
@@ -222,29 +222,31 @@ export function Onboarding({ onComplete }: OnboardingProps) {
                               onChange={(e) => setFormData(prev => ({ ...prev, email: e.target.value }))}
                               placeholder="your.email@example.com"
                               required
-                              className="text-sm py-2.5 bg-input/80 backdrop-blur-sm border-border/50 focus:border-primary focus:ring-primary/20 text-foreground"
+                              className="text-sm py-3 sm:py-2.5 bg-input/80 backdrop-blur-sm border-border/50 focus:border-primary focus:ring-primary/20 text-foreground min-h-[44px] sm:min-h-[auto]"
                             />
                           </div>
                         </div>
 
                         <Button 
                           type="submit" 
-                          className="w-full text-sm py-2.5 bg-primary hover:bg-primary/90 text-primary-foreground glow-primary hover-lift transition-all duration-200 group"
+                          className="w-full text-sm py-3 sm:py-2.5 bg-primary hover:bg-primary/90 text-primary-foreground glow-primary hover-lift transition-all duration-200 group min-h-[48px] sm:min-h-[auto]"
                           disabled={isSubmitting}
                         >
                           <Sparkles className="h-4 w-4 mr-2" />
-                          {isSubmitting 
-                            ? 'Logging in...' 
-                            : selectedPlan === 'pro' 
-                              ? 'Start My Pro Claim for £79' 
-                              : 'Start My Claim for £49'
-                          }
+                          <span className="text-sm sm:text-sm">
+                            {isSubmitting 
+                              ? 'Logging in...' 
+                              : selectedPlan === 'pro' 
+                                ? 'Start My Pro Claim for £79' 
+                                : 'Start My Claim for £49'
+                            }
+                          </span>
                           <ArrowRight className="h-4 w-4 ml-2 group-hover:translate-x-1 transition-transform" />
                         </Button>
                       </form>
 
                       <div className="text-center space-y-2 pt-3 border-t border-border/30">
-                        <div className="flex items-center justify-center gap-3 text-xs text-muted-foreground">
+                        <div className="flex items-center justify-center gap-2 sm:gap-3 text-xs text-muted-foreground flex-wrap">
                           <div className="flex items-center gap-1">
                             <Database className="h-3 w-3" />
                             <span>Secure Storage</span>
@@ -267,27 +269,27 @@ export function Onboarding({ onComplete }: OnboardingProps) {
             </div>
 
             {/* Key Benefits Section */}
-            <div className="mt-24 max-w-6xl mx-auto" ref={benefitsRef}>
-              <div className="text-center space-y-4 mb-12">
-                <h2 className={`${gilroyHeavy.className} text-3xl lg:text-4xl font-medium text-foreground`}>
+            <div className="mt-16 sm:mt-20 lg:mt-24 max-w-6xl mx-auto" ref={benefitsRef}>
+              <div className="text-center space-y-3 sm:space-y-4 mb-8 sm:mb-10 lg:mb-12 px-4 sm:px-0">
+                <h2 className={`${gilroyHeavy.className} text-2xl sm:text-3xl lg:text-4xl font-medium text-foreground`}>
                   Why Choose ClaimEase?
                 </h2>
-                <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+                <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto">
                   Built specifically for PIP applications with features that make the difference
                 </p>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 lg:gap-8 px-4 sm:px-0">
                 {features.map((feature, index) => {
                   const Icon = feature.icon;
                   return (
-                    <div key={index} className="flex items-start gap-4 rounded-2xl border border-border/50 bg-card/40 p-6 hover:bg-card/60 transition-colors">
-                      <div className="w-12 h-12 rounded-xl bg-card/60 flex items-center justify-center flex-shrink-0">
-                        <Icon className={`h-5 w-5 ${feature.color}`} />
+                    <div key={index} className="flex items-start gap-3 sm:gap-4 rounded-2xl border border-border/50 bg-card/40 p-4 sm:p-6 hover:bg-card/60 transition-colors">
+                      <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-card/60 flex items-center justify-center flex-shrink-0">
+                        <Icon className={`h-4 w-4 sm:h-5 sm:w-5 ${feature.color}`} />
                       </div>
-                      <div className="space-y-2">
-                        <h3 className="text-lg font-semibold text-foreground">{feature.title}</h3>
-                        <p className="text-base text-muted-foreground leading-relaxed">{feature.description}</p>
+                      <div className="space-y-1 sm:space-y-2">
+                        <h3 className="text-base sm:text-lg font-semibold text-foreground">{feature.title}</h3>
+                        <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">{feature.description}</p>
                       </div>
                     </div>
                   );
@@ -296,8 +298,8 @@ export function Onboarding({ onComplete }: OnboardingProps) {
             </div>
 
             {/* How It Works Section - Minimal Vertical Steps */}
-            <div className="mt-32 max-w-4xl mx-auto" ref={howItWorksRef}>
-              <div className="text-center space-y-4 mb-16">
+            <div className="mt-20 sm:mt-24 lg:mt-32 max-w-4xl mx-auto px-4 sm:px-0" ref={howItWorksRef}>
+              <div className="text-center space-y-3 sm:space-y-4 mb-12 sm:mb-14 lg:mb-16">
                 <h2 className={`${gilroyHeavy.className} text-3xl lg:text-4xl font-medium text-foreground`}>
                   How it works
                 </h2>
@@ -370,11 +372,11 @@ export function Onboarding({ onComplete }: OnboardingProps) {
               
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
                 {/* ClaimEase Standard */}
-                <Card className="glass-effect backdrop-blur-lg border-primary/30 relative flex flex-col stagger-item">
-                  <CardContent className="p-6 flex flex-col flex-1">
+                <Card className="glass-effect backdrop-blur-lg border-primary/30 relative flex flex-col stagger-item hover:border-primary/50 transition-all duration-300 active:scale-[0.98] sm:active:scale-100">
+                  <CardContent className="p-4 sm:p-6 flex flex-col flex-1">
                     <div className="text-center space-y-3">
-                      <h3 className="text-xl font-semibold text-foreground">ClaimEase Standard</h3>
-                      <div className="text-3xl font-bold text-primary">£49</div>
+                      <h3 className="text-lg sm:text-xl font-semibold text-foreground">ClaimEase Standard</h3>
+                      <div className="text-2xl sm:text-3xl font-bold text-primary">£49</div>
                       <div className="text-sm text-muted-foreground">one-time</div>
                       <div className="text-sm text-muted-foreground/80">Perfect for your first PIP claim</div>
                     </div>
@@ -394,23 +396,23 @@ export function Onboarding({ onComplete }: OnboardingProps) {
                       </li>
                     </ul>
                     
-                    <Button onClick={scrollToForm} className="w-full bg-primary hover:bg-primary/90 text-primary-foreground mt-6">
+                    <Button onClick={scrollToForm} className="w-full bg-primary hover:bg-primary/90 active:bg-primary/80 text-primary-foreground mt-6 min-h-[44px] py-3 transition-all duration-200">
                       Start My Claim for £49 →
                     </Button>
                   </CardContent>
                 </Card>
 
                 {/* ClaimEase Pro */}
-                <Card className="glass-effect backdrop-blur-lg border-accent/30 relative flex flex-col stagger-item">
+                <Card className="glass-effect backdrop-blur-lg border-accent/30 relative flex flex-col stagger-item hover:border-accent/50 transition-all duration-300 active:scale-[0.98] sm:active:scale-100">
                   <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
                     <div className="bg-accent text-accent-foreground px-3 py-1 rounded-full text-xs font-medium">
                       Most Popular
                     </div>
                   </div>
-                  <CardContent className="p-6 flex flex-col flex-1">
+                  <CardContent className="p-4 sm:p-6 flex flex-col flex-1">
                     <div className="text-center space-y-3">
-                      <h3 className="text-xl font-semibold text-foreground">ClaimEase Pro</h3>
-                      <div className="text-3xl font-bold text-accent">£79</div>
+                      <h3 className="text-lg sm:text-xl font-semibold text-foreground">ClaimEase Pro</h3>
+                      <div className="text-2xl sm:text-3xl font-bold text-accent">£79</div>
                       <div className="text-sm text-muted-foreground">one-time</div>
                       <div className="text-sm text-muted-foreground/80">For ongoing or complex cases</div>
                     </div>
@@ -430,7 +432,7 @@ export function Onboarding({ onComplete }: OnboardingProps) {
                       </li>
                     </ul>
                     
-                    <Button onClick={scrollToForm} className="w-full bg-accent hover:bg-accent/90 text-accent-foreground mt-6">
+                    <Button onClick={scrollToForm} className="w-full bg-accent hover:bg-accent/90 active:bg-accent/80 text-accent-foreground mt-6 min-h-[44px] py-3 transition-all duration-200">
                       Get Pro for £79 →
                     </Button>
                   </CardContent>
@@ -563,14 +565,14 @@ export function Onboarding({ onComplete }: OnboardingProps) {
                 </p>
               </div>
               
-              <Button size="lg" onClick={scrollToForm} className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-3">
+              <Button size="lg" onClick={scrollToForm} className="bg-primary hover:bg-primary/90 active:bg-primary/80 text-primary-foreground px-8 py-3 min-h-[44px] transition-all duration-200">
                 Start My Claim for £49 →
               </Button>
             </div>
 
             {/* Mobile Sticky CTA */}
-            <div className="md:hidden fixed bottom-4 left-0 right-0 flex justify-center z-50">
-              <Button onClick={scrollToForm} className="px-6 py-3 bg-primary text-primary-foreground shadow-lg rounded-full">
+            <div className="md:hidden fixed bottom-4 left-0 right-0 flex justify-center z-50 px-4">
+              <Button onClick={scrollToForm} className="px-6 py-3 bg-primary text-primary-foreground shadow-lg rounded-full min-h-[44px] hover:bg-primary/90 active:bg-primary/80 transition-all duration-200">
                 Start My Claim for £49 →
                 <ArrowRight className="h-4 w-4 ml-2" />
               </Button>
