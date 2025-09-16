@@ -186,7 +186,7 @@ export function Onboarding({ onComplete }: OnboardingProps) {
             </div>
 
             {/* Key Benefits Section */}
-            <div className="mt-20 max-w-6xl mx-auto">
+            <div className="mt-24 max-w-6xl mx-auto">
               <div className="text-center space-y-4 mb-12">
                 <h2 className={`${gilroyHeavy.className} text-3xl lg:text-4xl font-medium text-foreground`}>
                   Why Choose ClaimEase?
@@ -215,7 +215,7 @@ export function Onboarding({ onComplete }: OnboardingProps) {
             </div>
 
             {/* How It Works Section - Minimal Vertical Steps */}
-            <div className="mt-20 max-w-4xl mx-auto">
+            <div className="mt-24 max-w-4xl mx-auto">
               <div className="text-center space-y-4 mb-16">
                 <h2 className={`${gilroyHeavy.className} text-3xl lg:text-4xl font-medium text-foreground`}>
                   How it works
@@ -280,7 +280,7 @@ export function Onboarding({ onComplete }: OnboardingProps) {
             </div>
 
             {/* Pricing Section */}
-            <div className="mt-16 text-center space-y-8">
+            <div className="mt-20 text-center space-y-8">
               <div className="space-y-4">
                 <h2 className="text-2xl lg:text-3xl font-medium text-foreground">
                   Choose Your Plan
@@ -375,7 +375,7 @@ export function Onboarding({ onComplete }: OnboardingProps) {
             </div>
 
             {/* Appeal Promise Section moved below pricing */}
-            <div className="mt-16 text-center space-y-6">
+            <div className="mt-20 text-center space-y-6">
               <div className="space-y-4">
                 <h2 className="text-2xl lg:text-3xl font-medium text-foreground">
                   And if your claim is rejected… we're still with you.
@@ -395,7 +395,7 @@ export function Onboarding({ onComplete }: OnboardingProps) {
             </div>
 
             {/* FAQ Section */}
-            <div className="mt-16 max-w-4xl mx-auto space-y-8">
+            <div className="mt-20 max-w-4xl mx-auto space-y-8">
               <h2 className="text-2xl lg:text-3xl font-medium text-center text-foreground">
                 Frequently Asked Questions
               </h2>
@@ -484,7 +484,7 @@ export function Onboarding({ onComplete }: OnboardingProps) {
             </div>
 
             {/* Final CTA Section */}
-            <div className="mt-16 text-center space-y-6">
+            <div className="mt-20 text-center space-y-6">
               <div className="space-y-4">
                 <h2 className="text-2xl lg:text-3xl font-medium text-foreground">
                   Don't risk losing the benefits you deserve.
