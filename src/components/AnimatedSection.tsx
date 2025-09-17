@@ -1,5 +1,3 @@
-'use client';
-
 import React from 'react';
 import { useIntersectionObserver } from '@/hooks/use-intersection-observer';
 import { cn } from '@/lib/utils';

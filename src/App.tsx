@@ -3,17 +3,19 @@ import { Routes, Route } from 'react-router-dom';
 import { useUser } from '@/contexts/UserContext';
 import { TopMenu } from '@/components/TopMenu';
 import { FooterSlim } from '@/components/FooterSlim';
-import { ClaimForm } from '@/components/ClaimForm';
-import { SavedClaims } from '@/components/SavedClaims';
+import { ClaimForm } from '@/components/claim-form';
+import SavedClaims from '@/components/SavedClaims';
 import { Button } from '@/components/ui/button';
 import { List, Plus } from 'lucide-react';
 import { UpsellModal } from '@/components/UpsellModal';
+import { Onboarding } from '@/components/onboarding';
 import AccountLayout from '@/pages/AccountLayout';
 import AccountPage from '@/pages/AccountPage';
 import ContactPage from '@/pages/ContactPage';
 import PrintPage from '@/pages/PrintPage';
 import PrivacyPage from '@/pages/PrivacyPage';
 import TermsPage from '@/pages/TermsPage';
+import type { User } from '@/contexts/UserContext';
 
 type ViewMode = 'saved-claims' | 'claim-form';
 
@@ -34,6 +36,11 @@ function HomePage() {
     incrementClaimCount();
     setViewMode('saved-claims');
   };
+
+  // Show onboarding if no user
+  if (!user) {
+    return <Onboarding onComplete={(newUser: User) => setUser(newUser)} />;
+  }
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -82,6 +89,10 @@ function HomePage() {
       <UpsellModal 
         isOpen={showUpsellModal}
         onClose={() => setShowUpsellModal(false)}
+        onPurchase={() => {
+          setShowUpsellModal(false);
+          setViewMode('claim-form');
+        }}
       />
     </div>
   );
