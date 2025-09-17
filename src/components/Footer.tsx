@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import { Link } from 'react-router-dom';
 
 export function Footer() {
   return (
@@ -19,13 +19,13 @@ export function Footer() {
           
           {/* Links */}
           <div className="flex justify-center gap-6 text-sm">
-            <Link href="/privacy" className="text-primary hover:text-primary/80 transition-colors">
+            <Link to="/privacy" className="text-primary hover:text-primary/80 transition-colors">
               Privacy Policy
             </Link>
-            <Link href="/terms" className="text-primary hover:text-primary/80 transition-colors">
+            <Link to="/terms" className="text-primary hover:text-primary/80 transition-colors">
               Terms of Service
             </Link>
-            <Link href="/contact" className="text-primary hover:text-primary/80 transition-colors">
+            <Link to="/contact" className="text-primary hover:text-primary/80 transition-colors">
               Contact
             </Link>
           </div>

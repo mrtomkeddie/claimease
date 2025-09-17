@@ -12,6 +12,7 @@ export default {
       fontFamily: {
         body: ['Inter', 'sans-serif'],
         headline: ['Poppins', 'sans-serif'],
+        'gilroy-heavy': ['Gilroy-Heavy', 'sans-serif'],
         code: ['monospace'],
       },
       colors: {

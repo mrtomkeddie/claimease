@@ -1,7 +1,3 @@
-
-// src/ai/flows/suggest-response.ts
-'use server';
-
 /**
  * @fileOverview Provides AI-powered suggestions for form responses based on the current question and previous answers.
  *

@@ -1,8 +1,5 @@
-'use client';
-
 import React from 'react';
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { Link, useLocation } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { ClaimEaseLogo } from './ClaimEaseLogo';
 import { useUser } from '@/contexts/UserContext';
@@ -19,7 +16,7 @@ import {
 
 export function TopMenu() {
   const { user, setUser, getRemainingClaims } = useUser();
-  const pathname = usePathname();
+  const location = useLocation();
 
   const handleLogout = () => {
     setUser(null);
@@ -33,15 +30,15 @@ export function TopMenu() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center gap-3">
-            {pathname !== '/' && (
+            {location.pathname !== '/' && (
                <Button asChild variant="ghost" size="sm">
-                <Link href="/">
+                <Link to="/">
                   <ArrowLeft className="mr-2 h-4 w-4" />
                   Back to Claim
                 </Link>
               </Button>
             )}
-             <Link href="/">
+             <Link to="/">
               <ClaimEaseLogo />
             </Link>
           </div>
@@ -82,7 +79,7 @@ export function TopMenu() {
                 </DropdownMenuLabel>
                 <DropdownMenuSeparator />
                 <DropdownMenuItem asChild>
-                  <Link href="/account">
+                  <Link to="/account">
                     <UserIcon className="mr-2 h-4 w-4" />
                     <span>My Account</span>
                   </Link>
