@@ -1,6 +1,9 @@
 import React from 'react';
 import './globals.css';
 import { inter, poppins } from '@/lib/fonts';
+import { ThemeProvider } from 'next-themes';
+import { Toaster } from '@/components/ui/toaster';
+import { UserProvider } from '@/contexts/UserContext';
 
 export const metadata = {
   title: 'ClaimEase — Make your PIP claim easier',
@@ -36,7 +39,12 @@ export default function RootLayout({
         suppressHydrationWarning 
         className={`${inter.className} ${poppins.variable} min-h-screen font-sans antialiased bg-background text-foreground`}
       >
-        {children}
+        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
+          <UserProvider>
+            {children}
+            <Toaster />
+          </UserProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

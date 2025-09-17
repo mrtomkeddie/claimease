@@ -1,9 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { ThemeProvider } from 'next-themes';
-import { Toaster } from '@/components/ui/toaster';
-import { UserProvider, useUser } from '@/contexts/UserContext';
+import { useUser } from '@/contexts/UserContext';
 import { TopMenu } from '@/components/TopMenu';
 import { FooterSlim } from '@/components/FooterSlim';
 import { Onboarding } from '@/components/onboarding';
@@ -111,11 +109,6 @@ function AppContent() {
 
 export default function HomeClient() {
   return (
-    <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
-      <UserProvider>
-        <AppContent />
-        <Toaster />
-      </UserProvider>
-    </ThemeProvider>
+    <AppContent />
   );
 }
