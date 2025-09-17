@@ -1,7 +1,7 @@
 
 'use client';
 
-import { useState } from 'react';
+import { useState, Suspense } from 'react';
 import dynamic from 'next/dynamic';
 import { useUser } from '@/contexts/UserContext';
 import { TopMenu } from '@/components/TopMenu';
@@ -14,8 +14,14 @@ import { UpsellModal } from '@/components/UpsellModal';
 import { UserTier } from '@/lib/constants';
 
 // Dynamic imports to reduce initial bundle
-const Onboarding = dynamic(() => import('@/components/onboarding').then(m => m.Onboarding), { ssr: false });
-const ClaimForm = dynamic(() => import('@/components/claim-form').then(m => m.ClaimForm), { ssr: false });
+const Onboarding = dynamic(() => import('@/components/onboarding').then(m => m.Onboarding), { 
+  ssr: false,
+  loading: () => <div className="min-h-screen bg-background flex items-center justify-center"><div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div></div>
+});
+const ClaimForm = dynamic(() => import('@/components/claim-form').then(m => m.ClaimForm), { 
+  ssr: false,
+  loading: () => <div className="min-h-screen bg-background flex items-center justify-center"><div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div></div>
+});
 const SavedClaims = dynamic(() => import('@/components/SavedClaims').then(m => m.default), { ssr: false });
 
 type ViewMode = 'saved-claims' | 'claim-form';

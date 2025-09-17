@@ -1,12 +1,20 @@
 
 'use client';
 
-import React from 'react';
+import React, { Suspense } from 'react';
 import './globals.css';
 import { ThemeProvider } from 'next-themes';
 import { Toaster } from '@/components/ui/toaster';
 import { UserProvider } from '@/contexts/UserContext';
 import { inter, poppins } from '@/lib/fonts';
+
+function LoadingFallback() {
+  return (
+    <div className="min-h-screen bg-background flex items-center justify-center">
+      <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div>
+    </div>
+  );
+}
 
 export default function RootLayout({
   children,
@@ -52,10 +60,14 @@ export default function RootLayout({
       </head>
       <body suppressHydrationWarning className={`${inter.className} ${poppins.variable} min-h-screen font-sans antialiased bg-background text-foreground`}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          <UserProvider>
-            {children}
-            <Toaster />
-          </UserProvider>
+          <Suspense fallback={<LoadingFallback />}>
+            <UserProvider>
+              <Suspense fallback={<LoadingFallback />}>
+                {children}
+              </Suspense>
+              <Toaster />
+            </UserProvider>
+          </Suspense>
         </ThemeProvider>
       </body>
     </html>
