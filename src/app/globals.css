@@ -397,10 +397,18 @@
   transform: none;
 }
 
-/* Smooth on-appear animations */
+/* Fixed smooth on-appear animations with proper initial states */
 @media (prefers-reduced-motion: no-preference) {
-  .animate-on-appear {
+  /* Ensure elements start hidden and animate in */
+  .animate-on-appear,
+  .animate-fade-in,
+  .animate-slide-up,
+  .animate-scale-in {
     opacity: 0;
+    will-change: opacity, transform;
+  }
+  
+  .animate-on-appear {
     transform: translateY(20px);
     transition: opacity 600ms cubic-bezier(0.16, 1, 0.3, 1), 
                 transform 600ms cubic-bezier(0.16, 1, 0.3, 1);
@@ -412,7 +420,6 @@
   }
   
   .animate-fade-in {
-    opacity: 0;
     transition: opacity 500ms ease-out;
   }
   
@@ -421,7 +428,6 @@
   }
   
   .animate-slide-up {
-    opacity: 0;
     transform: translateY(30px);
     transition: opacity 700ms cubic-bezier(0.16, 1, 0.3, 1), 
                 transform 700ms cubic-bezier(0.16, 1, 0.3, 1);
@@ -433,7 +439,6 @@
   }
   
   .animate-scale-in {
-    opacity: 0;
     transform: scale(0.95);
     transition: opacity 500ms ease-out, 
                 transform 500ms cubic-bezier(0.16, 1, 0.3, 1);
@@ -450,6 +455,7 @@
     transform: translateY(20px);
     transition: opacity 600ms cubic-bezier(0.16, 1, 0.3, 1), 
                 transform 600ms cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: opacity, transform;
   }
   
   .animate-stagger.animate-in > *:nth-child(1) {
@@ -479,6 +485,15 @@
   .animate-stagger.animate-in > * {
     opacity: 1;
     transform: translateY(0);
+  }
+  
+  /* Clean up will-change after animations complete */
+  .animate-on-appear.animate-in,
+  .animate-fade-in.animate-in,
+  .animate-slide-up.animate-in,
+  .animate-scale-in.animate-in,
+  .animate-stagger.animate-in > * {
+    will-change: auto;
   }
 }
 

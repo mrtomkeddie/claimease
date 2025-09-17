@@ -11,6 +11,7 @@ interface AnimatedSectionProps {
   delay?: number;
   threshold?: number;
   rootMargin?: string;
+  debug?: boolean;
 }
 
 export function AnimatedSection({
@@ -19,7 +20,8 @@ export function AnimatedSection({
   animation = 'on-appear',
   delay = 0,
   threshold = 0.1,
-  rootMargin = '0px 0px -50px 0px',
+  rootMargin = '0px 0px -100px 0px',
+  debug = false,
 }: AnimatedSectionProps) {
   const { ref, isIntersecting } = useIntersectionObserver({
     threshold,
@@ -27,6 +29,12 @@ export function AnimatedSection({
     triggerOnce: true,
   });
 
+  // Debug logging
+  React.useEffect(() => {
+    if (debug) {
+      console.log(`AnimatedSection (${animation}):`, { isIntersecting });
+    }
+  }, [isIntersecting, animation, debug]);
   return (
     <div
       ref={ref}
@@ -38,6 +46,8 @@ export function AnimatedSection({
       style={{
         transitionDelay: delay ? `${delay}ms` : undefined,
       }}
+      data-animation={animation}
+      data-intersecting={isIntersecting}
     >
       {children}
     </div>
