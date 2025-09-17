@@ -1,6 +1,3 @@
-
-"use client";
-
 import type { UseFormReturn } from 'react-hook-form';
 import { FormControl, FormField, FormItem, FormMessage } from '@/components/ui/form';
 import { Textarea } from '@/components/ui/textarea';

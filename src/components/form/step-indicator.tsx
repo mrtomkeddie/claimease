@@ -1,6 +1,3 @@
-
-"use client";
-
 import { cn } from "@/lib/utils";
 import { FORM_STEPS } from "@/lib/constants";
 import { Check } from 'lucide-react';

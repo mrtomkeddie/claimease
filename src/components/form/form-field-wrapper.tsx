@@ -1,6 +1,3 @@
-
-'use client';
-
 import { useState } from "react";
 import { FormLabel } from "@/components/ui/form"
 import { GuidanceTooltip } from "./guidance-tooltip"
