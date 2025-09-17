@@ -12,6 +12,7 @@ import { Footer } from './Footer';
 import type { User } from '@/contexts/UserContext';
 import { UserTier } from '@/lib/constants';
 import { poppins, gilroyHeavy } from '@/lib/fonts';
+import { AnimatedSection } from './AnimatedSection';
 
 interface OnboardingProps {
   onComplete: (user: User) => void;
@@ -108,12 +109,14 @@ export function Onboarding({ onComplete }: OnboardingProps) {
         <div className="absolute inset-0 gradient-dark-brand pointer-events-none"></div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-28 md:pb-12 flex flex-col min-h-screen">{/* extra bottom padding so mobile CTA doesn't overlap */}
             <div className="flex justify-center mb-4 sm:mb-6" ref={heroLogoRef}>
-              <ClaimEaseLogo />
+              <AnimatedSection animation="fade-in">
+                <ClaimEaseLogo />
+              </AnimatedSection>
             </div>
 
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-12 flex-1 lg:items-center pb-12 pt-4 sm:pt-6">
               <div className="lg:col-span-7 flex flex-col justify-center space-y-4 sm:space-y-6 lg:space-y-8" ref={heroContentRef}>
-                <div className="space-y-3 sm:space-y-4">
+                <AnimatedSection animation="slide-up" className="space-y-3 sm:space-y-4">
                     <h1 className={`${gilroyHeavy.className} text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight leading-[1.1] text-foreground max-w-3xl`}>
                       Struggling with your PIP application?{' '}
                       <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
@@ -126,12 +129,13 @@ export function Onboarding({ onComplete }: OnboardingProps) {
                     {/* Hero CTA removed: form is visible within hero */}
                     {/* Previously contained a scroll button and helper text. Intentionally left blank for layout spacing. */}
                     {/* Spacer removed to tighten layout now that CTA is gone */}
-                  </div>
+                </AnimatedSection>
               </div>
 
               <div className="lg:col-span-5 flex items-start justify-center pt-4 sm:pt-6 lg:pt-10" ref={formRef}>
                 <div className="w-full max-w-md lg:sticky lg:top-26" id="start-claim">{/* adjusted offset for clearer stickiness */}
-                  <Card className="w-full glass-effect backdrop-blur-lg border-primary/30">
+                  <AnimatedSection animation="scale-in" delay={200}>
+                    <Card className="w-full glass-effect backdrop-blur-lg border-primary/30">
                     <CardHeader className="text-center space-y-3 sm:space-y-4 pb-4 sm:pb-6">
                       <div className="w-12 h-12 sm:w-14 sm:h-14 gradient-primary rounded-2xl flex items-center justify-center mx-auto glow-primary">
                         <Sparkles className="h-6 w-6 sm:h-7 sm:w-7 text-primary-foreground" />
@@ -263,23 +267,24 @@ export function Onboarding({ onComplete }: OnboardingProps) {
                       </div>
 
                     </CardContent>
-                  </Card>
+                    </Card>
+                  </AnimatedSection>
                 </div>
               </div>
             </div>
 
             {/* Key Benefits Section */}
             <div className="mt-16 sm:mt-20 lg:mt-24 max-w-6xl mx-auto" ref={benefitsRef}>
-              <div className="text-center space-y-3 sm:space-y-4 mb-8 sm:mb-10 lg:mb-12 px-4 sm:px-0">
+              <AnimatedSection animation="fade-in" className="text-center space-y-3 sm:space-y-4 mb-8 sm:mb-10 lg:mb-12 px-4 sm:px-0">
                 <h2 className={`${gilroyHeavy.className} text-2xl sm:text-3xl lg:text-4xl font-medium text-foreground`}>
                   Why Choose ClaimEase?
                 </h2>
                 <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto">
                   Built specifically for PIP applications with features that make the difference
                 </p>
-              </div>
+              </AnimatedSection>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 lg:gap-8 px-4 sm:px-0">
+              <AnimatedSection animation="stagger" className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 lg:gap-8 px-4 sm:px-0">
                 {features.map((feature, index) => {
                   const Icon = feature.icon;
                   return (
@@ -294,23 +299,23 @@ export function Onboarding({ onComplete }: OnboardingProps) {
                     </div>
                   );
                 })}
-              </div>
+              </AnimatedSection>
             </div>
 
             {/* How It Works Section - Minimal Vertical Steps */}
             <div className="mt-20 sm:mt-24 lg:mt-32 max-w-4xl mx-auto px-4 sm:px-0" ref={howItWorksRef}>
-              <div className="text-center space-y-3 sm:space-y-4 mb-12 sm:mb-14 lg:mb-16">
+              <AnimatedSection animation="fade-in" className="text-center space-y-3 sm:space-y-4 mb-12 sm:mb-14 lg:mb-16">
                 <h2 className={`${gilroyHeavy.className} text-3xl lg:text-4xl font-medium text-foreground`}>
                   How it works
                 </h2>
                 <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
                   Three simple steps to strengthen your PIP claim
                 </p>
-              </div>
+              </AnimatedSection>
 
               <div className="space-y-12">
                 {/* Step 1 */}
-                <div className="flex flex-col md:flex-row items-start gap-8 stagger-item">
+                <AnimatedSection animation="slide-up" className="flex flex-col md:flex-row items-start gap-8">
                   <div className="flex-shrink-0 w-16 md:w-20">
                     <div className="text-6xl md:text-7xl font-light text-primary/20 leading-none">
                       01
@@ -324,10 +329,10 @@ export function Onboarding({ onComplete }: OnboardingProps) {
                       We'll guide you through plain English questions about your condition and daily challenges. No confusing jargon or complex forms to navigate.
                     </p>
                   </div>
-                </div>
+                </AnimatedSection>
 
                 {/* Step 2 */}
-                <div className="flex flex-col md:flex-row items-start gap-8 stagger-item">
+                <AnimatedSection animation="slide-up" delay={100} className="flex flex-col md:flex-row items-start gap-8">
                   <div className="flex-shrink-0 w-16 md:w-20">
                     <div className="text-6xl md:text-7xl font-light text-primary/20 leading-none">
                       02
@@ -341,10 +346,10 @@ export function Onboarding({ onComplete }: OnboardingProps) {
                       Our AI transforms your responses into clear, DWP-friendly language that highlights your needs and maximizes your chances of approval.
                     </p>
                   </div>
-                </div>
+                </AnimatedSection>
 
                 {/* Step 3 */}
-                <div className="flex flex-col md:flex-row items-start gap-8 stagger-item">
+                <AnimatedSection animation="slide-up" delay={200} className="flex flex-col md:flex-row items-start gap-8">
                   <div className="flex-shrink-0 w-16 md:w-20">
                     <div className="text-6xl md:text-7xl font-light text-primary/20 leading-none">
                       03
@@ -358,21 +363,21 @@ export function Onboarding({ onComplete }: OnboardingProps) {
                       Download your completed answers as a PDF or Word document. Each response is clearly matched to the correct section of the PIP form, so you can copy them across quickly and accurately.
                     </p>
                   </div>
-                </div>
+                </AnimatedSection>
               </div>
             </div>
 
             {/* Pricing Section */}
             <div className="mt-28 text-center space-y-8" ref={pricingRef}>
-              <div className="space-y-4">
+              <AnimatedSection animation="fade-in" className="space-y-4">
                 <h2 className="text-2xl lg:text-3xl font-medium text-foreground">
                   Choose Your Plan
                 </h2>
-              </div>
+              </AnimatedSection>
               
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+              <AnimatedSection animation="stagger" className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
                 {/* ClaimEase Standard */}
-                <Card className="glass-effect backdrop-blur-lg border-primary/30 relative flex flex-col stagger-item hover:border-primary/50 transition-all duration-300 active:scale-[0.98] sm:active:scale-100">
+                <Card className="glass-effect backdrop-blur-lg border-primary/30 relative flex flex-col hover:border-primary/50 transition-all duration-300 active:scale-[0.98] sm:active:scale-100">
                   <CardContent className="p-4 sm:p-6 flex flex-col flex-1">
                     <div className="text-center space-y-3">
                       <h3 className="text-lg sm:text-xl font-semibold text-foreground">ClaimEase Standard</h3>
@@ -437,12 +442,12 @@ export function Onboarding({ onComplete }: OnboardingProps) {
                     </Button>
                   </CardContent>
                 </Card>
-              </div>
+              </AnimatedSection>
             </div>
 
             {/* Appeal Promise Section moved below pricing */}
             <div className="mt-28 text-center space-y-6" ref={appealRef}>
-              <div className="space-y-4">
+              <AnimatedSection animation="slide-up" className="space-y-4">
                 <h2 className="text-2xl lg:text-3xl font-medium text-accent">
                   And if your claim is rejected… we're still with you.
                 </h2>
@@ -457,22 +462,22 @@ export function Onboarding({ onComplete }: OnboardingProps) {
                     Because your benefits are too important to risk.
                   </p>
                 </div>
-              </div>
+              </AnimatedSection>
             </div>
 
             {/* FAQ Section */}
             <div className="mt-28 max-w-4xl mx-auto space-y-8" ref={faqRef}>
-              <div className="text-center space-y-4">
+              <AnimatedSection animation="fade-in" className="text-center space-y-4">
                 <h2 className="text-3xl md:text-4xl font-semibold text-foreground">
                   Frequently Asked Questions
                 </h2>
                 <p className="text-lg text-muted-foreground">
                   Get answers to common questions about ClaimEase
                 </p>
-              </div>
+              </AnimatedSection>
               
-              <div className="grid gap-6">
-                <Card className="glass-effect backdrop-blur-sm stagger-item">
+              <AnimatedSection animation="stagger" className="grid gap-6">
+                <Card className="glass-effect backdrop-blur-sm">
                   <CardContent className="p-6">
                     <div className="flex items-start gap-3">
                       <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0 mt-1">
@@ -551,23 +556,25 @@ export function Onboarding({ onComplete }: OnboardingProps) {
                     </div>
                   </CardContent>
                 </Card>
-              </div>
+              </AnimatedSection>
             </div>
 
             {/* Final CTA Section */}
             <div className="mt-28 text-center space-y-6">
-              <div className="space-y-4">
+              <AnimatedSection animation="slide-up" className="space-y-4">
                 <h2 className="text-2xl lg:text-3xl font-medium text-foreground">
                   Don't risk losing the benefits you deserve.
                 </h2>
                 <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
                   Start today — give your claim the best chance of success.
                 </p>
-              </div>
+              </AnimatedSection>
               
-              <Button size="lg" onClick={scrollToForm} className="bg-primary hover:bg-primary/90 active:bg-primary/80 text-primary-foreground px-8 py-3 min-h-[44px] transition-all duration-200">
-                Start My Claim for £49 →
-              </Button>
+              <AnimatedSection animation="scale-in" delay={200}>
+                <Button size="lg" onClick={scrollToForm} className="bg-primary hover:bg-primary/90 active:bg-primary/80 text-primary-foreground px-8 py-3 min-h-[44px] transition-all duration-200">
+                  Start My Claim for £49 →
+                </Button>
+              </AnimatedSection>
             </div>
 
             {/* Mobile Sticky CTA */}
