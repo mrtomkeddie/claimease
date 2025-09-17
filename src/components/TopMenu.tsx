@@ -1,4 +1,3 @@
-
 'use client';
 
 import React from 'react';
@@ -19,15 +18,15 @@ import {
 } from "@/components/ui/dropdown-menu";
 
 export function TopMenu() {
-    const { user, setUser, getRemainingClaims } = useUser();
-    const pathname = usePathname();
+  const { user, setUser, getRemainingClaims } = useUser();
+  const pathname = usePathname();
 
-    const handleLogout = () => {
-        setUser(null);
-    }
+  const handleLogout = () => {
+    setUser(null);
+  }
 
-    const remainingClaims = getRemainingClaims();
-    const isUnlimitedTier = user?.tier === UserTier.UNLIMITED_CLAIMS;
+  const remainingClaims = getRemainingClaims();
+  const isUnlimitedTier = user?.tier === UserTier.UNLIMITED_CLAIMS;
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-card/95 backdrop-blur-md border-b border-border">
@@ -48,7 +47,6 @@ export function TopMenu() {
           </div>
 
           <nav className="flex items-center gap-2">
-            {/* Claim Counter */}
             {user && (
               <div className="flex items-center gap-2 px-3 py-1.5 bg-muted/50 rounded-full text-sm">
                 {isUnlimitedTier ? (

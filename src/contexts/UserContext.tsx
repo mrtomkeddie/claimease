@@ -1,4 +1,3 @@
-
 'use client';
 
 import React, { createContext, useContext, useState, ReactNode } from 'react';
@@ -48,7 +47,7 @@ export function UserProvider({ children }: { children: ReactNode }) {
 
   const getRemainingClaims = (): number => {
     if (!user) return 0;
-    if (user.tier === UserTier.UNLIMITED_CLAIMS) return -1; // unlimited
+    if (user.tier === UserTier.UNLIMITED_CLAIMS) return -1;
     return Math.max(0, CLAIM_LIMITS[user.tier] - user.claims_used);
   };
 
