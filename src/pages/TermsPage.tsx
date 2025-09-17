@@ -7,6 +7,8 @@
 
  export default function TermsPage() {
    return (
+   )
+ }
 @@ .. @@
            <section className="mb-8">
              <h2 className="text-2xl font-semibold text-foreground mb-4">6. Contact</h2>

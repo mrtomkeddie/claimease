@@ -7,3 +7,5 @@
 -import Link from 'next/link';
 +import { Link } from 'react-router-dom';
  import { ArrowLeft, User as UserIcon, Bell, CreditCard, Shield, Crown, CheckCircle } from 'lucide-react';
+
+export default Link
