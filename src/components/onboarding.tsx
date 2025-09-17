@@ -1,4 +1,3 @@
-
 'use client';
 
 import React, { useState, useEffect, useRef } from 'react';
@@ -109,14 +108,14 @@ export function Onboarding({ onComplete }: OnboardingProps) {
         <div className="absolute inset-0 gradient-dark-brand pointer-events-none"></div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-28 md:pb-12 flex flex-col min-h-screen">{/* extra bottom padding so mobile CTA doesn't overlap */}
             <div className="flex justify-center mb-4 sm:mb-6" ref={heroLogoRef}>
-              <AnimatedSection animation="fade-in">
+              <AnimatedSection animation="fade-in" debug={false}>
                 <ClaimEaseLogo />
               </AnimatedSection>
             </div>
 
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-12 flex-1 lg:items-center pb-12 pt-4 sm:pt-6">
               <div className="lg:col-span-7 flex flex-col justify-center space-y-4 sm:space-y-6 lg:space-y-8" ref={heroContentRef}>
-                <AnimatedSection animation="slide-up" className="space-y-3 sm:space-y-4">
+                <AnimatedSection animation="slide-up" delay={200} className="space-y-3 sm:space-y-4">
                     <h1 className={`${gilroyHeavy.className} text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight leading-[1.1] text-foreground max-w-3xl`}>
                       Struggling with your PIP application?{' '}
                       <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
@@ -134,7 +133,7 @@ export function Onboarding({ onComplete }: OnboardingProps) {
 
               <div className="lg:col-span-5 flex items-start justify-center pt-4 sm:pt-6 lg:pt-10" ref={formRef}>
                 <div className="w-full max-w-md lg:sticky lg:top-26" id="start-claim">{/* adjusted offset for clearer stickiness */}
-                  <AnimatedSection animation="scale-in" delay={200}>
+                  <AnimatedSection animation="scale-in" delay={400}>
                     <Card className="w-full glass-effect backdrop-blur-lg border-primary/30">
                     <CardHeader className="text-center space-y-3 sm:space-y-4 pb-4 sm:pb-6">
                       <div className="w-12 h-12 sm:w-14 sm:h-14 gradient-primary rounded-2xl flex items-center justify-center mx-auto glow-primary">
