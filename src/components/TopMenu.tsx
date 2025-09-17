@@ -1,7 +1,6 @@
-
 'use client';
 
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Button } from '@/components/ui/button';
@@ -19,34 +18,15 @@ import {
 } from "@/components/ui/dropdown-menu";
 
 export function TopMenu() {
-    const { user, setUser, getRemainingClaims } = useUser();
-    const pathname = usePathname();
-    const [mounted, setMounted] = useState(false);
+  const { user, setUser, getRemainingClaims } = useUser();
+  const pathname = usePathname();
 
-    useEffect(() => {
-      setMounted(true);
-    }, []);
+  const handleLogout = () => {
+    setUser(null);
+  }
 
-    if (!mounted) {
-      return (
-        <header className="fixed top-0 left-0 right-0 z-50 bg-card/95 backdrop-blur-md border-b border-border">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex items-center justify-between h-16">
-              <Link href="/">
-                <ClaimEaseLogo />
-              </Link>
-            </div>
-          </div>
-        </header>
-      );
-    }
-
-    const handleLogout = () => {
-        setUser(null);
-    }
-
-    const remainingClaims = getRemainingClaims();
-    const isUnlimitedTier = user?.tier === UserTier.UNLIMITED_CLAIMS;
+  const remainingClaims = getRemainingClaims();
+  const isUnlimitedTier = user?.tier === UserTier.UNLIMITED_CLAIMS;
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-card/95 backdrop-blur-md border-b border-border">
@@ -67,7 +47,6 @@ export function TopMenu() {
           </div>
 
           <nav className="flex items-center gap-2">
-            {/* Claim Counter */}
             {user && (
               <div className="flex items-center gap-2 px-3 py-1.5 bg-muted/50 rounded-full text-sm">
                 {isUnlimitedTier ? (

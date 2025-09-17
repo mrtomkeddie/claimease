@@ -1,20 +1,25 @@
-
-'use client';
-
-import React, { Suspense } from 'react';
+import React from 'react';
 import './globals.css';
-import { ThemeProvider } from 'next-themes';
-import { Toaster } from '@/components/ui/toaster';
-import { UserProvider } from '@/contexts/UserContext';
 import { inter, poppins } from '@/lib/fonts';
 
-function LoadingFallback() {
-  return (
-    <div className="min-h-screen bg-background flex items-center justify-center">
-      <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div>
-    </div>
-  );
-}
+export const metadata = {
+  title: 'ClaimEase — Make your PIP claim easier',
+  description: 'Turn your daily experiences into clear, DWP‑friendly answers. ClaimEase rewrites your words for PIP in 10–15 minutes. One‑time £49. Free appeal support.',
+  robots: 'index,follow',
+  themeColor: '#000000',
+  openGraph: {
+    type: 'website',
+    siteName: 'ClaimEase',
+    title: 'ClaimEase — Make your PIP claim easier',
+    description: 'Turn your daily experiences into clear, DWP‑friendly answers. One‑time £49. Free appeal support.',
+    url: 'https://www.claimease.app/',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'ClaimEase — Make your PIP claim easier',
+    description: 'Turn your daily experiences into clear, DWP‑friendly answers. One‑time £49. Free appeal support.',
+  },
+};
 
 export default function RootLayout({
   children,
@@ -24,51 +29,14 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        <title>ClaimEase — Make your PIP claim easier</title>
-        <meta
-          name="description"
-          content="Turn your daily experiences into clear, DWP‑friendly answers. ClaimEase rewrites your words for PIP in 10–15 minutes. One‑time £49. Free appeal support."
-        />
-        <meta name="robots" content="index,follow" />
-        <link rel="canonical" href="https://www.claimease.app/" />
-
-        {/* Theme & Icons */}
-        <meta name="theme-color" content="#000000" />
         <link rel="icon" type="image/svg+xml" href="/icon.svg" />
         <link rel="alternate icon" href="/favicon.ico" />
-
-        {/* Open Graph */}
-        <meta property="og:type" content="website" />
-        <meta property="og:site_name" content="ClaimEase" />
-        <meta property="og:title" content="ClaimEase — Make your PIP claim easier" />
-        <meta
-          property="og:description"
-          content="Turn your daily experiences into clear, DWP‑friendly answers. One‑time £49. Free appeal support."
-        />
-        <meta property="og:url" content="https://www.claimease.app/" />
-        {/* Optional: Add og:image when available */}
-        {/* <meta property="og:image" content="https://www.claimease.app/og-image.png" /> */}
-
-        {/* Twitter */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="ClaimEase — Make your PIP claim easier" />
-        <meta
-          name="twitter:description"
-          content="Turn your daily experiences into clear, DWP‑friendly answers. One‑time £49. Free appeal support."
-        />
-        {/* <meta name="twitter:image" content="https://www.claimease.app/og-image.png" /> */}
       </head>
-      <body suppressHydrationWarning className={`${inter.className} ${poppins.variable} min-h-screen font-sans antialiased bg-background text-foreground`}>
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          <Suspense fallback={<LoadingFallback />}>
-            <UserProvider>
-              <Suspense fallback={<LoadingFallback />}>
-                {children}
-              </Suspense>
-              <Toaster />
-            </UserProvider>
-          </Suspense>
-        </ThemeProvider>
+      <body 
+        suppressHydrationWarning 
+        className={`${inter.className} ${poppins.variable} min-h-screen font-sans antialiased bg-background text-foreground`}
+      >
+        {children}
       </body>
     </html>
   );

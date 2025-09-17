@@ -1,33 +1,23 @@
-
 'use client';
 
-import { useState, Suspense } from 'react';
-import dynamic from 'next/dynamic';
-import { useUser } from '@/contexts/UserContext';
+import { useState, useEffect } from 'react';
+import { ThemeProvider } from 'next-themes';
+import { Toaster } from '@/components/ui/toaster';
+import { UserProvider, useUser } from '@/contexts/UserContext';
 import { TopMenu } from '@/components/TopMenu';
-import { Footer } from '@/components/Footer';
 import { FooterSlim } from '@/components/FooterSlim';
+import { Onboarding } from '@/components/onboarding';
+import { ClaimForm } from '@/components/claim-form';
+import SavedClaims from '@/components/SavedClaims';
 import { SavedClaim } from '@/lib/mockData';
 import { Button } from '@/components/ui/button';
 import { List, Plus } from 'lucide-react';
 import { UpsellModal } from '@/components/UpsellModal';
-import { UserTier } from '@/lib/constants';
-
-// Dynamic imports to reduce initial bundle
-const Onboarding = dynamic(() => import('@/components/onboarding').then(m => m.Onboarding), { 
-  ssr: false,
-  loading: () => <div className="min-h-screen bg-background flex items-center justify-center"><div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div></div>
-});
-const ClaimForm = dynamic(() => import('@/components/claim-form').then(m => m.ClaimForm), { 
-  ssr: false,
-  loading: () => <div className="min-h-screen bg-background flex items-center justify-center"><div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div></div>
-});
-const SavedClaims = dynamic(() => import('@/components/SavedClaims').then(m => m.default), { ssr: false });
 
 type ViewMode = 'saved-claims' | 'claim-form';
 
-export default function HomePage() {
-  const { user, setUser, canCreateClaim, incrementClaimCount, getRemainingClaims } = useUser();
+function AppContent() {
+  const { user, setUser, canCreateClaim, incrementClaimCount } = useUser();
   const [viewMode, setViewMode] = useState<ViewMode>('saved-claims');
   const [loadedClaim, setLoadedClaim] = useState<SavedClaim | null>(null);
   const [showUpsellModal, setShowUpsellModal] = useState(false);
@@ -42,7 +32,6 @@ export default function HomePage() {
   };
 
   const handleNewClaim = () => {
-    // Check if user can create a new claim based on their tier
     if (!canCreateClaim()) {
       setShowUpsellModal(true);
       return;
@@ -50,12 +39,10 @@ export default function HomePage() {
     
     setLoadedClaim(null);
     setViewMode('claim-form');
-    // Increment claim count when starting a new claim
     incrementClaimCount();
   };
 
   const handlePurchaseExtraClaim = () => {
-    // TODO: Implement payment flow
     setShowUpsellModal(false);
     setLoadedClaim(null);
     setViewMode('claim-form');
@@ -74,51 +61,79 @@ export default function HomePage() {
 
   return (
     <div className="min-h-screen flex flex-col">
-        <TopMenu />
-        <main className="container mx-auto px-4 pt-20 md:pt-24 pb-12 flex-1">
-          {/* Navigation Header */}
-          <div className="flex justify-between items-center mb-6">
-            <div className="flex gap-2">
-              <Button
-                variant={viewMode === 'saved-claims' ? 'default' : 'outline'}
-                onClick={() => setViewMode('saved-claims')}
-                className="flex items-center gap-2"
-              >
-                <List className="h-4 w-4" />
-                Saved Claims
-              </Button>
-              <Button
-                variant={viewMode === 'claim-form' ? 'default' : 'outline'}
-                onClick={handleNewClaim}
-                className="flex items-center gap-2"
-              >
-                <Plus className="h-4 w-4" />
-                New Claim
-              </Button>
-            </div>
+      <TopMenu />
+      <main className="container mx-auto px-4 pt-20 md:pt-24 pb-12 flex-1">
+        <div className="flex justify-between items-center mb-6">
+          <div className="flex gap-2">
+            <Button
+              variant={viewMode === 'saved-claims' ? 'default' : 'outline'}
+              onClick={() => setViewMode('saved-claims')}
+              className="flex items-center gap-2"
+            >
+              <List className="h-4 w-4" />
+              Saved Claims
+            </Button>
+            <Button
+              variant={viewMode === 'claim-form' ? 'default' : 'outline'}
+              onClick={handleNewClaim}
+              className="flex items-center gap-2"
+            >
+              <Plus className="h-4 w-4" />
+              New Claim
+            </Button>
           </div>
+        </div>
 
-          {viewMode === 'saved-claims' ? (
-            <SavedClaims 
-              onLoadClaim={handleLoadClaim}
-              onNewClaim={handleNewClaim}
-            />
-          ) : (
-            <ClaimForm 
-              loadedClaim={loadedClaim}
-              onBackToSaved={handleBackToSaved}
-            />
-          )}
-        </main>
-        
-        <FooterSlim />
-        
-        <UpsellModal
-          isOpen={showUpsellModal}
-          onClose={() => setShowUpsellModal(false)}
-          onPurchase={handlePurchaseExtraClaim}
-          onContinueFree={handleContinueFree}
-        />
-      </div>
-  )
+        {viewMode === 'saved-claims' ? (
+          <SavedClaims 
+            onLoadClaim={handleLoadClaim}
+            onNewClaim={handleNewClaim}
+          />
+        ) : (
+          <ClaimForm 
+            loadedClaim={loadedClaim}
+            onBackToSaved={handleBackToSaved}
+          />
+        )}
+      </main>
+      
+      <FooterSlim />
+      
+      <UpsellModal
+        isOpen={showUpsellModal}
+        onClose={() => setShowUpsellModal(false)}
+        onPurchase={handlePurchaseExtraClaim}
+        onContinueFree={handleContinueFree}
+      />
+    </div>
+  );
+}
+
+function LoadingScreen() {
+  return (
+    <div className="min-h-screen bg-background flex items-center justify-center">
+      <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div>
+    </div>
+  );
+}
+
+export default function HomePage() {
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) {
+    return <LoadingScreen />;
+  }
+
+  return (
+    <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
+      <UserProvider>
+        <AppContent />
+        <Toaster />
+      </UserProvider>
+    </ThemeProvider>
+  );
 }
