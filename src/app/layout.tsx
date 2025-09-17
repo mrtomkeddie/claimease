@@ -5,11 +5,14 @@ import { ThemeProvider } from 'next-themes';
 import { Toaster } from '@/components/ui/toaster';
 import { UserProvider } from '@/contexts/UserContext';
 
+export const viewport = {
+  themeColor: '#000000',
+};
+
 export const metadata = {
   title: 'ClaimEase — Make your PIP claim easier',
   description: 'Turn your daily experiences into clear, DWP‑friendly answers. ClaimEase rewrites your words for PIP in 10–15 minutes. One‑time £49. Free appeal support.',
   robots: 'index,follow',
-  themeColor: '#000000',
   openGraph: {
     type: 'website',
     siteName: 'ClaimEase',
