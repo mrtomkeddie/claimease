@@ -22,10 +22,11 @@ export function Onboarding({ onComplete }: OnboardingProps) {
     name: 'Jane Doe',
     email: 'jane.doe@example.com',
   });
-  const [isSubmitting, setIsSubmitting] = useState(false);
   const [selectedPlan, setSelectedPlan] = useState<'standard' | 'pro'>('standard');
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [showForm, setShowForm] = useState(false);
 
-  // Animation refs
+  // Refs for smooth scrolling and animations
   const heroRef = useRef<HTMLDivElement>(null);
   const formRef = useRef<HTMLDivElement>(null);
   const benefitsRef = useRef<HTMLDivElement>(null);
@@ -42,12 +43,42 @@ export function Onboarding({ onComplete }: OnboardingProps) {
   // Intersection Observer for animations - REMOVED
   useEffect(() => {
     // Animation logic removed - all elements appear immediately
-    return;
+    // Set initial form visibility based on screen size
+    const handleResize = () => {
+      if (window.innerWidth >= 1024) {
+        // Desktop: always show form
+        setShowForm(true);
+      } else {
+        // Mobile: start with form hidden
+        setShowForm(false);
+      }
+    };
+
+    // Set initial state
+    handleResize();
+    
+    // Listen for resize events
+    window.addEventListener('resize', handleResize);
+    
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
   }, []);
 
   const scrollToForm = () => {
-    const el = document.getElementById('start-claim');
-    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    // On mobile, show the form with slide animation
+    if (window.innerWidth < 1024) {
+      setShowForm(true);
+      // Wait for state update then scroll
+      setTimeout(() => {
+        const el = document.getElementById('start-claim');
+        if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 100);
+    } else {
+      // Desktop behavior remains the same
+      const el = document.getElementById('start-claim');
+      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -106,30 +137,41 @@ export function Onboarding({ onComplete }: OnboardingProps) {
 
       <div className="relative">{/* removed overflow-hidden to allow sticky to work  */}
         <div className="absolute inset-0 gradient-dark-brand pointer-events-none"></div>
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-28 md:pb-12 flex flex-col min-h-screen">{/* extra bottom padding so mobile CTA doesn't overlap */}
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-28 md:pb-12 flex flex-col min-h-screen lg:min-h-0">{/* extra bottom padding so mobile CTA doesn't overlap */}
             <div className="flex justify-center mb-4 sm:mb-6" ref={heroLogoRef}>
               <ClaimEaseLogo />
             </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-12 flex-1 lg:items-center pb-12 pt-4 sm:pt-6">
-              <div className="lg:col-span-7 flex flex-col justify-center space-y-4 sm:space-y-6 lg:space-y-8" ref={heroContentRef}>
-                <div className="space-y-3 sm:space-y-4">
-                    <h1 className={`${gilroyHeavy.className} text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight leading-[1.1] text-foreground max-w-3xl`}>
+            <div className="flex flex-col lg:grid lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-12 flex-1 lg:flex-none lg:items-center pb-12 pt-4 sm:pt-6 min-h-[calc(100vh-200px)] lg:min-h-0">
+              <div className="lg:col-span-7 flex flex-col justify-center space-y-4 sm:space-y-6 lg:space-y-8 order-1 lg:order-none min-h-[calc(100vh-200px)] lg:min-h-0" ref={heroContentRef}>
+                <div className="space-y-3 sm:space-y-4 text-center lg:text-left">
+                    <h1 className={`${gilroyHeavy.className} text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight leading-[1.1] text-foreground max-w-3xl mx-auto lg:mx-0`}>
                       Struggling with your PIP application?{' '}
                       <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
                         ClaimEase makes it easier.
                       </span>
                     </h1>
-                    <p className="text-base sm:text-lg md:text-xl text-muted-foreground leading-relaxed max-w-2xl">
+                    <p className="text-base sm:text-lg md:text-xl text-muted-foreground leading-relaxed max-w-2xl mx-auto lg:mx-0">
                       Answer simple questions. We'll turn them into clear, DWP-friendly answers — in your own words, made stronger.
                     </p>
-                    {/* Hero CTA removed: form is visible within hero */}
-                    {/* Previously contained a scroll button and helper text. Intentionally left blank for layout spacing. */}
-                    {/* Spacer removed to tighten layout now that CTA is gone */}
+                    
+                    {/* Mobile-only centered Start My Claim button */}
+                    <div className="lg:hidden pt-4">
+                      <Button 
+                        onClick={scrollToForm} 
+                        className="px-8 py-4 bg-primary text-primary-foreground shadow-lg rounded-full min-h-[44px] hover:bg-primary/90 active:bg-primary/80 transition-all duration-200 text-lg font-semibold"
+                      >
+                        Start My Claim
+                        <ArrowRight className="h-5 w-5 ml-2" />
+                      </Button>
+                    </div>
                   </div>
               </div>
 
-              <div className="lg:col-span-5 flex items-start justify-center pt-4 sm:pt-6 lg:pt-10" ref={formRef}>
+              {/* Form section - conditionally rendered on mobile, always visible on desktop */}
+              <div className={`lg:col-span-5 flex items-start justify-center pt-4 sm:pt-6 lg:pt-10 order-2 lg:order-none transition-all duration-500 ease-in-out ${
+                showForm ? 'lg:block' : 'hidden lg:block'
+              } ${showForm ? 'translate-y-0 opacity-100' : 'lg:translate-y-0 lg:opacity-100 translate-y-8 opacity-0'}`} ref={formRef}>
                 <div className="w-full max-w-md lg:sticky lg:top-26" id="start-claim">{/* adjusted offset for clearer stickiness */}
                   <Card className="w-full glass-effect backdrop-blur-lg border-primary/30">
                     <CardHeader className="text-center space-y-3 sm:space-y-4 pb-4 sm:pb-6">
@@ -570,13 +612,7 @@ export function Onboarding({ onComplete }: OnboardingProps) {
               </Button>
             </div>
 
-            {/* Mobile Sticky CTA */}
-            <div className="md:hidden fixed bottom-4 left-0 right-0 flex justify-center z-50 px-4">
-              <Button onClick={scrollToForm} className="px-6 py-3 bg-primary text-primary-foreground shadow-lg rounded-full min-h-[44px] hover:bg-primary/90 active:bg-primary/80 transition-all duration-200">
-                Start My Claim for £49 →
-                <ArrowRight className="h-4 w-4 ml-2" />
-              </Button>
-            </div>
+            {/* Mobile Sticky CTA removed - replaced with hero section button */}
         </div>
       </div>
       <Footer />
