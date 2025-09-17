@@ -35,8 +35,6 @@ export function useIntersectionObserver(
       return;
     }
 
-    // Small delay to ensure DOM is ready
-    const timeoutId = setTimeout(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         const isVisible = entry.isIntersecting;
@@ -56,8 +54,7 @@ export function useIntersectionObserver(
 
     observer.observe(element);
 
-      return () => observer.unobserve(element);
-    }, 50);
+    return () => observer.unobserve(element);
 
     return () => clearTimeout(timeoutId);
   }, [threshold, rootMargin, triggerOnce, hasTriggered]);
