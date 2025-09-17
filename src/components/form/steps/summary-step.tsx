@@ -1,3 +1,6 @@
+
+"use client";
+
 import type { UseFormReturn } from 'react-hook-form';
 import type { FormValues } from '@/lib/formSchema';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";

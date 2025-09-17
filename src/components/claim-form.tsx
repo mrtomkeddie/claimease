@@ -1,3 +1,6 @@
+
+"use client";
+
 import { useState, useEffect, useMemo } from 'react';
 import { useForm, type UseFormReturn } from 'react-hook-form';
 import { AnimatePresence, motion } from 'framer-motion';

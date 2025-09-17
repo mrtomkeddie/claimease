@@ -1,3 +1,6 @@
+
+"use client";
+
 import { useState } from 'react';
 import type { UseFormReturn } from 'react-hook-form';
 import { Loader2, Sparkles } from 'lucide-react';
