@@ -19,6 +19,7 @@ export function useIntersectionObserver(
 
   const [isIntersecting, setIsIntersecting] = useState(false);
   const [hasTriggered, setHasTriggered] = useState(false);
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
   const elementRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
@@ -26,10 +27,11 @@ export function useIntersectionObserver(
     if (!element) return;
 
     // Check if user prefers reduced motion
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const reducedMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+    setPrefersReducedMotion(reducedMotionQuery.matches);
     
     // If reduced motion is preferred, trigger immediately
-    if (prefersReducedMotion) {
+    if (reducedMotionQuery.matches) {
       setIsIntersecting(true);
       setHasTriggered(true);
       return;
@@ -55,9 +57,7 @@ export function useIntersectionObserver(
     observer.observe(element);
 
     return () => observer.unobserve(element);
-
-    return () => clearTimeout(timeoutId);
   }, [threshold, rootMargin, triggerOnce, hasTriggered]);
 
-  return { ref: elementRef, isIntersecting };
+  return { ref: elementRef, isIntersecting, prefersReducedMotion };
 }

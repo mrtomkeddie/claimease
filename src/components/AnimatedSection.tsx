@@ -23,7 +23,7 @@ export function AnimatedSection({
   rootMargin = '0px 0px -100px 0px',
   debug = false,
 }: AnimatedSectionProps) {
-  const { ref, isIntersecting } = useIntersectionObserver({
+  const { ref, isIntersecting, prefersReducedMotion } = useIntersectionObserver({
     threshold,
     rootMargin,
     triggerOnce: true,
@@ -35,6 +35,7 @@ export function AnimatedSection({
       console.log(`AnimatedSection (${animation}):`, { isIntersecting });
     }
   }, [isIntersecting, animation, debug]);
+
   return (
     <div
       ref={ref}
@@ -48,6 +49,7 @@ export function AnimatedSection({
       }}
       data-animation={animation}
       data-intersecting={isIntersecting}
+      data-prefers-reduced-motion={prefersReducedMotion}
     >
       {children}
     </div>
