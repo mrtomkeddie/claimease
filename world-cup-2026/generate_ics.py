@@ -230,6 +230,14 @@ def build():
     with open(FIXTURES, encoding="utf-8") as f:
         matches = sorted(json.load(f), key=lambda m: m["MatchNumber"])
 
+    # Auto-scraped knockout channels (see update_channels.py); preferred over the
+    # built-in group-stage map below.
+    dynamic = {}
+    ch_path = os.path.join(HERE, "channels.json")
+    if os.path.exists(ch_path):
+        with open(ch_path, encoding="utf-8") as f:
+            dynamic = json.load(f)
+
     cal = [
         "BEGIN:VCALENDAR",
         "VERSION:2.0",
@@ -250,7 +258,7 @@ def build():
         home = humanize(m["HomeTeam"], no, 0)
         away = humanize(m["AwayTeam"], no, 1)
         stage = stage_name(m)
-        ch = CHANNELS.get(no, "BBC / ITV (TBC)")
+        ch = dynamic.get(str(no)) or CHANNELS.get(no) or "BBC / ITV (TBC)"
         venue = m.get("Location") or "TBC"
 
         # Title shows only the teams; everything else lives in the notes.

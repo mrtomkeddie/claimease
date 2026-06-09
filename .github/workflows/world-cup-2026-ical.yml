@@ -35,6 +35,9 @@ jobs:
       - name: Update fixtures feed
         run: python3 world-cup-2026/update_feed.py
 
+      - name: Update knockout TV channels
+        run: python3 world-cup-2026/update_channels.py
+
       - name: Regenerate calendar
         run: python3 world-cup-2026/generate_ics.py
 
@@ -42,9 +45,10 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          if ! git diff --quiet -- world-cup-2026/fixtures.json world-cup-2026/world-cup-2026-uk.ics; then
-            git add world-cup-2026/fixtures.json world-cup-2026/world-cup-2026-uk.ics
-            git commit -m "Auto-update World Cup 2026 fixtures and calendar"
+          files="world-cup-2026/fixtures.json world-cup-2026/channels.json world-cup-2026/world-cup-2026-uk.ics"
+          if ! git diff --quiet -- $files; then
+            git add $files
+            git commit -m "Auto-update World Cup 2026 fixtures, channels and calendar"
             git push
           else
             echo "No changes to commit."
