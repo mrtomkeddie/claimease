@@ -20,7 +20,7 @@ channel** for each game.
 **Easiest — share this page** (one-tap subscribe + per-app instructions):
 
 ```
-https://mrtomkeddie.github.io/claimease/
+https://mrtomkeddie.github.io/WorldCupCalendar/
 ```
 
 The page (in [`docs/`](../docs/)) is the friendly, public-shareable link. It's
@@ -34,8 +34,8 @@ Subscription* box) hit with the raw GitHub URL.
 **Direct subscription URLs** (both auto-update):
 
 ```
-https://mrtomkeddie.github.io/claimease/world-cup-2026-uk.ics   (Pages — preferred)
-https://raw.githubusercontent.com/mrtomkeddie/claimease/master/world-cup-2026/world-cup-2026-uk.ics   (raw fallback)
+https://mrtomkeddie.github.io/WorldCupCalendar/world-cup-2026-uk.ics   (Pages — preferred)
+https://raw.githubusercontent.com/mrtomkeddie/WorldCupCalendar/master/world-cup-2026/world-cup-2026-uk.ics   (raw fallback)
 ```
 
 - **iPhone/iPad:** Settings → Calendar → Accounts → Add Account → Other → Add
