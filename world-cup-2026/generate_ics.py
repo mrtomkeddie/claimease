@@ -248,9 +248,9 @@ def build():
         ch = CHANNELS.get(no, "BBC / ITV (TBC)")
         venue = m.get("Location") or "TBC"
 
-        summary = f"{home} v {away} ({ch})"
-        if m["RoundNumber"] >= 4:
-            summary = f"{stage}: {summary}"
+        # Prefix every title with its stage/group, e.g. "Group A: ..." or
+        # "Round of 32: ...".
+        summary = f"{stage}: {home} v {away} ({ch})"
 
         desc = (f"{stage} (Match {no}) | {home} v {away}\n"
                 f"Venue: {venue}\n"
