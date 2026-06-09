@@ -263,6 +263,15 @@ def build():
         if not (is_real(m["HomeTeam"]) and is_real(m["AwayTeam"])):
             desc += "\nℹ️ Teams update automatically once results are known."
 
+        # Once played, lead the notes with the full-time result (auto-fills from
+        # the feed). For a level knockout score, name who advanced (penalties).
+        hs, as_ = m.get("HomeTeamScore"), m.get("AwayTeamScore")
+        if hs is not None and as_ is not None:
+            result = f"✅ Full-time: {home} {hs}–{as_} {away}"
+            if m["RoundNumber"] >= 4 and hs == as_ and m.get("Winner"):
+                result += f"  (Winner: {with_flag(m['Winner'])})"
+            desc = result + "\n" + desc
+
         cal.extend(event(f"wc2026-m{no:03d}@claimease", start, summary,
                          venue, desc))
 
