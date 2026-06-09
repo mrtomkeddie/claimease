@@ -108,12 +108,28 @@
   copyBtn.dataset.url = httpsUrl;
   document.getElementById("googleBtn").href =
     "https://calendar.google.com/calendar/render?cid=" + encodeURIComponent(httpsUrl);
+
+  // Privacy-friendly usage tracking (GoatCounter): page views are counted
+  // automatically; these fire when someone actually taps a subscribe option.
+  function track(name) {
+    if (window.goatcounter && window.goatcounter.count) {
+      window.goatcounter.count({ path: name, title: name, event: true });
+    }
+  }
+  document.getElementById("addBtn").addEventListener("click", function () { track("subscribe-apple"); });
+  document.getElementById("googleBtn").addEventListener("click", function () { track("subscribe-google"); });
+
   copyBtn.addEventListener("click", function () {
+    track("subscribe-copy");
     navigator.clipboard.writeText(httpsUrl).then(function () {
       var t = copyBtn.textContent; copyBtn.textContent = "✓ Link copied";
       setTimeout(function () { copyBtn.textContent = t; }, 2000);
     });
   });
 </script>
+<!-- Usage analytics — privacy-friendly, no cookies, no consent banner needed.
+     Replace YOURCODE below with your GoatCounter site code to switch it on. -->
+<script data-goatcounter="https://YOURCODE.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>
