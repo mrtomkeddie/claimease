@@ -1,0 +1,1601 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//claimease//World Cup 2026 UK//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:World Cup 2026 (UK TV)
+X-WR-TIMEZONE:Europe/London
+X-WR-CALDESC:2026 FIFA World Cup fixtures with UK kick-off times and BBC/ITV channels. Knockout teams update automatically.
+BEGIN:VEVENT
+UID:wc2026-m001@claimease
+DTSTAMP:20260609T082537Z
+DTSTART:20260611T190000Z
+DTEND:20260611T210000Z
+SUMMARY:🇲🇽 Mexico v 🇿🇦 South Africa
+LOCATION:Mexico City Stadium
+DESCRIPTION:🏆 Group A  |  Match 1\n⏰ Kick-off: Thu 11 Jun\, 8:00pm (UK
+ )\n📺 UK TV: ITV1\n📍 Venue: Mexico City Stadium
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Kick-off in 30 minutes
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-m002@claimease
+DTSTAMP:20260609T082537Z
+DTSTART:20260612T020000Z
+DTEND:20260612T040000Z
+SUMMARY:🇰🇷 Korea Republic v 🇨🇿 Czechia
+LOCATION:Guadalajara Stadium
+DESCRIPTION:🏆 Group A  |  Match 2\n⏰ Kick-off: Fri 12 Jun\, 3:00am (UK
+ )\n📺 UK TV: ITV1\n📍 Venue: Guadalajara Stadium
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Kick-off in 30 minutes
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-m003@claimease
+DTSTAMP:20260609T082537Z
+DTSTART:20260612T190000Z
+DTEND:20260612T210000Z
+SUMMARY:🇨🇦 Canada v 🇧🇦 Bosnia and Herzegovina
+LOCATION:Toronto Stadium
+DESCRIPTION:🏆 Group B  |  Match 3\n⏰ Kick-off: Fri 12 Jun\, 8:00pm (UK
+ )\n📺 UK TV: BBC One\n📍 Venue: Toronto Stadium
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Kick-off in 30 minutes
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-m004@claimease
+DTSTAMP:20260609T082537Z
+DTSTART:20260613T010000Z
+DTEND:20260613T030000Z
+SUMMARY:🇺🇸 USA v 🇵🇾 Paraguay
+LOCATION:Los Angeles Stadium
+DESCRIPTION:🏆 Group D  |  Match 4\n⏰ Kick-off: Sat 13 Jun\, 2:00am (UK
+ )\n📺 UK TV: BBC One\n📍 Venue: Los Angeles Stadium
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Kick-off in 30 minutes
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-m005@claimease
+DTSTAMP:20260609T082537Z
+DTSTART:20260614T010000Z
+DTEND:20260614T030000Z
+SUMMARY:🇭🇹 Haiti v 🏴󠁧󠁢󠁳󠁣󠁴󠁿 Scotland
+LOCATION:Boston Stadium
+DESCRIPTION:🏆 Group C  |  Match 5\n⏰ Kick-off: Sun 14 Jun\, 2:00am (UK
+ )\n📺 UK TV: BBC One\n📍 Venue: Boston Stadium
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Kick-off in 30 minutes
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-m006@claimease
+DTSTAMP:20260609T082537Z
+DTSTART:20260614T040000Z
+DTEND:20260614T060000Z
+SUMMARY:🇦🇺 Australia v 🇹🇷 Türkiye
+LOCATION:BC Place Vancouver
+DESCRIPTION:🏆 Group D  |  Match 6\n⏰ Kick-off: Sun 14 Jun\, 5:00am (UK
+ )\n📺 UK TV: ITV1\n📍 Venue: BC Place Vancouver
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Kick-off in 30 minutes
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-m007@claimease
+DTSTAMP:20260609T082537Z
+DTSTART:20260613T220000Z
+DTEND:20260614T000000Z
+SUMMARY:🇧🇷 Brazil v 🇲🇦 Morocco
+LOCATION:New York/New Jersey Stadium
+DESCRIPTION:🏆 Group C  |  Match 7\n⏰ Kick-off: Sat 13 Jun\, 11:00pm (U
+ K)\n📺 UK TV: BBC One\n📍 Venue: New York/New Jersey Stadium
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Kick-off in 30 minutes
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-m008@claimease
+DTSTAMP:20260609T082537Z
+DTSTART:20260613T190000Z
+DTEND:20260613T210000Z
+SUMMARY:🇶🇦 Qatar v 🇨🇭 Switzerland
+LOCATION:San Francisco Bay Area Stadium
+DESCRIPTION:🏆 Group B  |  Match 8\n⏰ Kick-off: Sat 13 Jun\, 8:00pm (UK
+ )\n📺 UK TV: ITV1\n📍 Venue: San Francisco Bay Area Stadium
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Kick-off in 30 minutes
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-m009@claimease
+DTSTAMP:20260609T082537Z
+DTSTART:20260614T230000Z
+DTEND:20260615T010000Z
+SUMMARY:🇨🇮 Côte d'Ivoire v 🇪🇨 Ecuador
+LOCATION:Philadelphia Stadium
+DESCRIPTION:🏆 Group E  |  Match 9\n⏰ Kick-off: Mon 15 Jun\, 12:00am (U
+ K)\n📺 UK TV: BBC One\n📍 Venue: Philadelphia Stadium
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Kick-off in 30 minutes
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-m010@claimease
+DTSTAMP:20260609T082537Z
+DTSTART:20260614T170000Z
+DTEND:20260614T190000Z
+SUMMARY:🇩🇪 Germany v 🇨🇼 Curaçao
+LOCATION:Houston Stadium
+DESCRIPTION:🏆 Group E  |  Match 10\n⏰ Kick-off: Sun 14 Jun\, 6:00pm (U
+ K)\n📺 UK TV: ITV1\n📍 Venue: Houston Stadium
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Kick-off in 30 minutes
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-m011@claimease
+DTSTAMP:20260609T082537Z
+DTSTART:20260614T200000Z
+DTEND:20260614T220000Z
+SUMMARY:🇳🇱 Netherlands v 🇯🇵 Japan
+LOCATION:Dallas Stadium
+DESCRIPTION:🏆 Group F  |  Match 11\n⏰ Kick-off: Sun 14 Jun\, 9:00pm (U
+ K)\n📺 UK TV: ITV1\n📍 Venue: Dallas Stadium
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Kick-off in 30 minutes
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-m012@claimease
+DTSTAMP:20260609T082537Z
+DTSTART:20260615T020000Z
+DTEND:20260615T040000Z
+SUMMARY:🇸🇪 Sweden v 🇹🇳 Tunisia
+LOCATION:Monterrey Stadium
+DESCRIPTION:🏆 Group F  |  Match 12\n⏰ Kick-off: Mon 15 Jun\, 3:00am (U
+ K)\n📺 UK TV: ITV1\n📍 Venue: Monterrey Stadium
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Kick-off in 30 minutes
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-m013@claimease
+DTSTAMP:20260609T082537Z
+DTSTART:20260615T220000Z
+DTEND:20260616T000000Z
+SUMMARY:🇸🇦 Saudi Arabia v 🇺🇾 Uruguay
+LOCATION:Miami Stadium
+DESCRIPTION:🏆 Group H  |  Match 13\n⏰ Kick-off: Mon 15 Jun\, 11:00pm (
+ UK)\n📺 UK TV: ITV1\n📍 Venue: Miami Stadium
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Kick-off in 30 minutes
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-m014@claimease
+DTSTAMP:20260609T082537Z
+DTSTART:20260615T160000Z
+DTEND:20260615T180000Z
+SUMMARY:🇪🇸 Spain v 🇨🇻 Cabo Verde
+LOCATION:Atlanta Stadium
+DESCRIPTION:🏆 Group H  |  Match 14\n⏰ Kick-off: Mon 15 Jun\, 5:00pm (U
+ K)\n📺 UK TV: ITV1\n📍 Venue: Atlanta Stadium
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Kick-off in 30 minutes
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-m015@claimease
+DTSTAMP:20260609T082537Z
+DTSTART:20260616T010000Z
+DTEND:20260616T030000Z
+SUMMARY:🇮🇷 IR Iran v 🇳🇿 New Zealand
+LOCATION:Los Angeles Stadium
+DESCRIPTION:🏆 Group G  |  Match 15\n⏰ Kick-off: Tue 16 Jun\, 2:00am (U
+ K)\n📺 UK TV: BBC One\n📍 Venue: Los Angeles Stadium
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Kick-off in 30 minutes
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-m016@claimease
+DTSTAMP:20260609T082537Z
+DTSTART:20260615T190000Z
+DTEND:20260615T210000Z
+SUMMARY:🇧🇪 Belgium v 🇪🇬 Egypt
+LOCATION:Seattle Stadium
+DESCRIPTION:🏆 Group G  |  Match 16\n⏰ Kick-off: Mon 15 Jun\, 8:00pm (U
+ K)\n📺 UK TV: BBC One\n📍 Venue: Seattle Stadium
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Kick-off in 30 minutes
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-m017@claimease
+DTSTAMP:20260609T082537Z
+DTSTART:20260616T190000Z
+DTEND:20260616T210000Z
+SUMMARY:🇫🇷 France v 🇸🇳 Senegal
+LOCATION:New York/New Jersey Stadium
+DESCRIPTION:🏆 Group I  |  Match 17\n⏰ Kick-off: Tue 16 Jun\, 8:00pm (U
+ K)\n📺 UK TV: BBC One\n📍 Venue: New York/New Jersey Stadium
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Kick-off in 30 minutes
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-m018@claimease
+DTSTAMP:20260609T082537Z
+DTSTART:20260616T220000Z
+DTEND:20260617T000000Z
+SUMMARY:🇮🇶 Iraq v 🇳🇴 Norway
+LOCATION:Boston Stadium
+DESCRIPTION:🏆 Group I  |  Match 18\n⏰ Kick-off: Tue 16 Jun\, 11:00pm (
+ UK)\n📺 UK TV: BBC One\n📍 Venue: Boston Stadium
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Kick-off in 30 minutes
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-m019@claimease
+DTSTAMP:20260609T082537Z
+DTSTART:20260617T010000Z
+DTEND:20260617T030000Z
+SUMMARY:🇦🇷 Argentina v 🇩🇿 Algeria
+LOCATION:Kansas City Stadium
+DESCRIPTION:🏆 Group J  |  Match 19\n⏰ Kick-off: Wed 17 Jun\, 2:00am (U
+ K)\n📺 UK TV: ITV1\n📍 Venue: Kansas City Stadium
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Kick-off in 30 minutes
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-m020@claimease
+DTSTAMP:20260609T082537Z
+DTSTART:20260617T040000Z
+DTEND:20260617T060000Z
+SUMMARY:🇦🇹 Austria v 🇯🇴 Jordan
+LOCATION:San Francisco Bay Area Stadium
+DESCRIPTION:🏆 Group J  |  Match 20\n⏰ Kick-off: Wed 17 Jun\, 5:00am (U
+ K)\n📺 UK TV: BBC One\n📍 Venue: San Francisco Bay Area Stadium
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Kick-off in 30 minutes
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-m021@claimease
+DTSTAMP:20260609T082537Z
+DTSTART:20260617T230000Z
+DTEND:20260618T010000Z
+SUMMARY:🇬🇭 Ghana v 🇵🇦 Panama
+LOCATION:Toronto Stadium
+DESCRIPTION:🏆 Group L  |  Match 21\n⏰ Kick-off: Thu 18 Jun\, 12:00am (
+ UK)\n📺 UK TV: ITV1\n📍 Venue: Toronto Stadium
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Kick-off in 30 minutes
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-m022@claimease
+DTSTAMP:20260609T082537Z
+DTSTART:20260617T200000Z
+DTEND:20260617T220000Z
+SUMMARY:🏴󠁧󠁢󠁥󠁮󠁧󠁿 England v 🇭🇷 Croatia
+LOCATION:Dallas Stadium
+DESCRIPTION:🏆 Group L  |  Match 22\n⏰ Kick-off: Wed 17 Jun\, 9:00pm (U
+ K)\n📺 UK TV: ITV1\n📍 Venue: Dallas Stadium
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Kick-off in 30 minutes
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-m023@claimease
+DTSTAMP:20260609T082537Z
+DTSTART:20260617T170000Z
+DTEND:20260617T190000Z
+SUMMARY:🇵🇹 Portugal v 🇨🇩 Congo DR
+LOCATION:Houston Stadium
+DESCRIPTION:🏆 Group K  |  Match 23\n⏰ Kick-off: Wed 17 Jun\, 6:00pm (U
+ K)\n📺 UK TV: BBC One\n📍 Venue: Houston Stadium
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Kick-off in 30 minutes
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-m024@claimease
+DTSTAMP:20260609T082537Z
+DTSTART:20260618T020000Z
+DTEND:20260618T040000Z
+SUMMARY:🇺🇿 Uzbekistan v 🇨🇴 Colombia
+LOCATION:Mexico City Stadium
+DESCRIPTION:🏆 Group K  |  Match 24\n⏰ Kick-off: Thu 18 Jun\, 3:00am (U
+ K)\n📺 UK TV: BBC One\n📍 Venue: Mexico City Stadium
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Kick-off in 30 minutes
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-m025@claimease
+DTSTAMP:20260609T082537Z
+DTSTART:20260618T160000Z
+DTEND:20260618T180000Z
+SUMMARY:🇨🇿 Czechia v 🇿🇦 South Africa
+LOCATION:Atlanta Stadium
+DESCRIPTION:🏆 Group A  |  Match 25\n⏰ Kick-off: Thu 18 Jun\, 5:00pm (U
+ K)\n📺 UK TV: BBC One\n📍 Venue: Atlanta Stadium
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Kick-off in 30 minutes
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-m026@claimease
+DTSTAMP:20260609T082537Z
+DTSTART:20260618T190000Z
+DTEND:20260618T210000Z
+SUMMARY:🇨🇭 Switzerland v 🇧🇦 Bosnia and Herzegovina
+LOCATION:Los Angeles Stadium
+DESCRIPTION:🏆 Group B  |  Match 26\n⏰ Kick-off: Thu 18 Jun\, 8:00pm (U
+ K)\n📺 UK TV: ITV1\n📍 Venue: Los Angeles Stadium
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Kick-off in 30 minutes
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-m027@claimease
+DTSTAMP:20260609T082537Z
+DTSTART:20260618T220000Z
+DTEND:20260619T000000Z
+SUMMARY:🇨🇦 Canada v 🇶🇦 Qatar
+LOCATION:BC Place Vancouver
+DESCRIPTION:🏆 Group B  |  Match 27\n⏰ Kick-off: Thu 18 Jun\, 11:00pm (
+ UK)\n📺 UK TV: ITV1\n📍 Venue: BC Place Vancouver
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Kick-off in 30 minutes
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-m028@claimease
+DTSTAMP:20260609T082537Z
+DTSTART:20260619T010000Z
+DTEND:20260619T030000Z
+SUMMARY:🇲🇽 Mexico v 🇰🇷 Korea Republic
+LOCATION:Guadalajara Stadium
+DESCRIPTION:🏆 Group A  |  Match 28\n⏰ Kick-off: Fri 19 Jun\, 2:00am (U
+ K)\n📺 UK TV: BBC One\n📍 Venue: Guadalajara Stadium
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Kick-off in 30 minutes
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-m029@claimease
+DTSTAMP:20260609T082537Z
+DTSTART:20260620T010000Z
+DTEND:20260620T030000Z
+SUMMARY:🇧🇷 Brazil v 🇭🇹 Haiti
+LOCATION:Philadelphia Stadium
+DESCRIPTION:🏆 Group C  |  Match 29\n⏰ Kick-off: Sat 20 Jun\, 2:00am (U
+ K)\n📺 UK TV: ITV1\n📍 Venue: Philadelphia Stadium
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Kick-off in 30 minutes
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-m030@claimease
+DTSTAMP:20260609T082537Z
+DTSTART:20260619T220000Z
+DTEND:20260620T000000Z
+SUMMARY:🏴󠁧󠁢󠁳󠁣󠁴󠁿 Scotland v 🇲🇦 Morocco
+LOCATION:Boston Stadium
+DESCRIPTION:🏆 Group C  |  Match 30\n⏰ Kick-off: Fri 19 Jun\, 11:00pm (
+ UK)\n📺 UK TV: ITV1\n📍 Venue: Boston Stadium
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Kick-off in 30 minutes
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-m031@claimease
+DTSTAMP:20260609T082537Z
+DTSTART:20260620T040000Z
+DTEND:20260620T060000Z
+SUMMARY:🇹🇷 Türkiye v 🇵🇾 Paraguay
+LOCATION:San Francisco Bay Area Stadium
+DESCRIPTION:🏆 Group D  |  Match 31\n⏰ Kick-off: Sat 20 Jun\, 5:00am (U
+ K)\n📺 UK TV: ITV1\n📍 Venue: San Francisco Bay Area Stadium
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Kick-off in 30 minutes
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-m032@claimease
+DTSTAMP:20260609T082537Z
+DTSTART:20260619T190000Z
+DTEND:20260619T210000Z
+SUMMARY:🇺🇸 USA v 🇦🇺 Australia
+LOCATION:Seattle Stadium
+DESCRIPTION:🏆 Group D  |  Match 32\n⏰ Kick-off: Fri 19 Jun\, 8:00pm (U
+ K)\n📺 UK TV: BBC One\n📍 Venue: Seattle Stadium
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Kick-off in 30 minutes
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-m033@claimease
+DTSTAMP:20260609T082537Z
+DTSTART:20260620T200000Z
+DTEND:20260620T220000Z
+SUMMARY:🇩🇪 Germany v 🇨🇮 Côte d'Ivoire
+LOCATION:Toronto Stadium
+DESCRIPTION:🏆 Group E  |  Match 33\n⏰ Kick-off: Sat 20 Jun\, 9:00pm (U
+ K)\n📺 UK TV: ITV1\n📍 Venue: Toronto Stadium
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Kick-off in 30 minutes
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-m034@claimease
+DTSTAMP:20260609T082537Z
+DTSTART:20260621T000000Z
+DTEND:20260621T020000Z
+SUMMARY:🇪🇨 Ecuador v 🇨🇼 Curaçao
+LOCATION:Kansas City Stadium
+DESCRIPTION:🏆 Group E  |  Match 34\n⏰ Kick-off: Sun 21 Jun\, 1:00am (U
+ K)\n📺 UK TV: BBC One\n📍 Venue: Kansas City Stadium
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Kick-off in 30 minutes
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-m035@claimease
+DTSTAMP:20260609T082537Z
+DTSTART:20260620T170000Z
+DTEND:20260620T190000Z
+SUMMARY:🇳🇱 Netherlands v 🇸🇪 Sweden
+LOCATION:Houston Stadium
+DESCRIPTION:🏆 Group F  |  Match 35\n⏰ Kick-off: Sat 20 Jun\, 6:00pm (U
+ K)\n📺 UK TV: BBC One\n📍 Venue: Houston Stadium
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Kick-off in 30 minutes
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-m036@claimease
+DTSTAMP:20260609T082537Z
+DTSTART:20260621T040000Z
+DTEND:20260621T060000Z
+SUMMARY:🇹🇳 Tunisia v 🇯🇵 Japan
+LOCATION:Monterrey Stadium
+DESCRIPTION:🏆 Group F  |  Match 36\n⏰ Kick-off: Sun 21 Jun\, 5:00am (U
+ K)\n📺 UK TV: BBC One\n📍 Venue: Monterrey Stadium
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Kick-off in 30 minutes
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-m037@claimease
+DTSTAMP:20260609T082537Z
+DTSTART:20260621T220000Z
+DTEND:20260622T000000Z
+SUMMARY:🇺🇾 Uruguay v 🇨🇻 Cabo Verde
+LOCATION:Miami Stadium
+DESCRIPTION:🏆 Group H  |  Match 37\n⏰ Kick-off: Sun 21 Jun\, 11:00pm (
+ UK)\n📺 UK TV: BBC One\n📍 Venue: Miami Stadium
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Kick-off in 30 minutes
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-m038@claimease
+DTSTAMP:20260609T082537Z
+DTSTART:20260621T160000Z
+DTEND:20260621T180000Z
+SUMMARY:🇪🇸 Spain v 🇸🇦 Saudi Arabia
+LOCATION:Atlanta Stadium
+DESCRIPTION:🏆 Group H  |  Match 38\n⏰ Kick-off: Sun 21 Jun\, 5:00pm (U
+ K)\n📺 UK TV: BBC One\n📍 Venue: Atlanta Stadium
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Kick-off in 30 minutes
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-m039@claimease
+DTSTAMP:20260609T082537Z
+DTSTART:20260621T190000Z
+DTEND:20260621T210000Z
+SUMMARY:🇧🇪 Belgium v 🇮🇷 IR Iran
+LOCATION:Los Angeles Stadium
+DESCRIPTION:🏆 Group G  |  Match 39\n⏰ Kick-off: Sun 21 Jun\, 8:00pm (U
+ K)\n📺 UK TV: ITV1\n📍 Venue: Los Angeles Stadium
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Kick-off in 30 minutes
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-m040@claimease
+DTSTAMP:20260609T082537Z
+DTSTART:20260622T010000Z
+DTEND:20260622T030000Z
+SUMMARY:🇳🇿 New Zealand v 🇪🇬 Egypt
+LOCATION:BC Place Vancouver
+DESCRIPTION:🏆 Group G  |  Match 40\n⏰ Kick-off: Mon 22 Jun\, 2:00am (U
+ K)\n📺 UK TV: ITV1\n📍 Venue: BC Place Vancouver
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Kick-off in 30 minutes
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-m041@claimease
+DTSTAMP:20260609T082537Z
+DTSTART:20260623T000000Z
+DTEND:20260623T020000Z
+SUMMARY:🇳🇴 Norway v 🇸🇳 Senegal
+LOCATION:New York/New Jersey Stadium
+DESCRIPTION:🏆 Group I  |  Match 41\n⏰ Kick-off: Tue 23 Jun\, 1:00am (U
+ K)\n📺 UK TV: ITV1\n📍 Venue: New York/New Jersey Stadium
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Kick-off in 30 minutes
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-m042@claimease
+DTSTAMP:20260609T082537Z
+DTSTART:20260622T210000Z
+DTEND:20260622T230000Z
+SUMMARY:🇫🇷 France v 🇮🇶 Iraq
+LOCATION:Philadelphia Stadium
+DESCRIPTION:🏆 Group I  |  Match 42\n⏰ Kick-off: Mon 22 Jun\, 10:00pm (
+ UK)\n📺 UK TV: BBC One\n📍 Venue: Philadelphia Stadium
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Kick-off in 30 minutes
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-m043@claimease
+DTSTAMP:20260609T082537Z
+DTSTART:20260622T170000Z
+DTEND:20260622T190000Z
+SUMMARY:🇦🇷 Argentina v 🇦🇹 Austria
+LOCATION:Dallas Stadium
+DESCRIPTION:🏆 Group J  |  Match 43\n⏰ Kick-off: Mon 22 Jun\, 6:00pm (U
+ K)\n📺 UK TV: BBC One\n📍 Venue: Dallas Stadium
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Kick-off in 30 minutes
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-m044@claimease
+DTSTAMP:20260609T082537Z
+DTSTART:20260623T030000Z
+DTEND:20260623T050000Z
+SUMMARY:🇯🇴 Jordan v 🇩🇿 Algeria
+LOCATION:San Francisco Bay Area Stadium
+DESCRIPTION:🏆 Group J  |  Match 44\n⏰ Kick-off: Tue 23 Jun\, 4:00am (U
+ K)\n📺 UK TV: ITV1\n📍 Venue: San Francisco Bay Area Stadium
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Kick-off in 30 minutes
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-m045@claimease
+DTSTAMP:20260609T082537Z
+DTSTART:20260623T200000Z
+DTEND:20260623T220000Z
+SUMMARY:🏴󠁧󠁢󠁥󠁮󠁧󠁿 England v 🇬🇭 Ghana
+LOCATION:Boston Stadium
+DESCRIPTION:🏆 Group L  |  Match 45\n⏰ Kick-off: Tue 23 Jun\, 9:00pm (U
+ K)\n📺 UK TV: BBC One\n📍 Venue: Boston Stadium
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Kick-off in 30 minutes
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-m046@claimease
+DTSTAMP:20260609T082537Z
+DTSTART:20260623T230000Z
+DTEND:20260624T010000Z
+SUMMARY:🇵🇦 Panama v 🇭🇷 Croatia
+LOCATION:Toronto Stadium
+DESCRIPTION:🏆 Group L  |  Match 46\n⏰ Kick-off: Wed 24 Jun\, 12:00am (
+ UK)\n📺 UK TV: BBC One\n📍 Venue: Toronto Stadium
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Kick-off in 30 minutes
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-m047@claimease
+DTSTAMP:20260609T082537Z
+DTSTART:20260623T170000Z
+DTEND:20260623T190000Z
+SUMMARY:🇵🇹 Portugal v 🇺🇿 Uzbekistan
+LOCATION:Houston Stadium
+DESCRIPTION:🏆 Group K  |  Match 47\n⏰ Kick-off: Tue 23 Jun\, 6:00pm (U
+ K)\n📺 UK TV: ITV1\n📍 Venue: Houston Stadium
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Kick-off in 30 minutes
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-m048@claimease
+DTSTAMP:20260609T082537Z
+DTSTART:20260624T020000Z
+DTEND:20260624T040000Z
+SUMMARY:🇨🇴 Colombia v 🇨🇩 Congo DR
+LOCATION:Guadalajara Stadium
+DESCRIPTION:🏆 Group K  |  Match 48\n⏰ Kick-off: Wed 24 Jun\, 3:00am (U
+ K)\n📺 UK TV: ITV1\n📍 Venue: Guadalajara Stadium
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Kick-off in 30 minutes
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-m049@claimease
+DTSTAMP:20260609T082537Z
+DTSTART:20260624T220000Z
+DTEND:20260625T000000Z
+SUMMARY:🏴󠁧󠁢󠁳󠁣󠁴󠁿 Scotland v 🇧🇷 Brazil
+LOCATION:Miami Stadium
+DESCRIPTION:🏆 Group C  |  Match 49\n⏰ Kick-off: Wed 24 Jun\, 11:00pm (
+ UK)\n📺 UK TV: BBC One\n📍 Venue: Miami Stadium
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Kick-off in 30 minutes
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-m050@claimease
+DTSTAMP:20260609T082537Z
+DTSTART:20260624T220000Z
+DTEND:20260625T000000Z
+SUMMARY:🇲🇦 Morocco v 🇭🇹 Haiti
+LOCATION:Atlanta Stadium
+DESCRIPTION:🏆 Group C  |  Match 50\n⏰ Kick-off: Wed 24 Jun\, 11:00pm (
+ UK)\n📺 UK TV: BBC Two\n📍 Venue: Atlanta Stadium
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Kick-off in 30 minutes
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-m051@claimease
+DTSTAMP:20260609T082537Z
+DTSTART:20260624T190000Z
+DTEND:20260624T210000Z
+SUMMARY:🇨🇭 Switzerland v 🇨🇦 Canada
+LOCATION:BC Place Vancouver
+DESCRIPTION:🏆 Group B  |  Match 51\n⏰ Kick-off: Wed 24 Jun\, 8:00pm (U
+ K)\n📺 UK TV: ITV1\n📍 Venue: BC Place Vancouver
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Kick-off in 30 minutes
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-m052@claimease
+DTSTAMP:20260609T082537Z
+DTSTART:20260624T190000Z
+DTEND:20260624T210000Z
+SUMMARY:🇧🇦 Bosnia and Herzegovina v 🇶🇦 Qatar
+LOCATION:Seattle Stadium
+DESCRIPTION:🏆 Group B  |  Match 52\n⏰ Kick-off: Wed 24 Jun\, 8:00pm (U
+ K)\n📺 UK TV: ITV4\n📍 Venue: Seattle Stadium
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Kick-off in 30 minutes
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-m053@claimease
+DTSTAMP:20260609T082537Z
+DTSTART:20260625T010000Z
+DTEND:20260625T030000Z
+SUMMARY:🇨🇿 Czechia v 🇲🇽 Mexico
+LOCATION:Mexico City Stadium
+DESCRIPTION:🏆 Group A  |  Match 53\n⏰ Kick-off: Thu 25 Jun\, 2:00am (U
+ K)\n📺 UK TV: BBC One\n📍 Venue: Mexico City Stadium
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Kick-off in 30 minutes
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-m054@claimease
+DTSTAMP:20260609T082537Z
+DTSTART:20260625T010000Z
+DTEND:20260625T030000Z
+SUMMARY:🇿🇦 South Africa v 🇰🇷 Korea Republic
+LOCATION:Monterrey Stadium
+DESCRIPTION:🏆 Group A  |  Match 54\n⏰ Kick-off: Thu 25 Jun\, 2:00am (U
+ K)\n📺 UK TV: BBC Two\n📍 Venue: Monterrey Stadium
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Kick-off in 30 minutes
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-m055@claimease
+DTSTAMP:20260609T082537Z
+DTSTART:20260625T200000Z
+DTEND:20260625T220000Z
+SUMMARY:🇨🇼 Curaçao v 🇨🇮 Côte d'Ivoire
+LOCATION:Philadelphia Stadium
+DESCRIPTION:🏆 Group E  |  Match 55\n⏰ Kick-off: Thu 25 Jun\, 9:00pm (U
+ K)\n📺 UK TV: BBC Two\n📍 Venue: Philadelphia Stadium
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Kick-off in 30 minutes
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-m056@claimease
+DTSTAMP:20260609T082537Z
+DTSTART:20260625T200000Z
+DTEND:20260625T220000Z
+SUMMARY:🇪🇨 Ecuador v 🇩🇪 Germany
+LOCATION:New York/New Jersey Stadium
+DESCRIPTION:🏆 Group E  |  Match 56\n⏰ Kick-off: Thu 25 Jun\, 9:00pm (U
+ K)\n📺 UK TV: BBC One\n📍 Venue: New York/New Jersey Stadium
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Kick-off in 30 minutes
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-m057@claimease
+DTSTAMP:20260609T082537Z
+DTSTART:20260625T230000Z
+DTEND:20260626T010000Z
+SUMMARY:🇯🇵 Japan v 🇸🇪 Sweden
+LOCATION:Dallas Stadium
+DESCRIPTION:🏆 Group F  |  Match 57\n⏰ Kick-off: Fri 26 Jun\, 12:00am (
+ UK)\n📺 UK TV: BBC Two\n📍 Venue: Dallas Stadium
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Kick-off in 30 minutes
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-m058@claimease
+DTSTAMP:20260609T082537Z
+DTSTART:20260625T230000Z
+DTEND:20260626T010000Z
+SUMMARY:🇹🇳 Tunisia v 🇳🇱 Netherlands
+LOCATION:Kansas City Stadium
+DESCRIPTION:🏆 Group F  |  Match 58\n⏰ Kick-off: Fri 26 Jun\, 12:00am (
+ UK)\n📺 UK TV: BBC One\n📍 Venue: Kansas City Stadium
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Kick-off in 30 minutes
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-m059@claimease
+DTSTAMP:20260609T082537Z
+DTSTART:20260626T020000Z
+DTEND:20260626T040000Z
+SUMMARY:🇹🇷 Türkiye v 🇺🇸 USA
+LOCATION:Los Angeles Stadium
+DESCRIPTION:🏆 Group D  |  Match 59\n⏰ Kick-off: Fri 26 Jun\, 3:00am (U
+ K)\n📺 UK TV: ITV1\n📍 Venue: Los Angeles Stadium
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Kick-off in 30 minutes
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-m060@claimease
+DTSTAMP:20260609T082537Z
+DTSTART:20260626T020000Z
+DTEND:20260626T040000Z
+SUMMARY:🇵🇾 Paraguay v 🇦🇺 Australia
+LOCATION:San Francisco Bay Area Stadium
+DESCRIPTION:🏆 Group D  |  Match 60\n⏰ Kick-off: Fri 26 Jun\, 3:00am (U
+ K)\n📺 UK TV: ITV4\n📍 Venue: San Francisco Bay Area Stadium
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Kick-off in 30 minutes
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-m061@claimease
+DTSTAMP:20260609T082537Z
+DTSTART:20260626T190000Z
+DTEND:20260626T210000Z
+SUMMARY:🇳🇴 Norway v 🇫🇷 France
+LOCATION:Boston Stadium
+DESCRIPTION:🏆 Group I  |  Match 61\n⏰ Kick-off: Fri 26 Jun\, 8:00pm (U
+ K)\n📺 UK TV: ITV1\n📍 Venue: Boston Stadium
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Kick-off in 30 minutes
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-m062@claimease
+DTSTAMP:20260609T082537Z
+DTSTART:20260626T190000Z
+DTEND:20260626T210000Z
+SUMMARY:🇸🇳 Senegal v 🇮🇶 Iraq
+LOCATION:Toronto Stadium
+DESCRIPTION:🏆 Group I  |  Match 62\n⏰ Kick-off: Fri 26 Jun\, 8:00pm (U
+ K)\n📺 UK TV: ITV4\n📍 Venue: Toronto Stadium
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Kick-off in 30 minutes
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-m063@claimease
+DTSTAMP:20260609T082537Z
+DTSTART:20260627T030000Z
+DTEND:20260627T050000Z
+SUMMARY:🇪🇬 Egypt v 🇮🇷 IR Iran
+LOCATION:Seattle Stadium
+DESCRIPTION:🏆 Group G  |  Match 63\n⏰ Kick-off: Sat 27 Jun\, 4:00am (U
+ K)\n📺 UK TV: BBC Two\n📍 Venue: Seattle Stadium
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Kick-off in 30 minutes
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-m064@claimease
+DTSTAMP:20260609T082537Z
+DTSTART:20260627T030000Z
+DTEND:20260627T050000Z
+SUMMARY:🇳🇿 New Zealand v 🇧🇪 Belgium
+LOCATION:BC Place Vancouver
+DESCRIPTION:🏆 Group G  |  Match 64\n⏰ Kick-off: Sat 27 Jun\, 4:00am (U
+ K)\n📺 UK TV: BBC One\n📍 Venue: BC Place Vancouver
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Kick-off in 30 minutes
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-m065@claimease
+DTSTAMP:20260609T082537Z
+DTSTART:20260627T000000Z
+DTEND:20260627T020000Z
+SUMMARY:🇨🇻 Cabo Verde v 🇸🇦 Saudi Arabia
+LOCATION:Houston Stadium
+DESCRIPTION:🏆 Group H  |  Match 65\n⏰ Kick-off: Sat 27 Jun\, 1:00am (U
+ K)\n📺 UK TV: ITV4\n📍 Venue: Houston Stadium
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Kick-off in 30 minutes
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-m066@claimease
+DTSTAMP:20260609T082537Z
+DTSTART:20260627T000000Z
+DTEND:20260627T020000Z
+SUMMARY:🇺🇾 Uruguay v 🇪🇸 Spain
+LOCATION:Guadalajara Stadium
+DESCRIPTION:🏆 Group H  |  Match 66\n⏰ Kick-off: Sat 27 Jun\, 1:00am (U
+ K)\n📺 UK TV: ITV1\n📍 Venue: Guadalajara Stadium
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Kick-off in 30 minutes
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-m067@claimease
+DTSTAMP:20260609T082537Z
+DTSTART:20260627T210000Z
+DTEND:20260627T230000Z
+SUMMARY:🇵🇦 Panama v 🏴󠁧󠁢󠁥󠁮󠁧󠁿 England
+LOCATION:New York/New Jersey Stadium
+DESCRIPTION:🏆 Group L  |  Match 67\n⏰ Kick-off: Sat 27 Jun\, 10:00pm (
+ UK)\n📺 UK TV: ITV1\n📍 Venue: New York/New Jersey Stadium
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Kick-off in 30 minutes
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-m068@claimease
+DTSTAMP:20260609T082537Z
+DTSTART:20260627T210000Z
+DTEND:20260627T230000Z
+SUMMARY:🇭🇷 Croatia v 🇬🇭 Ghana
+LOCATION:Philadelphia Stadium
+DESCRIPTION:🏆 Group L  |  Match 68\n⏰ Kick-off: Sat 27 Jun\, 10:00pm (
+ UK)\n📺 UK TV: ITV4\n📍 Venue: Philadelphia Stadium
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Kick-off in 30 minutes
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-m069@claimease
+DTSTAMP:20260609T082537Z
+DTSTART:20260628T020000Z
+DTEND:20260628T040000Z
+SUMMARY:🇩🇿 Algeria v 🇦🇹 Austria
+LOCATION:Kansas City Stadium
+DESCRIPTION:🏆 Group J  |  Match 69\n⏰ Kick-off: Sun 28 Jun\, 3:00am (U
+ K)\n📺 UK TV: BBC Two\n📍 Venue: Kansas City Stadium
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Kick-off in 30 minutes
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-m070@claimease
+DTSTAMP:20260609T082537Z
+DTSTART:20260628T020000Z
+DTEND:20260628T040000Z
+SUMMARY:🇯🇴 Jordan v 🇦🇷 Argentina
+LOCATION:Dallas Stadium
+DESCRIPTION:🏆 Group J  |  Match 70\n⏰ Kick-off: Sun 28 Jun\, 3:00am (U
+ K)\n📺 UK TV: BBC One\n📍 Venue: Dallas Stadium
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Kick-off in 30 minutes
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-m071@claimease
+DTSTAMP:20260609T082537Z
+DTSTART:20260627T233000Z
+DTEND:20260628T013000Z
+SUMMARY:🇨🇴 Colombia v 🇵🇹 Portugal
+LOCATION:Miami Stadium
+DESCRIPTION:🏆 Group K  |  Match 71\n⏰ Kick-off: Sun 28 Jun\, 12:30am (
+ UK)\n📺 UK TV: BBC One\n📍 Venue: Miami Stadium
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Kick-off in 30 minutes
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-m072@claimease
+DTSTAMP:20260609T082537Z
+DTSTART:20260627T233000Z
+DTEND:20260628T013000Z
+SUMMARY:🇨🇩 Congo DR v 🇺🇿 Uzbekistan
+LOCATION:Atlanta Stadium
+DESCRIPTION:🏆 Group K  |  Match 72\n⏰ Kick-off: Sun 28 Jun\, 12:30am (
+ UK)\n📺 UK TV: BBC Two\n📍 Venue: Atlanta Stadium
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Kick-off in 30 minutes
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-m073@claimease
+DTSTAMP:20260609T082537Z
+DTSTART:20260628T190000Z
+DTEND:20260628T210000Z
+SUMMARY:Runner-up Group A v Runner-up Group B
+LOCATION:Los Angeles Stadium
+DESCRIPTION:🏆 Round of 32  |  Match 73\n⏰ Kick-off: Sun 28 Jun\, 8:00p
+ m (UK)\n📺 UK TV: BBC / ITV (TBC)\n📍 Venue: Los Angeles Stadium\nℹ
+ ️ Teams update automatically once results are known.
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Kick-off in 30 minutes
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-m074@claimease
+DTSTAMP:20260609T082537Z
+DTSTART:20260629T203000Z
+DTEND:20260629T223000Z
+SUMMARY:Winner Group E v 3rd (A/B/C/D/F)
+LOCATION:Boston Stadium
+DESCRIPTION:🏆 Round of 32  |  Match 74\n⏰ Kick-off: Mon 29 Jun\, 9:30p
+ m (UK)\n📺 UK TV: BBC / ITV (TBC)\n📍 Venue: Boston Stadium\nℹ️ Te
+ ams update automatically once results are known.
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Kick-off in 30 minutes
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-m075@claimease
+DTSTAMP:20260609T082537Z
+DTSTART:20260630T010000Z
+DTEND:20260630T030000Z
+SUMMARY:Winner Group F v Runner-up Group C
+LOCATION:Monterrey Stadium
+DESCRIPTION:🏆 Round of 32  |  Match 75\n⏰ Kick-off: Tue 30 Jun\, 2:00a
+ m (UK)\n📺 UK TV: BBC / ITV (TBC)\n📍 Venue: Monterrey Stadium\nℹ️
+  Teams update automatically once results are known.
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Kick-off in 30 minutes
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-m076@claimease
+DTSTAMP:20260609T082537Z
+DTSTART:20260629T170000Z
+DTEND:20260629T190000Z
+SUMMARY:Winner Group C v Runner-up Group F
+LOCATION:Houston Stadium
+DESCRIPTION:🏆 Round of 32  |  Match 76\n⏰ Kick-off: Mon 29 Jun\, 6:00p
+ m (UK)\n📺 UK TV: BBC / ITV (TBC)\n📍 Venue: Houston Stadium\nℹ️ T
+ eams update automatically once results are known.
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Kick-off in 30 minutes
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-m077@claimease
+DTSTAMP:20260609T082537Z
+DTSTART:20260630T210000Z
+DTEND:20260630T230000Z
+SUMMARY:Winner Group I v 3rd (C/D/F/G/H)
+LOCATION:New York/New Jersey Stadium
+DESCRIPTION:🏆 Round of 32  |  Match 77\n⏰ Kick-off: Tue 30 Jun\, 10:00
+ pm (UK)\n📺 UK TV: BBC / ITV (TBC)\n📍 Venue: New York/New Jersey Stad
+ ium\nℹ️ Teams update automatically once results are known.
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Kick-off in 30 minutes
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-m078@claimease
+DTSTAMP:20260609T082537Z
+DTSTART:20260630T170000Z
+DTEND:20260630T190000Z
+SUMMARY:Runner-up Group E v Runner-up Group I
+LOCATION:Dallas Stadium
+DESCRIPTION:🏆 Round of 32  |  Match 78\n⏰ Kick-off: Tue 30 Jun\, 6:00p
+ m (UK)\n📺 UK TV: BBC / ITV (TBC)\n📍 Venue: Dallas Stadium\nℹ️ Te
+ ams update automatically once results are known.
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Kick-off in 30 minutes
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-m079@claimease
+DTSTAMP:20260609T082537Z
+DTSTART:20260701T010000Z
+DTEND:20260701T030000Z
+SUMMARY:Winner Group A v 3rd (C/E/F/H/I)
+LOCATION:Mexico City Stadium
+DESCRIPTION:🏆 Round of 32  |  Match 79\n⏰ Kick-off: Wed 01 Jul\, 2:00a
+ m (UK)\n📺 UK TV: BBC / ITV (TBC)\n📍 Venue: Mexico City Stadium\nℹ
+ ️ Teams update automatically once results are known.
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Kick-off in 30 minutes
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-m080@claimease
+DTSTAMP:20260609T082537Z
+DTSTART:20260701T160000Z
+DTEND:20260701T180000Z
+SUMMARY:Winner Group L v 3rd (E/H/I/J/K)
+LOCATION:Atlanta Stadium
+DESCRIPTION:🏆 Round of 32  |  Match 80\n⏰ Kick-off: Wed 01 Jul\, 5:00p
+ m (UK)\n📺 UK TV: BBC / ITV (TBC)\n📍 Venue: Atlanta Stadium\nℹ️ T
+ eams update automatically once results are known.
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Kick-off in 30 minutes
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-m081@claimease
+DTSTAMP:20260609T082537Z
+DTSTART:20260702T000000Z
+DTEND:20260702T020000Z
+SUMMARY:Winner Group D v 3rd (B/E/F/I/J)
+LOCATION:San Francisco Bay Area Stadium
+DESCRIPTION:🏆 Round of 32  |  Match 81\n⏰ Kick-off: Thu 02 Jul\, 1:00a
+ m (UK)\n📺 UK TV: BBC / ITV (TBC)\n📍 Venue: San Francisco Bay Area St
+ adium\nℹ️ Teams update automatically once results are known.
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Kick-off in 30 minutes
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-m082@claimease
+DTSTAMP:20260609T082537Z
+DTSTART:20260701T200000Z
+DTEND:20260701T220000Z
+SUMMARY:Winner Group G v 3rd (A/E/H/I/J)
+LOCATION:Seattle Stadium
+DESCRIPTION:🏆 Round of 32  |  Match 82\n⏰ Kick-off: Wed 01 Jul\, 9:00p
+ m (UK)\n📺 UK TV: BBC / ITV (TBC)\n📍 Venue: Seattle Stadium\nℹ️ T
+ eams update automatically once results are known.
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Kick-off in 30 minutes
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-m083@claimease
+DTSTAMP:20260609T082537Z
+DTSTART:20260702T230000Z
+DTEND:20260703T010000Z
+SUMMARY:Runner-up Group K v Runner-up Group L
+LOCATION:Toronto Stadium
+DESCRIPTION:🏆 Round of 32  |  Match 83\n⏰ Kick-off: Fri 03 Jul\, 12:00
+ am (UK)\n📺 UK TV: BBC / ITV (TBC)\n📍 Venue: Toronto Stadium\nℹ️ 
+ Teams update automatically once results are known.
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Kick-off in 30 minutes
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-m084@claimease
+DTSTAMP:20260609T082537Z
+DTSTART:20260702T190000Z
+DTEND:20260702T210000Z
+SUMMARY:Winner Group H v Runner-up Group J
+LOCATION:Los Angeles Stadium
+DESCRIPTION:🏆 Round of 32  |  Match 84\n⏰ Kick-off: Thu 02 Jul\, 8:00p
+ m (UK)\n📺 UK TV: BBC / ITV (TBC)\n📍 Venue: Los Angeles Stadium\nℹ
+ ️ Teams update automatically once results are known.
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Kick-off in 30 minutes
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-m085@claimease
+DTSTAMP:20260609T082537Z
+DTSTART:20260703T030000Z
+DTEND:20260703T050000Z
+SUMMARY:Winner Group B v 3rd (E/F/G/I/J)
+LOCATION:BC Place Vancouver
+DESCRIPTION:🏆 Round of 32  |  Match 85\n⏰ Kick-off: Fri 03 Jul\, 4:00a
+ m (UK)\n📺 UK TV: BBC / ITV (TBC)\n📍 Venue: BC Place Vancouver\nℹ
+ ️ Teams update automatically once results are known.
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Kick-off in 30 minutes
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-m086@claimease
+DTSTAMP:20260609T082537Z
+DTSTART:20260703T220000Z
+DTEND:20260704T000000Z
+SUMMARY:Winner Group J v Runner-up Group H
+LOCATION:Miami Stadium
+DESCRIPTION:🏆 Round of 32  |  Match 86\n⏰ Kick-off: Fri 03 Jul\, 11:00
+ pm (UK)\n📺 UK TV: BBC / ITV (TBC)\n📍 Venue: Miami Stadium\nℹ️ Te
+ ams update automatically once results are known.
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Kick-off in 30 minutes
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-m087@claimease
+DTSTAMP:20260609T082537Z
+DTSTART:20260704T013000Z
+DTEND:20260704T033000Z
+SUMMARY:Winner Group K v 3rd (D/E/I/J/L)
+LOCATION:Kansas City Stadium
+DESCRIPTION:🏆 Round of 32  |  Match 87\n⏰ Kick-off: Sat 04 Jul\, 2:30a
+ m (UK)\n📺 UK TV: BBC / ITV (TBC)\n📍 Venue: Kansas City Stadium\nℹ
+ ️ Teams update automatically once results are known.
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Kick-off in 30 minutes
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-m088@claimease
+DTSTAMP:20260609T082537Z
+DTSTART:20260703T180000Z
+DTEND:20260703T200000Z
+SUMMARY:Runner-up Group D v Runner-up Group G
+LOCATION:Dallas Stadium
+DESCRIPTION:🏆 Round of 32  |  Match 88\n⏰ Kick-off: Fri 03 Jul\, 7:00p
+ m (UK)\n📺 UK TV: BBC / ITV (TBC)\n📍 Venue: Dallas Stadium\nℹ️ Te
+ ams update automatically once results are known.
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Kick-off in 30 minutes
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-m089@claimease
+DTSTAMP:20260609T082537Z
+DTSTART:20260704T210000Z
+DTEND:20260704T230000Z
+SUMMARY:Winner M74 v Winner M77
+LOCATION:Philadelphia Stadium
+DESCRIPTION:🏆 Round of 16  |  Match 89\n⏰ Kick-off: Sat 04 Jul\, 10:00
+ pm (UK)\n📺 UK TV: BBC / ITV (TBC)\n📍 Venue: Philadelphia Stadium\n
+ ℹ️ Teams update automatically once results are known.
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Kick-off in 30 minutes
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-m090@claimease
+DTSTAMP:20260609T082537Z
+DTSTART:20260704T170000Z
+DTEND:20260704T190000Z
+SUMMARY:Winner M73 v Winner M75
+LOCATION:Houston Stadium
+DESCRIPTION:🏆 Round of 16  |  Match 90\n⏰ Kick-off: Sat 04 Jul\, 6:00p
+ m (UK)\n📺 UK TV: BBC / ITV (TBC)\n📍 Venue: Houston Stadium\nℹ️ T
+ eams update automatically once results are known.
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Kick-off in 30 minutes
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-m091@claimease
+DTSTAMP:20260609T082537Z
+DTSTART:20260705T200000Z
+DTEND:20260705T220000Z
+SUMMARY:Winner M76 v Winner M78
+LOCATION:New York/New Jersey Stadium
+DESCRIPTION:🏆 Round of 16  |  Match 91\n⏰ Kick-off: Sun 05 Jul\, 9:00p
+ m (UK)\n📺 UK TV: BBC / ITV (TBC)\n📍 Venue: New York/New Jersey Stadi
+ um\nℹ️ Teams update automatically once results are known.
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Kick-off in 30 minutes
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-m092@claimease
+DTSTAMP:20260609T082537Z
+DTSTART:20260706T000000Z
+DTEND:20260706T020000Z
+SUMMARY:Winner M79 v Winner M80
+LOCATION:Mexico City Stadium
+DESCRIPTION:🏆 Round of 16  |  Match 92\n⏰ Kick-off: Mon 06 Jul\, 1:00a
+ m (UK)\n📺 UK TV: BBC / ITV (TBC)\n📍 Venue: Mexico City Stadium\nℹ
+ ️ Teams update automatically once results are known.
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Kick-off in 30 minutes
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-m093@claimease
+DTSTAMP:20260609T082537Z
+DTSTART:20260706T190000Z
+DTEND:20260706T210000Z
+SUMMARY:Winner M83 v Winner M84
+LOCATION:Dallas Stadium
+DESCRIPTION:🏆 Round of 16  |  Match 93\n⏰ Kick-off: Mon 06 Jul\, 8:00p
+ m (UK)\n📺 UK TV: BBC / ITV (TBC)\n📍 Venue: Dallas Stadium\nℹ️ Te
+ ams update automatically once results are known.
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Kick-off in 30 minutes
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-m094@claimease
+DTSTAMP:20260609T082537Z
+DTSTART:20260707T000000Z
+DTEND:20260707T020000Z
+SUMMARY:Winner M81 v Winner M82
+LOCATION:Seattle Stadium
+DESCRIPTION:🏆 Round of 16  |  Match 94\n⏰ Kick-off: Tue 07 Jul\, 1:00a
+ m (UK)\n📺 UK TV: BBC / ITV (TBC)\n📍 Venue: Seattle Stadium\nℹ️ T
+ eams update automatically once results are known.
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Kick-off in 30 minutes
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-m095@claimease
+DTSTAMP:20260609T082537Z
+DTSTART:20260707T160000Z
+DTEND:20260707T180000Z
+SUMMARY:Winner M86 v Winner M88
+LOCATION:Atlanta Stadium
+DESCRIPTION:🏆 Round of 16  |  Match 95\n⏰ Kick-off: Tue 07 Jul\, 5:00p
+ m (UK)\n📺 UK TV: BBC / ITV (TBC)\n📍 Venue: Atlanta Stadium\nℹ️ T
+ eams update automatically once results are known.
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Kick-off in 30 minutes
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-m096@claimease
+DTSTAMP:20260609T082537Z
+DTSTART:20260707T200000Z
+DTEND:20260707T220000Z
+SUMMARY:Winner M85 v Winner M87
+LOCATION:BC Place Vancouver
+DESCRIPTION:🏆 Round of 16  |  Match 96\n⏰ Kick-off: Tue 07 Jul\, 9:00p
+ m (UK)\n📺 UK TV: BBC / ITV (TBC)\n📍 Venue: BC Place Vancouver\nℹ
+ ️ Teams update automatically once results are known.
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Kick-off in 30 minutes
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-m097@claimease
+DTSTAMP:20260609T082537Z
+DTSTART:20260709T200000Z
+DTEND:20260709T220000Z
+SUMMARY:Winner M89 v Winner M90
+LOCATION:Boston Stadium
+DESCRIPTION:🏆 Quarter-final  |  Match 97\n⏰ Kick-off: Thu 09 Jul\, 9:0
+ 0pm (UK)\n📺 UK TV: BBC / ITV (TBC)\n📍 Venue: Boston Stadium\nℹ️ 
+ Teams update automatically once results are known.
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Kick-off in 30 minutes
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-m098@claimease
+DTSTAMP:20260609T082537Z
+DTSTART:20260710T190000Z
+DTEND:20260710T210000Z
+SUMMARY:Winner M93 v Winner M94
+LOCATION:Los Angeles Stadium
+DESCRIPTION:🏆 Quarter-final  |  Match 98\n⏰ Kick-off: Fri 10 Jul\, 8:0
+ 0pm (UK)\n📺 UK TV: BBC / ITV (TBC)\n📍 Venue: Los Angeles Stadium\n
+ ℹ️ Teams update automatically once results are known.
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Kick-off in 30 minutes
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-m099@claimease
+DTSTAMP:20260609T082537Z
+DTSTART:20260711T210000Z
+DTEND:20260711T230000Z
+SUMMARY:Winner M91 v Winner M92
+LOCATION:Miami Stadium
+DESCRIPTION:🏆 Quarter-final  |  Match 99\n⏰ Kick-off: Sat 11 Jul\, 10:
+ 00pm (UK)\n📺 UK TV: BBC / ITV (TBC)\n📍 Venue: Miami Stadium\nℹ️ 
+ Teams update automatically once results are known.
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Kick-off in 30 minutes
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-m100@claimease
+DTSTAMP:20260609T082537Z
+DTSTART:20260712T010000Z
+DTEND:20260712T030000Z
+SUMMARY:Winner M95 v Winner M96
+LOCATION:Kansas City Stadium
+DESCRIPTION:🏆 Quarter-final  |  Match 100\n⏰ Kick-off: Sun 12 Jul\, 2:
+ 00am (UK)\n📺 UK TV: BBC / ITV (TBC)\n📍 Venue: Kansas City Stadium\n
+ ℹ️ Teams update automatically once results are known.
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Kick-off in 30 minutes
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-m101@claimease
+DTSTAMP:20260609T082537Z
+DTSTART:20260714T190000Z
+DTEND:20260714T210000Z
+SUMMARY:Winner M97 v Winner M99
+LOCATION:Dallas Stadium
+DESCRIPTION:🏆 Semi-final  |  Match 101\n⏰ Kick-off: Tue 14 Jul\, 8:00p
+ m (UK)\n📺 UK TV: BBC / ITV (TBC)\n📍 Venue: Dallas Stadium\nℹ️ Te
+ ams update automatically once results are known.
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Kick-off in 30 minutes
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-m102@claimease
+DTSTAMP:20260609T082537Z
+DTSTART:20260715T190000Z
+DTEND:20260715T210000Z
+SUMMARY:Winner M98 v Winner M100
+LOCATION:Atlanta Stadium
+DESCRIPTION:🏆 Semi-final  |  Match 102\n⏰ Kick-off: Wed 15 Jul\, 8:00p
+ m (UK)\n📺 UK TV: BBC / ITV (TBC)\n📍 Venue: Atlanta Stadium\nℹ️ T
+ eams update automatically once results are known.
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Kick-off in 30 minutes
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-m103@claimease
+DTSTAMP:20260609T082537Z
+DTSTART:20260718T210000Z
+DTEND:20260718T230000Z
+SUMMARY:Loser M101 v Loser M102
+LOCATION:Miami Stadium
+DESCRIPTION:🏆 Third Place Play-off  |  Match 103\n⏰ Kick-off: Sat 18 J
+ ul\, 10:00pm (UK)\n📺 UK TV: BBC / ITV (TBC)\n📍 Venue: Miami Stadium\
+ nℹ️ Teams update automatically once results are known.
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Kick-off in 30 minutes
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-m104@claimease
+DTSTAMP:20260609T082537Z
+DTSTART:20260719T190000Z
+DTEND:20260719T210000Z
+SUMMARY:Winner M101 v Winner M102
+LOCATION:New York/New Jersey Stadium
+DESCRIPTION:🏆 Final  |  Match 104\n⏰ Kick-off: Sun 19 Jul\, 8:00pm (UK
+ )\n📺 UK TV: BBC / ITV (TBC)\n📍 Venue: New York/New Jersey Stadium\n
+ ℹ️ Teams update automatically once results are known.
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Kick-off in 30 minutes
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+END:VCALENDAR

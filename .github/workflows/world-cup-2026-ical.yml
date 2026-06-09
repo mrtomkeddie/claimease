@@ -39,13 +39,15 @@ jobs:
         run: python3 world-cup-2026/update_channels.py
 
       - name: Regenerate calendar
-        run: python3 world-cup-2026/generate_ics.py
+        run: |
+          python3 world-cup-2026/generate_ics.py
+          cp world-cup-2026/world-cup-2026-uk.ics docs/world-cup-2026-uk.ics
 
       - name: Commit if changed
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          files="world-cup-2026/fixtures.json world-cup-2026/channels.json world-cup-2026/world-cup-2026-uk.ics"
+          files="world-cup-2026/fixtures.json world-cup-2026/channels.json world-cup-2026/world-cup-2026-uk.ics docs/world-cup-2026-uk.ics"
           if ! git diff --quiet -- $files; then
             git add $files
             git commit -m "Auto-update World Cup 2026 fixtures, channels and calendar"

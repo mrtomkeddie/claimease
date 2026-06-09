@@ -15,23 +15,38 @@ channel** for each game.
 - **Knockouts auto-update:** placeholders (`Winner Group E`, `Winner M74`) are
   replaced with the real teams as results come in — **if you subscribe** (below).
 
-## Subscribe (recommended — knockout teams fill in automatically)
+## Subscribe
 
-Subscribe to this URL so your calendar re-polls it and picks up team names /
-channel updates:
+**Easiest — share this page** (one-tap subscribe + per-app instructions):
 
 ```
-https://raw.githubusercontent.com/mrtomkeddie/claimease/master/world-cup-2026/world-cup-2026-uk.ics
+https://mrtomkeddie.github.io/claimease/
 ```
 
-- **Apple Calendar:** File → New Calendar Subscription → paste the URL. Set
-  "Auto-refresh" to Every day (or hourly).
+The page (in [`docs/`](../docs/)) is the friendly, public-shareable link. It's
+served by GitHub Pages as proper `text/calendar`, which avoids the "Insecure
+Connection" failure some apps (including Apple Calendar's in-app *Add
+Subscription* box) hit with the raw GitHub URL.
+
+**One-time setup:** repo **Settings → Pages → Source: Deploy from a branch →
+`master` / `/docs`**. After it builds, the page and the feed below go live.
+
+**Direct subscription URLs** (both auto-update):
+
+```
+https://mrtomkeddie.github.io/claimease/world-cup-2026-uk.ics   (Pages — preferred)
+https://raw.githubusercontent.com/mrtomkeddie/claimease/master/world-cup-2026/world-cup-2026-uk.ics   (raw fallback)
+```
+
+- **iPhone/iPad:** Settings → Calendar → Accounts → Add Account → Other → Add
+  Subscribed Calendar → paste the URL. (This path is more reliable than the
+  Calendar app's own *Add Subscription Calendar* box.)
 - **Google Calendar:** Other calendars → **+** → From URL → paste the URL.
-  (Google refreshes subscribed URLs roughly daily.)
+  (Refreshes roughly daily.)
 - **Outlook:** Add calendar → Subscribe from web → paste the URL.
 
-> Tip: on iPhone/Mac you can swap `https://` for `webcal://` to open the
-> subscription dialog directly.
+> Tip: swapping `https://` for `webcal://` opens the subscribe dialog directly
+> on iPhone/Mac — this is what the landing page's button does.
 
 ## Import instead (one-off snapshot — will NOT update)
 
