@@ -20,7 +20,10 @@ knockout fixtures auto-update with the actual teams.
 import json
 import os
 import re
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
+from zoneinfo import ZoneInfo
+
+UK = ZoneInfo("Europe/London")
 
 HERE = os.path.dirname(__file__)
 FIXTURES = os.path.join(HERE, "fixtures.json")
@@ -241,7 +244,9 @@ def build():
 
     for m in matches:
         no = m["MatchNumber"]
-        start = datetime.strptime(m["DateUtc"][:19], "%Y-%m-%d %H:%M:%S")
+        start = datetime.strptime(m["DateUtc"][:19], "%Y-%m-%d %H:%M:%S").replace(
+            tzinfo=timezone.utc)
+        ko_uk = start.astimezone(UK).strftime("%a %d %b, %H:%M")
         home = humanize(m["HomeTeam"], no, 0)
         away = humanize(m["AwayTeam"], no, 1)
         stage = stage_name(m)
@@ -251,11 +256,12 @@ def build():
         # Title shows only the teams; everything else lives in the notes.
         summary = f"{home} v {away}"
 
-        desc = (f"{stage}  |  Match {no}\n"
-                f"UK TV: {ch}\n"
-                f"Venue: {venue}")
+        desc = (f"🏆 {stage}  |  Match {no}\n"
+                f"⏰ Kick-off: {ko_uk} (UK)\n"
+                f"📺 UK TV: {ch}\n"
+                f"📍 Venue: {venue}")
         if not (is_real(m["HomeTeam"]) and is_real(m["AwayTeam"])):
-            desc += "\nTeams update automatically once results are known."
+            desc += "\nℹ️ Teams update automatically once results are known."
 
         cal.extend(event(f"wc2026-m{no:03d}@claimease", start, summary,
                          venue, desc))
