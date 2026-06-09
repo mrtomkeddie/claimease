@@ -57,6 +57,29 @@ ROUND_NAME = {
     7: "Semi-final",
 }
 
+# Flag emoji per team, keyed by the feed's exact team names.
+FLAGS = {
+    "Algeria": "🇩🇿", "Argentina": "🇦🇷", "Australia": "🇦🇺", "Austria": "🇦🇹",
+    "Belgium": "🇧🇪", "Bosnia and Herzegovina": "🇧🇦", "Brazil": "🇧🇷",
+    "Cabo Verde": "🇨🇻", "Canada": "🇨🇦", "Colombia": "🇨🇴", "Congo DR": "🇨🇩",
+    "Croatia": "🇭🇷", "Curaçao": "🇨🇼", "Czechia": "🇨🇿", "Côte d'Ivoire": "🇨🇮",
+    "Ecuador": "🇪🇨", "Egypt": "🇪🇬", "England": "🏴\U000e0067\U000e0062\U000e0065\U000e006e\U000e0067\U000e007f",
+    "France": "🇫🇷", "Germany": "🇩🇪", "Ghana": "🇬🇭", "Haiti": "🇭🇹",
+    "IR Iran": "🇮🇷", "Iraq": "🇮🇶", "Japan": "🇯🇵", "Jordan": "🇯🇴",
+    "Korea Republic": "🇰🇷", "Mexico": "🇲🇽", "Morocco": "🇲🇦", "Netherlands": "🇳🇱",
+    "New Zealand": "🇳🇿", "Norway": "🇳🇴", "Panama": "🇵🇦", "Paraguay": "🇵🇾",
+    "Portugal": "🇵🇹", "Qatar": "🇶🇦", "Saudi Arabia": "🇸🇦",
+    "Scotland": "🏴\U000e0067\U000e0062\U000e0073\U000e0063\U000e0074\U000e007f",
+    "Senegal": "🇸🇳", "South Africa": "🇿🇦", "Spain": "🇪🇸", "Sweden": "🇸🇪",
+    "Switzerland": "🇨🇭", "Tunisia": "🇹🇳", "Türkiye": "🇹🇷", "USA": "🇺🇸",
+    "Uruguay": "🇺🇾", "Uzbekistan": "🇺🇿",
+}
+
+
+def with_flag(name):
+    flag = FLAGS.get(name)
+    return f"{flag} {name}" if flag else name
+
 # Readable labels for slots the feed lists as "To be announced" (R16 onward).
 # Sourced from the official bracket (which earlier match feeds which slot).
 BRACKET_LABELS = {
@@ -90,7 +113,7 @@ def humanize(name, match_no, side):
         m3 = re.fullmatch(r"3([A-L]{2,})", name)
         if m3:
             return "3rd (" + "/".join(m3.group(1)) + ")"
-        return name  # a real team name
+        return with_flag(name)  # a real team name -> prefix flag
     label = BRACKET_LABELS.get(match_no)
     return label[side] if label else "TBC"
 
