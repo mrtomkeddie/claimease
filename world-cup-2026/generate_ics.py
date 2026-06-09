@@ -248,18 +248,17 @@ def build():
         ch = CHANNELS.get(no, "BBC / ITV (TBC)")
         venue = m.get("Location") or "TBC"
 
-        # Prefix every title with its stage/group, e.g. "Group A: ..." or
-        # "Round of 32: ...".
-        summary = f"{stage}: {home} v {away} ({ch})"
+        # Title shows only the teams; everything else lives in the notes.
+        summary = f"{home} v {away}"
 
-        desc = (f"{stage} (Match {no}) | {home} v {away}\n"
-                f"Venue: {venue}\n"
-                f"UK TV: {ch}")
+        desc = (f"{stage}  |  Match {no}\n"
+                f"UK TV: {ch}\n"
+                f"Venue: {venue}")
         if not (is_real(m["HomeTeam"]) and is_real(m["AwayTeam"])):
             desc += "\nTeams update automatically once results are known."
 
         cal.extend(event(f"wc2026-m{no:03d}@claimease", start, summary,
-                         f"{venue} | {stage}", desc))
+                         venue, desc))
 
     cal.append("END:VCALENDAR")
     return "\r\n".join(cal) + "\r\n", len(matches)
