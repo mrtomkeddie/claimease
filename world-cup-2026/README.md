@@ -8,8 +8,9 @@ channel** for each game.
   (72 group + 32 knockout).
 - **Times:** stored as UTC, so any calendar app shows the correct UK/local time.
 - **Channels:** BBC / ITV share all 104 matches free-to-air. All 72 group-stage
-  games have a confirmed channel (BBC One/Two, ITV1/ITV4); the 32 knockout games
-  show `BBC / ITV (TBC)` until the broadcasters announce their picks.
+  games have a confirmed channel (BBC One/Two, ITV1/ITV4); knockout games show
+  `BBC / ITV (TBC)` and **auto-fill** once the broadcasters announce their picks
+  (scraped from a UK TV guide — see `update_channels.py`).
 - **Reminders:** 30-minute pop-up alarm on each match.
 - **Knockouts auto-update:** placeholders (`Winner Group E`, `Winner M74`) are
   replaced with the real teams as results come in — **if you subscribe** (below).
@@ -44,18 +45,24 @@ import the file: Apple Calendar / Google Calendar / Outlook → Import → choos
    (fixturedownload.com — free, no auth, UTC times, keyed by match number) and
    caches it as [`fixtures.json`](./fixtures.json). The feed swaps knockout
    placeholders for real teams as the tournament progresses.
-2. [`generate_ics.py`](./generate_ics.py) builds the `.ics` from that snapshot,
-   adding UK channels (mapped by match number) and readable bracket labels for
-   any slot still pending.
-3. [`.github/workflows/world-cup-2026-ical.yml`](../.github/workflows/world-cup-2026-ical.yml)
-   runs both every 3 hours and commits the refreshed files, so the subscribed
-   URL always serves the latest.
+2. [`update_channels.py`](./update_channels.py) scrapes a UK TV guide for
+   knockout broadcaster announcements and caches them in
+   [`channels.json`](./channels.json). Best-effort and additive: it only fills
+   knockout matches it can match unambiguously, and never overrides the verified
+   group-stage map.
+3. [`generate_ics.py`](./generate_ics.py) builds the `.ics` from those snapshots,
+   adding UK channels (knockout from `channels.json`, group from its built-in
+   map), flags, kick-off times, live scores and readable bracket labels.
+4. [`.github/workflows/world-cup-2026-ical.yml`](../.github/workflows/world-cup-2026-ical.yml)
+   runs all three every 3 hours and commits the refreshed files, so the
+   subscribed URL always serves the latest.
 
 Rebuild locally any time:
 
 ```bash
-python3 update_feed.py    # refresh fixtures.json from the live feed
-python3 generate_ics.py   # rebuild world-cup-2026-uk.ics
+python3 update_feed.py      # refresh fixtures.json from the live feed
+python3 update_channels.py  # refresh knockout channels into channels.json
+python3 generate_ics.py     # rebuild world-cup-2026-uk.ics
 ```
 
 Sources: fixturedownload.com (fixtures/results), BBC/ITV broadcast info, and
