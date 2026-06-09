@@ -7,9 +7,9 @@ channel** for each game.
 - **File:** [`world-cup-2026-uk.ics`](./world-cup-2026-uk.ics) — 104 matches
   (72 group + 32 knockout).
 - **Times:** stored as UTC, so any calendar app shows the correct UK/local time.
-- **Channels:** BBC / ITV share all 104 matches free-to-air. Confirmed
-  allocations are named (e.g. England v Croatia → ITV1, England v Ghana → BBC
-  One); the rest show `BBC / ITV (TBC)`.
+- **Channels:** BBC / ITV share all 104 matches free-to-air. All 72 group-stage
+  games have a confirmed channel (BBC One/Two, ITV1/ITV4); the 32 knockout games
+  show `BBC / ITV (TBC)` until the broadcasters announce their picks.
 - **Reminders:** 30-minute pop-up alarm on each match.
 - **Knockouts auto-update:** placeholders (`Winner Group E`, `Winner M74`) are
   replaced with the real teams as results come in — **if you subscribe** (below).
