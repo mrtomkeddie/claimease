@@ -51,9 +51,12 @@
     <a class="btn btn--primary" id="addBtn"
        href="webcal://mrtomkeddie.github.io/WorldCupCalendar/world-cup-2026-uk.ics">📅 Add to Apple Calendar</a>
     <div class="hint">On iPhone/iPad or Mac, this opens the “Subscribe to Calendar” box — tap <b>Subscribe</b>.</div>
+    <a class="btn btn--secondary" id="googleBtn" target="_blank" rel="noopener"
+       href="https://calendar.google.com/calendar/render?cid=https://mrtomkeddie.github.io/WorldCupCalendar/world-cup-2026-uk.ics">📆 Add to Google Calendar</a>
+    <div class="hint"><b>Android / Google Calendar:</b> works on a computer — opens the “Add calendar” prompt. See the Android steps below.</div>
     <button class="btn btn--secondary" id="copyBtn"
        data-url="https://mrtomkeddie.github.io/WorldCupCalendar/world-cup-2026-uk.ics">🔗 Copy subscription link</button>
-    <div class="hint">For Google Calendar, Outlook, or if the button above doesn’t work.</div>
+    <div class="hint">For Outlook, or if the buttons above don’t work.</div>
   </div>
 
   <div class="card">
@@ -75,11 +78,14 @@
     <li>Paste the link (Copy button above) into <b>Server</b>, then <b>Next</b> → <b>Save</b>.</li>
   </ol>
 
-  <p><b>Google Calendar</b> (on a computer):</p>
+  <p><b>Android / Google Calendar</b> — subscriptions can only be <i>added</i> on a computer, then they sync to your phone:</p>
   <ol>
+    <li>On a <b>computer</b>, open <a href="https://calendar.google.com" target="_blank" rel="noopener">calendar.google.com</a> (or tap <b>Add to Google Calendar</b> above).</li>
     <li>Left sidebar → <b>Other calendars</b> → <b>+</b> → <b>From URL</b>.</li>
-    <li>Paste the link and click <b>Add calendar</b>. (Google refreshes it roughly daily.)</li>
+    <li>Paste the link (Copy button above) and click <b>Add calendar</b>.</li>
+    <li>It now appears in the <b>Google Calendar app on your Android phone</b> and auto-updates. (Google refreshes it roughly daily.)</li>
   </ol>
+  <p class="hint">The Google Calendar Android app can’t add a “From URL” calendar itself — this one-time desktop step is Google’s only supported way.</p>
 
   <p><b>Outlook:</b> Add calendar → <b>Subscribe from web</b> → paste the link.</p>
 
@@ -99,6 +105,8 @@
   var copyBtn = document.getElementById("copyBtn");
   var httpsUrl = location.protocol + "//" + host + icsPath;
   copyBtn.dataset.url = httpsUrl;
+  document.getElementById("googleBtn").href =
+    "https://calendar.google.com/calendar/render?cid=" + encodeURIComponent(httpsUrl);
   copyBtn.addEventListener("click", function () {
     navigator.clipboard.writeText(httpsUrl).then(function () {
       var t = copyBtn.textContent; copyBtn.textContent = "✓ Link copied";
