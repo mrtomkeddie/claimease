@@ -29,25 +29,82 @@ OUT = os.path.join(HERE, "world-cup-2026-uk.ics")
 STAMP = datetime.utcnow().strftime("%Y%m%dT%H%M%SZ")
 MATCH_MINUTES = 120
 
-# Confirmed UK broadcaster by match number (others -> "BBC / ITV (TBC)").
+# Confirmed UK broadcaster by match number. All 72 group-stage games are
+# allocated (BBC One/Two, ITV1/ITV4); knockout matches are not yet announced and
+# fall through to "BBC / ITV (TBC)". Source: live-footballontv.com / Sports Mole.
 CHANNELS = {
-    1: "ITV1",      # Mexico v South Africa
-    3: "BBC One",   # Canada v Bosnia & Herzegovina
-    8: "ITV1",      # Qatar v Switzerland
-    7: "BBC",       # Brazil v Morocco
-    5: "BBC",       # Haiti v Scotland
-    10: "ITV1",     # Germany v Curacao
-    11: "ITV1",     # Netherlands v Japan
-    16: "BBC One",  # Belgium v Egypt
-    17: "BBC One",  # France v Senegal
-    22: "ITV1",     # England v Croatia
-    32: "BBC One",  # USA v Australia
-    30: "ITV1",     # Scotland v Morocco
-    35: "BBC One",  # Netherlands v Sweden
-    33: "ITV1",     # Germany v Ivory Coast
-    45: "BBC One",  # England v Ghana
-    49: "BBC",      # Scotland v Brazil
-    67: "ITV1",     # Panama v England
+    1: "ITV1",     # Mexico v South Africa
+    2: "ITV1",     # Korea Republic v Czechia
+    3: "BBC One",  # Canada v Bosnia and Herzegovina
+    4: "BBC One",  # USA v Paraguay
+    5: "BBC One",  # Haiti v Scotland
+    6: "ITV1",     # Australia v Turkiye
+    7: "BBC One",  # Brazil v Morocco
+    8: "ITV1",     # Qatar v Switzerland
+    9: "BBC One",  # Cote d'Ivoire v Ecuador
+    10: "ITV1",    # Germany v Curacao
+    11: "ITV1",    # Netherlands v Japan
+    12: "ITV1",    # Sweden v Tunisia
+    13: "ITV1",    # Saudi Arabia v Uruguay
+    14: "ITV1",    # Spain v Cabo Verde
+    15: "BBC One", # IR Iran v New Zealand
+    16: "BBC One", # Belgium v Egypt
+    17: "BBC One", # France v Senegal
+    18: "BBC One", # Iraq v Norway
+    19: "ITV1",    # Argentina v Algeria
+    20: "BBC One", # Austria v Jordan
+    21: "ITV1",    # Ghana v Panama
+    22: "ITV1",    # England v Croatia
+    23: "BBC One", # Portugal v Congo DR
+    24: "BBC One", # Uzbekistan v Colombia
+    25: "BBC One", # Czechia v South Africa
+    26: "ITV1",    # Switzerland v Bosnia and Herzegovina
+    27: "ITV1",    # Canada v Qatar
+    28: "BBC One", # Mexico v Korea Republic
+    29: "ITV1",    # Brazil v Haiti
+    30: "ITV1",    # Scotland v Morocco
+    31: "ITV1",    # Turkiye v Paraguay
+    32: "BBC One", # USA v Australia
+    33: "ITV1",    # Germany v Cote d'Ivoire
+    34: "BBC One", # Ecuador v Curacao
+    35: "BBC One", # Netherlands v Sweden
+    36: "BBC One", # Tunisia v Japan
+    37: "BBC One", # Uruguay v Cabo Verde
+    38: "BBC One", # Spain v Saudi Arabia
+    39: "ITV1",    # Belgium v IR Iran
+    40: "ITV1",    # New Zealand v Egypt
+    41: "ITV1",    # Norway v Senegal
+    42: "BBC One", # France v Iraq
+    43: "BBC One", # Argentina v Austria
+    44: "ITV1",    # Jordan v Algeria
+    45: "BBC One", # England v Ghana
+    46: "BBC One", # Panama v Croatia
+    47: "ITV1",    # Portugal v Uzbekistan
+    48: "ITV1",    # Colombia v Congo DR
+    49: "BBC One", # Scotland v Brazil
+    50: "BBC Two", # Morocco v Haiti
+    51: "ITV1",    # Switzerland v Canada
+    52: "ITV4",    # Bosnia and Herzegovina v Qatar
+    53: "BBC One", # Czechia v Mexico
+    54: "BBC Two", # South Africa v Korea Republic
+    55: "BBC Two", # Curacao v Cote d'Ivoire
+    56: "BBC One", # Ecuador v Germany
+    57: "BBC Two", # Japan v Sweden
+    58: "BBC One", # Tunisia v Netherlands
+    59: "ITV1",    # Turkiye v USA
+    60: "ITV4",    # Paraguay v Australia
+    61: "ITV1",    # Norway v France
+    62: "ITV4",    # Senegal v Iraq
+    63: "BBC Two", # Egypt v IR Iran
+    64: "BBC One", # New Zealand v Belgium
+    65: "ITV4",    # Cabo Verde v Saudi Arabia
+    66: "ITV1",    # Uruguay v Spain
+    67: "ITV1",    # Panama v England
+    68: "ITV4",    # Croatia v Ghana
+    69: "BBC Two", # Algeria v Austria
+    70: "BBC One", # Jordan v Argentina
+    71: "BBC One", # Colombia v Portugal
+    72: "BBC Two", # Congo DR v Uzbekistan
 }
 
 ROUND_NAME = {
