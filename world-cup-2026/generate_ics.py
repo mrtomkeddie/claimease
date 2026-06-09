@@ -254,7 +254,8 @@ def build():
         no = m["MatchNumber"]
         start = datetime.strptime(m["DateUtc"][:19], "%Y-%m-%d %H:%M:%S").replace(
             tzinfo=timezone.utc)
-        ko_uk = start.astimezone(UK).strftime("%a %d %b, %H:%M")
+        ko_uk = (start.astimezone(UK).strftime("%a %d %b, %-I:%M%p")
+                 .replace("AM", "am").replace("PM", "pm"))
         home = humanize(m["HomeTeam"], no, 0)
         away = humanize(m["AwayTeam"], no, 1)
         stage = stage_name(m)
