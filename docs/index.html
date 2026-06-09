@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>World Cup 2026 — UK Calendar</title>
+<meta name="description" content="Subscribe to a free, auto-updating calendar of every 2026 World Cup match with UK kick-off times and BBC/ITV channels.">
+<style>
+  :root {
+    --bg: #0b1220; --card: #131c2e; --line: #243149;
+    --text: #e8eefb; --muted: #9fb0cc; --accent: #2bd576; --accent2: #3b82f6;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: var(--bg); color: var(--text); line-height: 1.55;
+    padding: 24px 16px 64px;
+  }
+  .wrap { max-width: 620px; margin: 0 auto; }
+  header { text-align: center; margin-bottom: 28px; }
+  h1 { font-size: 1.7rem; margin: 8px 0 6px; }
+  .sub { color: var(--muted); font-size: 1rem; }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 20px; margin: 16px 0; }
+  .btn {
+    display: block; width: 100%; text-align: center; text-decoration: none;
+    font-size: 1.1rem; font-weight: 600; padding: 16px; border-radius: 12px;
+    border: 0; cursor: pointer; margin: 10px 0;
+  }
+  .btn--primary { background: var(--accent); color: #06241a; }
+  .btn--secondary { background: transparent; color: var(--text); border: 1px solid var(--line); }
+  .hint { color: var(--muted); font-size: .9rem; text-align: center; margin-top: 6px; }
+  code { background: #0a1424; border: 1px solid var(--line); border-radius: 8px; padding: 2px 6px; font-size: .85rem; word-break: break-all; }
+  h2 { font-size: 1.1rem; margin: 22px 0 8px; }
+  ol { padding-left: 20px; margin: 8px 0; }
+  li { margin: 6px 0; }
+  .feat { list-style: none; padding: 0; margin: 8px 0; }
+  .feat li { display: flex; gap: 10px; align-items: baseline; }
+  footer { text-align: center; color: var(--muted); font-size: .85rem; margin-top: 32px; }
+  a { color: var(--accent2); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div style="font-size:2.6rem">🏆⚽</div>
+    <h1>World Cup 2026 — UK Calendar</h1>
+    <div class="sub">Every match · UK kick-off times · BBC/ITV channels · auto-updating</div>
+  </header>
+
+  <div class="card">
+    <a class="btn btn--primary" id="addBtn"
+       href="webcal://mrtomkeddie.github.io/claimease/world-cup-2026-uk.ics">📅 Add to Apple Calendar</a>
+    <div class="hint">On iPhone/iPad or Mac, this opens the “Subscribe to Calendar” box — tap <b>Subscribe</b>.</div>
+    <button class="btn btn--secondary" id="copyBtn"
+       data-url="https://mrtomkeddie.github.io/claimease/world-cup-2026-uk.ics">🔗 Copy subscription link</button>
+    <div class="hint">For Google Calendar, Outlook, or if the button above doesn’t work.</div>
+  </div>
+
+  <div class="card">
+    <ul class="feat">
+      <li>🇬🇧 <span>All 104 matches with <b>UK kick-off times</b>.</span></li>
+      <li>📺 <span><b>BBC/ITV channel</b> on each match (knockout fills in once announced).</span></li>
+      <li>🏴󠁧󠁢󠁥󠁮󠁧󠁿 <span>Country <b>flags</b> next to every team.</span></li>
+      <li>🔄 <span>Knockout <b>teams &amp; final scores update automatically</b>.</span></li>
+      <li>⏰ <span>A <b>30-minute reminder</b> before each kick-off.</span></li>
+    </ul>
+  </div>
+
+  <h2>Add it manually (most reliable)</h2>
+
+  <p><b>iPhone / iPad</b> — if the button didn’t take, use Settings (this always works):</p>
+  <ol>
+    <li>Open <b>Settings</b> → <b>Calendar</b> → <b>Accounts</b> → <b>Add Account</b> → <b>Other</b>.</li>
+    <li>Tap <b>Add Subscribed Calendar</b>.</li>
+    <li>Paste the link (Copy button above) into <b>Server</b>, then <b>Next</b> → <b>Save</b>.</li>
+  </ol>
+
+  <p><b>Google Calendar</b> (on a computer):</p>
+  <ol>
+    <li>Left sidebar → <b>Other calendars</b> → <b>+</b> → <b>From URL</b>.</li>
+    <li>Paste the link and click <b>Add calendar</b>. (Google refreshes it roughly daily.)</li>
+  </ol>
+
+  <p><b>Outlook:</b> Add calendar → <b>Subscribe from web</b> → paste the link.</p>
+
+  <p class="hint">Subscription link:<br><code>https://mrtomkeddie.github.io/claimease/world-cup-2026-uk.ics</code></p>
+
+  <footer>
+    Free &amp; ad-free. Updates automatically every few hours.<br>
+    Times shown in your device’s local zone. Built for UK viewers.
+  </footer>
+</div>
+
+<script>
+  // Use the page's own host so the links work even if the repo/site is renamed.
+  var host = location.host, base = location.pathname.replace(/index\.html$/, "");
+  var icsPath = base + "world-cup-2026-uk.ics";
+  document.getElementById("addBtn").href = "webcal://" + host + icsPath;
+  var copyBtn = document.getElementById("copyBtn");
+  var httpsUrl = location.protocol + "//" + host + icsPath;
+  copyBtn.dataset.url = httpsUrl;
+  copyBtn.addEventListener("click", function () {
+    navigator.clipboard.writeText(httpsUrl).then(function () {
+      var t = copyBtn.textContent; copyBtn.textContent = "✓ Link copied";
+      setTimeout(function () { copyBtn.textContent = t; }, 2000);
+    });
+  });
+</script>
+</body>
+</html>
