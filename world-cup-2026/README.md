@@ -20,7 +20,7 @@ Subscribe to this URL so your calendar re-polls it and picks up team names /
 channel updates:
 
 ```
-https://raw.githubusercontent.com/mrtomkeddie/claimease/claude/world-cup-ical-uk-hl4m8s/world-cup-2026/world-cup-2026-uk.ics
+https://raw.githubusercontent.com/mrtomkeddie/claimease/master/world-cup-2026/world-cup-2026-uk.ics
 ```
 
 - **Apple Calendar:** File → New Calendar Subscription → paste the URL. Set
