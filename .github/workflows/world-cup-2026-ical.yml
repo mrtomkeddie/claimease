@@ -1,0 +1,51 @@
+name: World Cup 2026 iCal
+
+# Refreshes the World Cup fixtures feed and regenerates the .ics so that
+# subscribers see knockout team names appear automatically as results come in.
+on:
+  schedule:
+    # Every 3 hours (UTC). GitHub may delay scheduled runs under load.
+    - cron: "0 */3 * * *"
+  workflow_dispatch: {}
+  push:
+    branches:
+      - claude/world-cup-ical-uk-hl4m8s
+    paths:
+      - "world-cup-2026/generate_ics.py"
+      - "world-cup-2026/update_feed.py"
+      - ".github/workflows/world-cup-2026-ical.yml"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: world-cup-ical
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: Update fixtures feed
+        run: python3 world-cup-2026/update_feed.py
+
+      - name: Regenerate calendar
+        run: python3 world-cup-2026/generate_ics.py
+
+      - name: Commit if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          if ! git diff --quiet -- world-cup-2026/fixtures.json world-cup-2026/world-cup-2026-uk.ics; then
+            git add world-cup-2026/fixtures.json world-cup-2026/world-cup-2026-uk.ics
+            git commit -m "Auto-update World Cup 2026 fixtures and calendar"
+            git push
+          else
+            echo "No changes to commit."
+          fi
