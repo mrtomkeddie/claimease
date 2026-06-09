@@ -9,7 +9,7 @@ on:
   workflow_dispatch: {}
   push:
     branches:
-      - claude/world-cup-ical-uk-hl4m8s
+      - master
     paths:
       - "world-cup-2026/generate_ics.py"
       - "world-cup-2026/update_feed.py"
