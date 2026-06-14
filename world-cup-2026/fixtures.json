@@ -55,9 +55,9 @@
   "HomeTeam": "Haiti",
   "AwayTeam": "Scotland",
   "Group": "Group C",
-  "HomeTeamScore": null,
-  "AwayTeamScore": null,
-  "Winner": ""
+  "HomeTeamScore": 0,
+  "AwayTeamScore": 1,
+  "Winner": "Scotland"
  },
  {
   "MatchNumber": 6,
@@ -79,9 +79,9 @@
   "HomeTeam": "Brazil",
   "AwayTeam": "Morocco",
   "Group": "Group C",
-  "HomeTeamScore": null,
-  "AwayTeamScore": null,
-  "Winner": ""
+  "HomeTeamScore": 1,
+  "AwayTeamScore": 1,
+  "Winner": "Draw"
  },
  {
   "MatchNumber": 8,
