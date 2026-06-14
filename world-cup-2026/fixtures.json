@@ -67,9 +67,9 @@
   "HomeTeam": "Australia",
   "AwayTeam": "Türkiye",
   "Group": "Group D",
-  "HomeTeamScore": null,
-  "AwayTeamScore": null,
-  "Winner": ""
+  "HomeTeamScore": 2,
+  "AwayTeamScore": 0,
+  "Winner": "Australia"
  },
  {
   "MatchNumber": 7,
